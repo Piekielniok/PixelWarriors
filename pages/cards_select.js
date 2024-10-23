@@ -1,3 +1,32 @@
+const cardsData = `
+{
+  "cards": [
+    {
+      "name": "Biedna Pierdolona Piechota",
+      "power": 15,
+      "description": "",
+      "pictureFilename": "nor_poor_infantry.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "hero",
+      "ability": "spy"
+    },
+    {
+      "name": "Biedna Pierdolona Piechota",
+      "power": 15,
+      "description": "",
+      "pictureFilename": "nor_poor_infantry.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "hero",
+      "ability": "spy"
+    }
+  ]
+}
+`;
+
+const parsedCardsData = JSON.parse(cardsData);
+
 let cards_number = 0;
 var currentPlayer = 0;
 const cardsSelectContent = `
@@ -17,7 +46,7 @@ const cardsSelectContent = `
             <span id="">Specjalne</span>
             <span id="">Bohaterowie</span>
         </div>
-        <div class="cards-select__cards">
+        <div id="cards_select_cards">
 
         </div>
 
@@ -28,8 +57,16 @@ const cardsSelectContent = `
 `;
 
 const cardsSelectFunctions = (loadPage, currentPlayer) => {
-    document.getElementById('cards_select_player').innerHTML = currentPlayer;
-    document.getElementById('cards_select_player').style.color = currentPlayer == 1 ? 'red' : 'blue';
+    const playerContainer = document.getElementById('cards_select_player');
+    const cardsContainer = document.getElementById('cards_select_cards');
+
+    playerContainer.innerHTML = currentPlayer;
+    playerContainer.style.color = currentPlayer == 1 ? 'red' : 'blue';
+
+    cardsContainer.innerHTML = parsedCardsData.cards[0].name;
+
+
+
     document.getElementById('cards_select_ready_btn').addEventListener('click', e => {
         if (currentPlayer == 1) {
             loadPage('factionSelect', 2);

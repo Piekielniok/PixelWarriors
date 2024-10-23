@@ -2,6 +2,7 @@ import { homeContent, homeFunctions } from "../pages/home.js";
 import { factionSelectContent, factionSelectFunctions } from "../pages/faction_select.js";
 import { cardsSelectContent, cardsSelectFunctions } from "../pages/cards_select.js";
 import { pickPlayerContent, pickPlayerFunctions } from "../pages/pick_player.js";
+//import cardsData from "../data/cards.json" assert { type: 'json' };
 
 const rootContainer = document.getElementById('root');
 
