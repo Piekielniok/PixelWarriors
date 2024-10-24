@@ -1,6 +1,7 @@
 {
   "cards": [
     {
+      "id": 0,
       "name": "Biedna Pierdolona Piechota",
       "power": 15,
       "description": "",
@@ -11,14 +12,48 @@
       "ability": "spy"
     },
     {
+      "id": 1,
       "name": "Biedna Pierdolona Piechota",
       "power": 15,
       "description": "",
       "pictureFilename": "nor_poor_infantry.webp",
       "faction": 1,
       "range": 1,
-      "function": "hero",
-      "ability": "spy"
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 1,
+      "name": "Biedna Pierdolona Piechota",
+      "power": 15,
+      "description": "",
+      "pictureFilename": "nor_poor_infantry.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 1,
+      "name": "Biedna Pierdolona Piechota",
+      "power": 15,
+      "description": "",
+      "pictureFilename": "nor_poor_infantry.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 1,
+      "name": "Biedna Pierdolona Piechota",
+      "power": 15,
+      "description": "",
+      "pictureFilename": "nor_poor_infantry.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
     }
   ]
 }

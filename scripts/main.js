@@ -2,9 +2,9 @@ import { homeContent, homeFunctions } from "../pages/home.js";
 import { factionSelectContent, factionSelectFunctions } from "../pages/faction_select.js";
 import { cardsSelectContent, cardsSelectFunctions } from "../pages/cards_select.js";
 import { pickPlayerContent, pickPlayerFunctions } from "../pages/pick_player.js";
-//import cardsData from "../data/cards.json" assert { type: 'json' };
 
 const rootContainer = document.getElementById('root');
+let cardsData = {};
 
 const loadPage = (page = 'home', ...args) => {
 	switch (page) {
@@ -18,7 +18,7 @@ const loadPage = (page = 'home', ...args) => {
 			break;
 		case 'cardsSelect':
 			rootContainer.innerHTML = cardsSelectContent;
-			cardsSelectFunctions(loadPage, args[0]);
+			cardsSelectFunctions(loadPage, args[0], args[1], cardsData);
 			break;
 		case 'pickPlayer':
 			rootContainer.innerHTML = pickPlayerContent;
@@ -29,6 +29,24 @@ const loadPage = (page = 'home', ...args) => {
 			break;
 	}
 };
+
+const fetchCardsData = () => {
+	fetch("../data/cards.json")
+		.then((res) => {
+			if (!res.ok) {
+				throw new Error
+					(`HTTP error! Status: ${res.status}`);
+			}
+			return res.json();
+		})
+		.then((data) => {
+			cardsData = data;
+		})
+		.catch((error) =>
+			console.error("Unable to fetch data:", error));
+}
+
+fetchCardsData();
 
 // document.querySelectorAll('nav a').forEach(link => {
 // 	link.addEventListener('click', (event) => {

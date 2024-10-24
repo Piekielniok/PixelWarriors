@@ -21,7 +21,8 @@ const factionSelectFunctions = (loadPage, currentPlayer) => {
     document.getElementById('faction_select_player').innerHTML = currentPlayer;
     document.getElementById('faction_select_player').style.color = currentPlayer == 1 ? 'red' : 'blue';
     document.getElementById('faction_select_ready_btn').addEventListener('click', e => {
-        loadPage('cardsSelect', currentPlayer);
+        const factionID = document.getElementById('faction_select_dropdown').value;
+        loadPage('cardsSelect', currentPlayer, factionID);
     });
 };
 

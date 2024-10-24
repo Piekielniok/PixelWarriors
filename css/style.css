@@ -89,6 +89,7 @@
 }
 
 .cards-select__text {
+    flex-shrink: 0;
     display: flex;
     padding: 2rem 1.75rem .75rem 1.75rem;
     color: #fff;
@@ -104,6 +105,7 @@
 
 .cards-select__filter--range,
 .cards-select__filter--function {
+    flex-shrink: 0;
     display: flex;
     gap: .5rem;
     align-items: center;
@@ -130,7 +132,28 @@
     line-height: 150%;
 }
 
+#cards_select_cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: .5rem;
+    margin: 1rem 1.75rem 2rem 1.75rem;
+    overflow-y: auto;
+}
+
+.cards-select__card-container {
+    width: calc(50% - .25rem);
+    aspect-ratio: 2 / 3;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    color: white;
+    font-size: 1.5rem;
+    text-shadow: 0 2px 4px black;
+}
+
 .cards-select__btn {
+    flex-shrink: 0;
     margin: auto 2rem 2rem 2rem;
 }
 
