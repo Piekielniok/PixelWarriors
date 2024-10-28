@@ -105,8 +105,8 @@
 
 .cards-select__filter--range,
 .cards-select__filter--function {
-    flex-shrink: 0;
     display: flex;
+    flex-shrink: 0;
     gap: .5rem;
     align-items: center;
     margin: .3rem 1.75rem;
@@ -123,13 +123,38 @@
     color: #fff;
     text-shadow: 0 6px 4px rgba(0, 0, 0, 50%);
 }
+
+.cards-select__filter--range input,
+.cards-select__filter--function input {
+    display: none;
+}
+
 .cards-select__filter--range span,
 .cards-select__filter--function span {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
     padding: .25rem .8rem;
     color: #000;
     background: #fff;
     font-size: 1rem;
     line-height: 150%;
+}
+
+.cards-select__filter--range input:checked + span,
+.cards-select__filter--function input:checked + span {
+    background-color: #7dbaff;
+}
+
+.cards-select__filter--range input:checked + span::after,
+.cards-select__filter--function input:checked + span::after {
+    content: '';
+    display: inline-block;
+    margin-left: .4rem;
+    width: .5rem;
+    height: .5rem;
+    background: url("https://upload.wikimedia.org/wikipedia/commons/c/ce/Black_close_x.svg") no-repeat;
+    background-size: contain;
 }
 
 #cards_select_cards {
