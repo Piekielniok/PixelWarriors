@@ -1,10 +1,9 @@
-let cards_number = 0;
 var currentPlayer = 0;
 const cardsSelectContent = `
   <div class="cards-select">
     <div class="cards-select__text">
       <span>Gracz <b id="cards_select_player"></b></span>
-      <span>Ilość kart: ${cards_number}/22</span>
+      <span id="cards_select_cards_number">Ilość kart: 0/22</span>
     </div>
     <div class="cards-select__filter--range">
       <p>Zasięg</p>
@@ -41,6 +40,7 @@ const cardsSelectContent = `
 
 const cardsSelectFunctions = (loadPage, currentPlayer, factionID, cardsData) => {
     const playerContainer = document.getElementById('cards_select_player');
+    const cardsNumber = document.getElementById('cards_select_cards_number');
     const cardsContainer = document.getElementById('cards_select_cards');
     const factionCards = cardsData.cards.filter(card => card.faction == factionID);
     const rangeFiltersContainer = document.querySelector('.cards-select__filter--range');
@@ -48,6 +48,7 @@ const cardsSelectFunctions = (loadPage, currentPlayer, factionID, cardsData) => 
     const functionFiltersContainer = document.querySelector('.cards-select__filter--function');
     const functionFilters = document.querySelectorAll('.cards-select__filter--function input');
     let filteredCards = [];
+    let selectedCards = [];
 
     const refreshCards = () => {
       filteredCards = factionCards;
@@ -73,12 +74,13 @@ const cardsSelectFunctions = (loadPage, currentPlayer, factionID, cardsData) => 
           }
         }
       }
-
-      cardsContainer.innerHTML = "";
+      
+      cardsNumber.innerHTML = `Ilość kart: ${selectedCards.length}/22`;
+      cardsContainer.innerHTML = '';
 
       for (let i = 0; i < filteredCards.length; i++) {
         const cardContainer = `
-          <div id="card-${filteredCards[i].id}" class="cards-select__card-container pixel-corners3" style="background-image: url('../img/cards/${filteredCards[i].pictureFilename}')">
+          <div id="card-${filteredCards[i].id}" class="cards-select__card-container pixel-corners3 ${selectedCards.indexOf('card-' + filteredCards[i].id) != -1 ? 'selected-card' : ''}" style="background-image: url('../img/cards/${filteredCards[i].pictureFilename}')">
             <div class="cards-select__card-function">
               <span class="cards-select__card-power">${filteredCards[i].power}</span>
             </div>
@@ -100,6 +102,20 @@ const cardsSelectFunctions = (loadPage, currentPlayer, factionID, cardsData) => 
     });
 
     functionFiltersContainer.addEventListener('click', e => {
+      refreshCards();
+    });
+
+    cardsContainer.addEventListener('click', e => {
+      const cardID = e.target.closest('.cards-select__card-container').id;
+      const arrayIndex = selectedCards.indexOf(cardID);
+
+      if (arrayIndex == -1) {
+        selectedCards.push(cardID);
+      }
+      else {
+        selectedCards.splice(arrayIndex, 1);
+      }
+
       refreshCards();
     });
 

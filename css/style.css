@@ -177,6 +177,10 @@
     text-shadow: 0 2px 4px black;
 }
 
+div.selected-card::after {
+    background: #ffc800;
+}
+
 .cards-select__btn {
     flex-shrink: 0;
     margin: auto 2rem 2rem 2rem;
