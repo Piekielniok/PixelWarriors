@@ -10,7 +10,7 @@ const pickPlayerFunctions = (loadPage) => {
   document.getElementById('pick_player_selected').innerHTML = selected_player;
   document.getElementById('pick_player_selected').style.color = selected_player == 1 ? 'red' : 'blue';
   setTimeout(() => {
-    loadPage('home');
+    loadPage('game', selected_player);
   }, 2000);
 };
 
