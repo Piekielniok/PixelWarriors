@@ -210,3 +210,106 @@ div.selected-card::after {
     text-shadow: 0 6px 4px rgba(0, 0, 0, 50%);
     padding: 2rem 1.75rem;
 }
+
+.game {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.game__player2--drawer,
+.game__player1--drawer {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 1rem;
+    background: rgba(0,0,0,0.6);
+}
+
+.game__player2--drawer img,
+.game__player1--drawer img {
+    height: 100%;
+    filter: invert(1);
+}
+
+.game__sidebar {
+    display: flex;
+    position: relative;
+    height: calc(100% - 2rem);
+    width: 2rem;
+    background: rgba(0,0,0,0.4);
+}
+
+.sidebar__score-container {
+    position: absolute;
+    transform: rotate(90deg);
+    transform-origin: 1rem 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-inline: 4rem;
+    width: calc(100vh - 2rem);
+    height: 2rem;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.game__main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.game__player2--info,
+.game__player1--info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: .5rem;
+    width: 100%;
+    height: 4rem;
+    color: white;
+    font-size: 2rem;
+}
+
+.game__player2--info span,
+.game__player1--info span {
+    width: 4rem;
+    text-align: center;
+}
+
+.game__player2--info button,
+.game__player1--info button {
+    padding: 0 .6rem;
+    background: #fff;
+    font-size: 1rem;
+    text-align: center;
+}
+
+button.next-round-button-gray {
+    background: #777;
+}
+
+button.next-round-button-gray::after,
+button.next-round-button-gray::after {
+    background: #777;
+}
+
+.game__player2--rows,
+.game__player1--rows {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+}
+
+.game__player2--rows div,
+.game__player1--rows div {
+    display: flex;
+    justify-content: center;
+    margin: .2rem .4rem;
+    width: calc(100% - .8rem);
+    height: 50%;
+    background: rgba(0,0,0,0.25);
+}
