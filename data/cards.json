@@ -407,29 +407,6 @@
       "function": "hero",
       "ability": "none"
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     {
       "id": 37,
       "name": "Tajemiczny Elf",
@@ -823,397 +800,862 @@
 
 
     {
-      "id": 0,
-      "name": "",
+      "id": 70,
+      "name": "Ghul",
       "power": 1,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_ghoul.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "none"
+      "ability": "muster"
     },
     {
-      "id": 0,
-      "name": "",
+      "id": 71,
+      "name": "Ghul",
       "power": 1,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_ghoul_1.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "none"
+      "ability": "muster"
     },
     {
-      "id": 0,
-      "name": "",
+      "id": 72,
+      "name": "Ghul",
       "power": 1,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_ghoul_2.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "none"
+      "ability": "muster"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 73,
+      "name": "Harbia Celaeno",
+      "power": 2,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_celaeno_harpy.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 74,
+      "name": "Kuroliszek",
+      "power": 2,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
-      "range": 1,
+      "pictureFilename": "nml_cockatrice.webp",
+      "faction": 2,
+      "range": 2,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 75,
+      "name": "Endriaga",
+      "power": 2,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
-      "range": 1,
+      "pictureFilename": "nml_endrega.webp",
+      "faction": 2,
+      "range": 2,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 76,
+      "name": "Mglak",
+      "power": 2,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_fogling.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 77,
+      "name": "Gargulec",
+      "power": 2,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
-      "range": 1,
+      "pictureFilename": "nml_gargoyle.webp",
+      "faction": 2,
+      "range": 2,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 78,
+      "name": "Harpia",
+      "power": 2,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_harpy.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 79,
+      "name": "Nekker",
+      "power": 2,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_nekker.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "none"
+      "ability": "muster"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 80,
+      "name": "Nekker",
+      "power": 2,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_nekker_1.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "none"
+      "ability": "muster"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 81,
+      "name": "Nekker",
+      "power": 2,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_nekker_2.webp",
+      "faction": 2,
       "range": 1,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 82,
+      "name": "Wiwerna",
+      "power": 2,
+      "description": "",
+      "pictureFilename": "nml_wyvern.webp",
+      "faction": 2,
+      "range": 2,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 83,
+      "name": "Krabopająk",
+      "power": 4,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_arachas.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "none"
+      "ability": "muster"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 84,
+      "name": "Krabopająk",
+      "power": 4,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_arachas_1.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "none"
+      "ability": "muster"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 85,
+      "name": "Krabopająk",
+      "power": 4,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_arachas_2.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "none"
+      "ability": "muster"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 86,
+      "name": "Poroniec",
+      "power": 4,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_poroniec.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 87,
+      "name": "Wampiry: Bruxa",
+      "power": 4,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_bruxa.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "none"
+      "ability": "muster"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 88,
+      "name": "Wampiry: Ekkima",
+      "power": 4,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_ekkima.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "none"
+      "ability": "muster"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 89,
+      "name": "Wampiry: Fleder",
+      "power": 4,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_fleder.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "none"
+      "ability": "muster"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 90,
+      "name": "Wampiry: Garkain",
+      "power": 4,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_garkain.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "none"
+      "ability": "muster"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 91,
+      "name": "Wampiry: Katakan",
+      "power": 5,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_karakan.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "none"
+      "ability": "muster"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 92,
+      "name": "Widłogon",
+      "power": 5,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_forktail.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 93,
+      "name": "Przeraza",
+      "power": 5,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_frightener.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 94,
+      "name": "Baba cmentarna",
+      "power": 5,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
-      "range": 1,
+      "pictureFilename": "nml_gravehag.webp",
+      "faction": 2,
+      "range": 2,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 95,
+      "name": "Gryf",
+      "power": 5,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_gryffin.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 96,
+      "name": "Lodowy Gigant",
+      "power": 5,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
-      "range": 1,
+      "pictureFilename": "nml_frost_giant.webp",
+      "faction": 2,
+      "range": 2,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 97,
+      "name": "Morowa Dziewica",
+      "power": 5,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_mighty_maiden.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 98,
+      "name": "Wilkołak",
+      "power": 5,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_werewolf.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 99,
+      "name": "Olbrzymi krabopająk",
+      "power": 6,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_arachas_behemoth.webp",
+      "faction": 2,
+      "range": 2,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 100,
+      "name": "Wiedźma: Kuchta",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "nml_witch_velen.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "none"
+      "ability": "muster"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 101,
+      "name": "Wiedźma: Prządka",
+      "power": 6,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_witch_velen_1.webp",
+      "faction": 2,
+      "range": 1,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 102,
+      "name": "Wiedźma: Szepciucha",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "nml_witch_velen_2.webp",
+      "faction": 2,
       "range": 1,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 103,
+      "name": "Żywiołak ziemi",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "nml_earth_elemental.webp",
+      "faction": 2,
+      "range": 2,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 104,
+      "name": "Bies",
+      "power": 6,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_fiend.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 105,
+      "name": "Żywiołak ognia",
+      "power": 6,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "nml_fire_elemental.webp",
+      "faction": 2,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 106,
+      "name": "Królewicz ropuch",
+      "power": 7,
+      "description": "",
+      "pictureFilename": "nml_toad.webp",
+      "faction": 2,
+      "range": 2,
+      "function": "std",
+      "ability": "scorch"
+    },
+    {
+      "id": 107,
+      "name": "Kejran",
+      "power": 8,
+      "description": "",
+      "pictureFilename": "nml_kayran.webp",
+      "faction": 2,
+      "range": 1,
+      "function": "hero",
+      "ability": "morale"
+    },
+    {
+      "id": 108,
+      "name": "Draug",
+      "power": 10,
+      "description": "",
+      "pictureFilename": "nml_draug.webp",
+      "faction": 2,
+      "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 109,
+      "name": "Imlerith",
+      "power": 10,
+      "description": "",
+      "pictureFilename": "nml_imlerith.webp",
+      "faction": 2,
+      "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 110,
+      "name": "Leszy",
+      "power": 10,
+      "description": "",
+      "pictureFilename": "nml_leshan.webp",
+      "faction": 2,
+      "range": 2,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 111,
+      "name": "Tajemiczny Elf",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "neu_avallach.webp",
+      "faction": 2,
+      "range": 1,
+      "function": "hero",
+      "ability": "spy"
+    },
+    {
+      "id": 112,
+      "name": "Geralt z Rivii",
+      "power": 15,
+      "description": "",
+      "pictureFilename": "neu_geralt.webp",
+      "faction": 2,
+      "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 113,
+      "name": "Cirilla Fiona Elen Riannon",
+      "power": 15,
+      "description": "",
+      "pictureFilename": "neu_ciri.webp",
+      "faction": 2,
+      "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 114,
+      "name": "Jaskier",
+      "power": 2,
+      "description": "",
+      "pictureFilename": "neu_dandelion.webp",
+      "faction": 2,
+      "range": 1,
+      "function": "std",
+      "ability": "horn"
+    },
+    {
+      "id": 115,
+      "name": "Emiel Regis Rohellec Terzieff-Godefroy",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "neu_emiel.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 116,
+      "name": "Triss Merigold",
+      "power": 7,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "neu_triss.webp",
+      "faction": 2,
       "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 117,
+      "name": "Vesemir",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "neu_vesemir.webp",
+      "faction": 2,
+      "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 118,
+      "name": "Villentretenmerth",
+      "power": 6,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "neu_villen.webp",
+      "faction": 2,
+      "range": 1,
+      "function": "std",
+      "ability": "scorch"
+    },
+    {
+      "id": 119,
+      "name": "Yennefer z Vengerbergu",
+      "power": 7,
+      "description": "",
+      "pictureFilename": "neu_yennefer.webp",
+      "faction": 2,
+      "range": 2,
+      "function": "hero",
+      "ability": "medic"
+    },
+    {
+      "id": 120,
+      "name": "Zoltan Chivay",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "neu_zoltan.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 121,
+      "name": "Olgierd von Everec",
+      "power": 6,
       "description": "",
-      "pictureFilename": "",
-      "faction": 1,
+      "pictureFilename": "neu_olgierd.webp",
+      "faction": 2,
+      "range": 1,
+      "function": "std",
+      "ability": "morale"
+    },
+    {
+      "id": 122,
+      "name": "Gaunter O'Dim",
+      "power": 2,
+      "description": "",
+      "pictureFilename": "neu_mrmirror.webp",
+      "faction": 2,
+      "range": 2,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 123,
+      "name": "Gaunter O'Dim: Cień",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "neu_mrmirror_foglet.webp",
+      "faction": 2,
       "range": 1,
       "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 124,
+      "name": "Gaunter O'Dim: Cień",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "neu_mrmirror_foglet.webp",
+      "faction": 2,
+      "range": 1,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 125,
+      "name": "Gaunter O'Dim: Cień",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "neu_mrmirror_foglet.webp",
+      "faction": 2,
+      "range": 1,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 126,
+      "name": "Róg Dowódcy",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_horn.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "horn",
+      "ability": "none"
+    },
+    {
+      "id": 127,
+      "name": "Róg Dowódcy",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_horn.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "horn",
+      "ability": "none"
+    },
+    {
+      "id": 128,
+      "name": "Róg Dowódcy",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_horn.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "horn",
+      "ability": "none"
+    },
+    {
+      "id": 129,
+      "name": "Manekin do ćwiczeń",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_dummy.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "decoy",
+      "ability": "none"
+    },
+    {
+      "id": 130,
+      "name": "Manekin do ćwiczeń",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_dummy.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "decoy",
+      "ability": "none"
+    },
+    {
+      "id": 131,
+      "name": "Manekin do ćwiczeń",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_dummy.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "decoy",
+      "ability": "none"
+    },
+    {
+      "id": 132,
+      "name": "Pożoga",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_scorch.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "scorch",
+      "ability": "none"
+    },
+    {
+      "id": 133,
+      "name": "Pożoga",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_scorch.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "scorch",
+      "ability": "none"
+    },
+    {
+      "id": 134,
+      "name": "Pożoga",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_scorch.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "scorch",
+      "ability": "none"
+    },
+    {
+      "id": 135,
+      "name": "Trzaskający mróz",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_frost.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "frost",
+      "ability": "none"
+    },
+    {
+      "id": 136,
+      "name": "Trzaskający mróz",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_frost.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "frost",
+      "ability": "none"
+    },
+    {
+      "id": 137,
+      "name": "Trzaskający mróz",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_frost.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "frost",
+      "ability": "none"
+    },
+    {
+      "id": 138,
+      "name": "Gęsta mgła",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_fog.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "fog",
+      "ability": "none"
+    },
+    {
+      "id": 139,
+      "name": "Gęsta mgła",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_fog.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "fog",
+      "ability": "none"
+    },
+    {
+      "id": 140,
+      "name": "Gęsta mgła",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_fog.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "fog",
+      "ability": "none"
+    },
+    {
+      "id": 141,
+      "name": "Czyste niebo",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_clearsky.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "clear",
+      "ability": "none"
+    },
+    {
+      "id": 142,
+      "name": "Czyste niebo",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_clearsky.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "clear",
+      "ability": "none"
+    },
+    {
+      "id": 143,
+      "name": "Czyste niebo",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_clearsky.webp",
+      "faction": 2,
+      "range": 0,
+      "function": "clear",
       "ability": "none"
     },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     {
       "id": 0,
       "name": "",
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1224,7 +1666,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1235,7 +1677,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1246,7 +1688,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1257,7 +1699,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1268,7 +1710,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1279,7 +1721,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1290,7 +1732,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1301,7 +1743,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1312,7 +1754,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1323,7 +1765,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1334,7 +1776,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1345,7 +1787,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1356,7 +1798,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1367,7 +1809,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1378,7 +1820,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1389,7 +1831,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1400,7 +1842,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1411,7 +1853,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1422,7 +1864,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1433,7 +1875,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1444,7 +1886,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1455,7 +1897,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1466,7 +1908,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1477,7 +1919,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1488,7 +1930,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1499,7 +1941,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1510,7 +1952,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1521,7 +1963,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1532,7 +1974,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1543,7 +1985,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1554,7 +1996,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1565,7 +2007,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
@@ -1576,7 +2018,7 @@
       "power": 1,
       "description": "",
       "pictureFilename": "",
-      "faction": 1,
+      "faction": 2,
       "range": 1,
       "function": "std",
       "ability": "none"
