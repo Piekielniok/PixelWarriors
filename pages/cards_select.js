@@ -123,10 +123,10 @@ const cardsSelectFunctions = (loadPage, currentPlayer, factionID, cardsData) => 
 
     document.getElementById('cards_select_ready_btn').addEventListener('click', e => {
         if (currentPlayer == 1) {
-            loadPage('factionSelect', 2);
+            loadPage('factionSelect', 2, selectedCards);
         }
         else {
-            loadPage('pickPlayer');
+            loadPage('pickPlayer', selectedCards);
         }
     });
 };
