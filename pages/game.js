@@ -1,7 +1,13 @@
 const gameContent = `
   <div class="game">
     <div class="game__player2--drawer">
-      <img src="../img/ui/caret-down-solid.svg">
+      <img src="../img/ui/caret-down-solid.svg" id="game_player2_show_drawer">
+      <div id="game_player2_drawer_container">
+        <div class="game__player2--drawer">
+          <img src="../img/ui/caret-up-solid.svg" id="game_player2_hide_drawer">
+        </div>
+        <div id="player2_drawer_cards"></div>
+      </div>
     </div>
     <div class="game__sidebar">
       <div class="sidebar__score-container">
@@ -30,7 +36,13 @@ const gameContent = `
       </div>
     </div>
     <div class="game__player1--drawer">
-      <img src="../img/ui/caret-up-solid.svg">
+      <img src="../img/ui/caret-up-solid.svg" id="game_player1_show_drawer">
+      <div id="game_player1_drawer_container">
+        <div class="game__player1--drawer">
+          <img src="../img/ui/caret-down-solid.svg" id="game_player1_hide_drawer">
+        </div>
+        <div id="player1_drawer_cards"></div>
+      </div>
     </div>
   </div>
 `;
@@ -38,6 +50,55 @@ const gameContent = `
 const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction, player1Cards, player2Cards) => {
   let player1SelectedCards = player1Cards.map(a => ({...a}));
   let player2SelectedCards = player2Cards.map(a => ({...a}));
+
+  const player1DrawerShowButton = document.getElementById("game_player1_show_drawer");
+  const player2DrawerShowButton = document.getElementById("game_player2_show_drawer");
+  const player1DrawerHideButton = document.getElementById("game_player1_hide_drawer");
+  const player2DrawerHideButton = document.getElementById("game_player2_hide_drawer");
+  const player2DrawerContainer = document.getElementById("game_player2_drawer_container");
+  const player1DrawerContainer = document.getElementById("game_player1_drawer_container");
+  const player1DrawerCards = document.getElementById("player1_drawer_cards");
+  const player2DrawerCards = document.getElementById("player2_drawer_cards");
+
+  player1DrawerShowButton.addEventListener('click', e => {
+    player1DrawerContainer.style.top = '-20rem';
+  });
+
+  player2DrawerShowButton.addEventListener('click', e => {
+    player2DrawerContainer.style.bottom = '-20rem';
+  });
+
+  player1DrawerHideButton.addEventListener('click', e => {
+    player1DrawerContainer.style.top = '2rem';
+  });
+
+  player2DrawerHideButton.addEventListener('click', e => {
+    player2DrawerContainer.style.bottom = '2rem';
+  });
+
+  player1DrawerCards.addEventListener('click', e => {
+    const cardID = e.target.closest('.cards-select__card-container').id;
+    const arrayIndex = selectedCards.indexOf(cardID);
+
+    if (arrayIndex == -1) {
+      selectedCards.push(cardID);
+    }
+    else {
+      selectedCards.splice(arrayIndex, 1);
+    }
+  });
+
+  player2DrawerCards.addEventListener('click', e => {
+    const cardID = e.target.closest('.cards-select__card-container').id;
+    const arrayIndex = selectedCards.indexOf(cardID);
+
+    if (arrayIndex == -1) {
+      selectedCards.push(cardID);
+    }
+    else {
+      selectedCards.splice(arrayIndex, 1);
+    }
+  });
 
   // gameContainer.innerHTML += `<span>Zaczyna gracz - ${startingPlayer}</span>`;
   // gameContainer.innerHTML += `<span>Frakcja gracz 1 - ${player1Faction}</span>`;
