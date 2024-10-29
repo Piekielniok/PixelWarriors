@@ -3,53 +3,1579 @@
     {
       "id": 0,
       "name": "Biedna Pierdolona Piechota",
-      "power": 15,
+      "power": 1,
       "description": "",
       "pictureFilename": "nor_poor_infantry.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 1,
+      "name": "Biedna Pierdolona Piechota",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "nor_poor_infantry_1.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 2,
+      "name": "Biedna Pierdolona Piechota",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "nor_poor_infantry_2.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 3,
+      "name": "Mistrz Oblężeń z Kaedwen",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "nor_kaedwen_siege.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "morale"
+    },
+    {
+      "id": 4,
+      "name": "Mistrz Oblężeń z Kaedwen",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "nor_kaedwen_siege_1.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "morale"
+    },
+    {
+      "id": 5,
+      "name": "Mistrz Oblężeń z Kaedwen",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "nor_kaedwen_siege_2.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "morale"
+    },
+    {
+      "id": 6,
+      "name": "Redański Piechur",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "nor_redania.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 7,
+      "name": "Redański Piechur",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "nor_redania_1.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 8,
+      "name": "Talar",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "nor_thaler.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "spy"
+    },
+    {
+      "id": 9,
+      "name": "Yarpen Zigrin",
+      "power": 2,
+      "description": "",
+      "pictureFilename": "nor_yarpen.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 10,
+      "name": "Komandor Niebieskich Pasów",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "nor_blue_stripes.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 11,
+      "name": "Komandor Niebieskich Pasów",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "nor_blue_stripes_1.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 12,
+      "name": "Komandor Niebieskich Pasów",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "nor_blue_stripes_2.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 13,
+      "name": "Sabrina Glevessig",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "nor_sabrina.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 14,
+      "name": "Sheldon Skaggs",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "nor_sheldon.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 15,
+      "name": "Sigismund Dijkstra",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "nor_dijktra.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "spy"
+    },
+    {
+      "id": 16,
+      "name": "Rębacze z Crinfrid",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "nor_crinfrid.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 17,
+      "name": "Rębacze z Crinfrid",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "nor_crinfrid_1.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 18,
+      "name": "Rębacze z Crinfrid",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "nor_crinfrid_2.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 19,
+      "name": "Medyczka Burej Chorągwi",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "nor_banner_nurse.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "medic"
+    },
+    {
+      "id": 20,
+      "name": "Keira Metz",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "nor_keira.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 21,
+      "name": "Stennis",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "nor_stennis.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "spy"
+    },
+    {
+      "id": 22,
+      "name": "Zygfryd z Denesle",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "nor_siegfried.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 23,
+      "name": "Sheala de Tancarville",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "nor_sheala.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 24,
+      "name": "Ves",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "nor_ves.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 25,
+      "name": "Balista",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "nor_ballista.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 26,
+      "name": "Balista",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "nor_ballista_1.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 27,
+      "name": "Detmold",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "nor_dethmold.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 28,
+      "name": "Wieża Oblężnicza",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "nor_siege_tower.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 29,
+      "name": "Trebusz",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "nor_trebuchet.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 30,
+      "name": "Trebusz",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "nor_trebuchet_1.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 31,
+      "name": "Katapulta",
+      "power": 8,
+      "description": "",
+      "pictureFilename": "nor_catapult.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 32,
+      "name": "Katapulta",
+      "power": 8,
+      "description": "",
+      "pictureFilename": "nor_catapult_1.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 33,
+      "name": "Esterad Thyssen",
+      "power": 10,
+      "description": "",
+      "pictureFilename": "nor_esterad.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 34,
+      "name": "Jan Natalis",
+      "power": 10,
+      "description": "",
+      "pictureFilename": "nor_natalis.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 35,
+      "name": "Vernon Roche",
+      "power": 10,
+      "description": "",
+      "pictureFilename": "nor_vernon.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 36,
+      "name": "Filippa Eilhart",
+      "power": 10,
+      "description": "",
+      "pictureFilename": "nor_philippa.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "hero",
+      "ability": "none"
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+      "id": 37,
+      "name": "Tajemiczny Elf",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "neu_avallach.webp",
       "faction": 1,
       "range": 1,
       "function": "hero",
       "ability": "spy"
     },
     {
-      "id": 1,
-      "name": "Biedna Pierdolona Piechota",
+      "id": 38,
+      "name": "Geralt z Rivii",
       "power": 15,
       "description": "",
-      "pictureFilename": "nor_poor_infantry.webp",
+      "pictureFilename": "neu_geralt.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 39,
+      "name": "Cirilla Fiona Elen Riannon",
+      "power": 15,
+      "description": "",
+      "pictureFilename": "neu_ciri.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 40,
+      "name": "Jaskier",
+      "power": 2,
+      "description": "",
+      "pictureFilename": "neu_dandelion.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "horn"
+    },
+    {
+      "id": 41,
+      "name": "Emiel Regis Rohellec Terzieff-Godefroy",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "neu_emiel.webp",
       "faction": 1,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 2,
-      "name": "Biedna Pierdolona Piechota",
-      "power": 15,
+      "id": 42,
+      "name": "Triss Merigold",
+      "power": 7,
       "description": "",
-      "pictureFilename": "nor_poor_infantry.webp",
+      "pictureFilename": "neu_triss.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 43,
+      "name": "Vesemir",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "neu_vesemir.webp",
       "faction": 1,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 3,
-      "name": "Biedna Pierdolona Piechota",
-      "power": 15,
+      "id": 44,
+      "name": "Villentretenmerth",
+      "power": 6,
       "description": "",
-      "pictureFilename": "nor_poor_infantry.webp",
+      "pictureFilename": "neu_villen.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "scorch"
+    },
+    {
+      "id": 45,
+      "name": "Yennefer z Vengerbergu",
+      "power": 7,
+      "description": "",
+      "pictureFilename": "neu_yennefer.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "hero",
+      "ability": "medic"
+    },
+    {
+      "id": 46,
+      "name": "Zoltan Chivay",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "neu_zoltan.webp",
       "faction": 1,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 4,
-      "name": "Biedna Pierdolona Piechota",
-      "power": 15,
+      "id": 47,
+      "name": "Olgierd von Everec",
+      "power": 6,
       "description": "",
-      "pictureFilename": "nor_poor_infantry.webp",
+      "pictureFilename": "neu_olgierd.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "morale"
+    },
+    {
+      "id": 48,
+      "name": "Gaunter O'Dim",
+      "power": 2,
+      "description": "",
+      "pictureFilename": "neu_mrmirror.webp",
+      "faction": 1,
+      "range": 2,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 49,
+      "name": "Gaunter O'Dim: Cień",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "neu_mrmirror_foglet.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 50,
+      "name": "Gaunter O'Dim: Cień",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "neu_mrmirror_foglet.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 51,
+      "name": "Gaunter O'Dim: Cień",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "neu_mrmirror_foglet.webp",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 52,
+      "name": "Róg Dowódcy",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_horn.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "horn",
+      "ability": "none"
+    },
+    {
+      "id": 53,
+      "name": "Róg Dowódcy",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_horn.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "horn",
+      "ability": "none"
+    },
+    {
+      "id": 54,
+      "name": "Róg Dowódcy",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_horn.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "horn",
+      "ability": "none"
+    },
+    {
+      "id": 55,
+      "name": "Manekin do ćwiczeń",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_dummy.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "decoy",
+      "ability": "none"
+    },
+    {
+      "id": 56,
+      "name": "Manekin do ćwiczeń",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_dummy.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "decoy",
+      "ability": "none"
+    },
+    {
+      "id": 57,
+      "name": "Manekin do ćwiczeń",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_dummy.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "decoy",
+      "ability": "none"
+    },
+    {
+      "id": 58,
+      "name": "Pożoga",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_scorch.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "scorch",
+      "ability": "none"
+    },
+    {
+      "id": 59,
+      "name": "Pożoga",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_scorch.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "scorch",
+      "ability": "none"
+    },
+    {
+      "id": 60,
+      "name": "Pożoga",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_scorch.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "scorch",
+      "ability": "none"
+    },
+    {
+      "id": 61,
+      "name": "Trzaskający mróz",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_frost.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "frost",
+      "ability": "none"
+    },
+    {
+      "id": 62,
+      "name": "Trzaskający mróz",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_frost.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "frost",
+      "ability": "none"
+    },
+    {
+      "id": 63,
+      "name": "Trzaskający mróz",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_frost.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "frost",
+      "ability": "none"
+    },
+    {
+      "id": 64,
+      "name": "Gęsta mgła",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_fog.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "fog",
+      "ability": "none"
+    },
+    {
+      "id": 65,
+      "name": "Gęsta mgła",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_fog.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "fog",
+      "ability": "none"
+    },
+    {
+      "id": 66,
+      "name": "Gęsta mgła",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_fog.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "fog",
+      "ability": "none"
+    },
+    {
+      "id": 67,
+      "name": "Czyste niebo",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_clearsky.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "clear",
+      "ability": "none"
+    },
+    {
+      "id": 68,
+      "name": "Czyste niebo",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_clearsky.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "clear",
+      "ability": "none"
+    },
+    {
+      "id": 69,
+      "name": "Czyste niebo",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_clearsky.webp",
+      "faction": 1,
+      "range": 0,
+      "function": "clear",
+      "ability": "none"
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
+      "faction": 1,
+      "range": 1,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 0,
+      "name": "",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "",
       "faction": 1,
       "range": 1,
       "function": "std",
