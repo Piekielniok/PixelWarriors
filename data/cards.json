@@ -770,35 +770,6 @@
       "function": "clear",
       "ability": "none"
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     {
       "id": 70,
       "name": "Ghul",
@@ -1613,414 +1584,774 @@
       "function": "clear",
       "ability": "none"
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     {
-      "id": 0,
-      "name": "",
+      "id": 144,
+      "name": "Wsparcie oblężnicze",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "nil_siege_support.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "medic"
+    },
+    {
+      "id": 145,
+      "name": "Wsparcie łuczników",
       "power": 1,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
+      "pictureFilename": "nil_archer_support.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "medic"
+    },
+    {
+      "id": 146,
+      "name": "Wsparcie łuczników",
+      "power": 1,
+      "description": "",
+      "pictureFilename": "nil_archer_support_1.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "medic"
+    },
+    {
+      "id": 147,
+      "name": "Albrich",
+      "power": 2,
+      "description": "",
+      "pictureFilename": "nil_albrich.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 148,
+      "name": "Kawaleria Nauzicaa",
+      "power": 2,
+      "description": "",
+      "pictureFilename": "nil_nauzicaa.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 149,
+      "name": "Kawaleria Nauzicaa",
+      "power": 2,
+      "description": "",
+      "pictureFilename": "nil_nauzicaa_1.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 150,
+      "name": "Kawaleria Nauzicaa",
+      "power": 2,
+      "description": "",
+      "pictureFilename": "nil_nauzicaa_2.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 151,
+      "name": "Sweers",
+      "power": 2,
+      "description": "",
+      "pictureFilename": "nil_sweers.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 152,
+      "name": "Vreemde",
+      "power": 2,
+      "description": "",
+      "pictureFilename": "nil_vreemde.webp",
+      "faction": 3,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 153,
+      "name": "Brygada Impera",
+      "power": 3,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
+      "pictureFilename": "nil_impera_brigade.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 154,
+      "name": "Brygada Impera",
+      "power": 3,
+      "description": "",
+      "pictureFilename": "nil_impera_brigade_1.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 155,
+      "name": "Brygada Impera",
+      "power": 3,
+      "description": "",
+      "pictureFilename": "nil_impera_brigade_2.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 156,
+      "name": "Brygada Impera",
+      "power": 3,
+      "description": "",
+      "pictureFilename": "nil_impera_brigade_3.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 157,
+      "name": "Morteisen",
+      "power": 3,
+      "description": "",
+      "pictureFilename": "nil_morteisen.webp",
+      "faction": 3,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 158,
+      "name": "Puttkammer",
+      "power": 3,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
+      "pictureFilename": "nil_puttkammer.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 159,
+      "name": "Zdezelowana mangonela",
+      "power": 3,
+      "description": "",
+      "pictureFilename": "nil_rotten.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 160,
+      "name": "Cynthia",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "nil_cynthia.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 161,
+      "name": "Rainfarn",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "nil_rainfarn.webp",
+      "faction": 3,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 162,
+      "name": "Vanhemar",
+      "power": 4,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
+      "pictureFilename": "nil_vanhemar.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 163,
+      "name": "Vattier de Rideaux",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "nil_vattier.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "spy"
+    },
+    {
+      "id": 164,
+      "name": "Renuald aep Matsen",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "nil_renuald.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 165,
+      "name": "Młody emisariusz",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "nil_young_emissary.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 166,
+      "name": "Młody emisariusz",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "nil_young_emissary_1.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "bond"
+    },
+    {
+      "id": 167,
+      "name": "Zerrikański Ognisty Skorpion",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "nil_zerri.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 168,
+      "name": "Assire van Anahid",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "nil_assire.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 169,
+      "name": "Cahir Mawr Dyffryn aep Ceallach",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "nil_cahir.webp",
+      "faction": 3,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 170,
+      "name": "Fringilla Vigo",
+      "power": 6,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
+      "pictureFilename": "nil_fringilla.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 171,
+      "name": "Saper",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "nil_siege_engineer.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 172,
+      "name": "Shilard Fitz-Oesterlen",
+      "power": 7,
+      "description": "",
+      "pictureFilename": "nil_shilard.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "spy"
+    },
+    {
+      "id": 173,
+      "name": "Stefan Skellen",
+      "power": 9,
+      "description": "",
+      "pictureFilename": "nil_stefan.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "spy"
+    },
+    {
+      "id": 174,
+      "name": "Nilfgaardzki łucznik",
+      "power": 10,
+      "description": "",
+      "pictureFilename": "nil_black_archer.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 175,
+      "name": "Nilfgaardzki łucznik",
+      "power": 10,
+      "description": "",
+      "pictureFilename": "nil_black_archer_1.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 176,
+      "name": "Wielki Ognisty Skorpion",
+      "power": 10,
+      "description": "",
+      "pictureFilename": "nil_heavy_zerri.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "none"
+    },
+    {
+      "id": 177,
+      "name": "Letho z Gulety",
+      "power": 10,
+      "description": "",
+      "pictureFilename": "nil_letho.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 178,
+      "name": "Menno Coehoorn",
+      "power": 10,
+      "description": "",
+      "pictureFilename": "nil_menno.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "hero",
+      "ability": "medic"
+    },
+    {
+      "id": 179,
+      "name": "Morvran Voorhis",
+      "power": 10,
+      "description": "",
+      "pictureFilename": "nil_moorvran.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 180,
+      "name": "Tibor Eggebracht",
+      "power": 10,
+      "description": "",
+      "pictureFilename": "nil_tibor.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 181,
+      "name": "Tajemiczny Elf",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "neu_avallach.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "hero",
+      "ability": "spy"
+    },
+    {
+      "id": 182,
+      "name": "Geralt z Rivii",
+      "power": 15,
+      "description": "",
+      "pictureFilename": "neu_geralt.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 183,
+      "name": "Cirilla Fiona Elen Riannon",
+      "power": 15,
+      "description": "",
+      "pictureFilename": "neu_ciri.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 184,
+      "name": "Jaskier",
+      "power": 2,
+      "description": "",
+      "pictureFilename": "neu_dandelion.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "horn"
+    },
+    {
+      "id": 185,
+      "name": "Emiel Regis Rohellec Terzieff-Godefroy",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "neu_emiel.webp",
+      "faction": 3,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 186,
+      "name": "Triss Merigold",
+      "power": 7,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
+      "pictureFilename": "neu_triss.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "hero",
+      "ability": "none"
+    },
+    {
+      "id": 187,
+      "name": "Vesemir",
+      "power": 6,
+      "description": "",
+      "pictureFilename": "neu_vesemir.webp",
+      "faction": 3,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 188,
+      "name": "Villentretenmerth",
+      "power": 6,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
+      "pictureFilename": "neu_villen.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "scorch"
+    },
+    {
+      "id": 189,
+      "name": "Yennefer z Vengerbergu",
+      "power": 7,
+      "description": "",
+      "pictureFilename": "neu_yennefer.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "hero",
+      "ability": "medic"
+    },
+    {
+      "id": 190,
+      "name": "Zoltan Chivay",
+      "power": 5,
+      "description": "",
+      "pictureFilename": "neu_zoltan.webp",
+      "faction": 3,
       "range": 1,
       "function": "std",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 191,
+      "name": "Olgierd von Everec",
+      "power": 6,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
+      "pictureFilename": "neu_olgierd.webp",
+      "faction": 3,
       "range": 1,
       "function": "std",
+      "ability": "morale"
+    },
+    {
+      "id": 192,
+      "name": "Gaunter O'Dim",
+      "power": 2,
+      "description": "",
+      "pictureFilename": "neu_mrmirror.webp",
+      "faction": 3,
+      "range": 2,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 193,
+      "name": "Gaunter O'Dim: Cień",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "neu_mrmirror_foglet.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 194,
+      "name": "Gaunter O'Dim: Cień",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "neu_mrmirror_foglet.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 195,
+      "name": "Gaunter O'Dim: Cień",
+      "power": 4,
+      "description": "",
+      "pictureFilename": "neu_mrmirror_foglet.webp",
+      "faction": 3,
+      "range": 1,
+      "function": "std",
+      "ability": "muster"
+    },
+    {
+      "id": 196,
+      "name": "Róg Dowódcy",
+      "power": 0,
+      "description": "",
+      "pictureFilename": "spc_horn.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "horn",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 197,
+      "name": "Róg Dowódcy",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_horn.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "horn",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 198,
+      "name": "Róg Dowódcy",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_horn.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "horn",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 199,
+      "name": "Manekin do ćwiczeń",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_dummy.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "decoy",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 200,
+      "name": "Manekin do ćwiczeń",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_dummy.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "decoy",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 201,
+      "name": "Manekin do ćwiczeń",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_dummy.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "decoy",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 202,
+      "name": "Pożoga",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_scorch.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "scorch",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 203,
+      "name": "Pożoga",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_scorch.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "scorch",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 204,
+      "name": "Pożoga",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_scorch.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "scorch",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 205,
+      "name": "Trzaskający mróz",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_frost.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "frost",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 206,
+      "name": "Trzaskający mróz",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_frost.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "frost",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 207,
+      "name": "Trzaskający mróz",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_frost.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "frost",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 208,
+      "name": "Gęsta mgła",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_fog.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "fog",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 209,
+      "name": "Gęsta mgła",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_fog.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "fog",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 210,
+      "name": "Gęsta mgła",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_fog.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "fog",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 211,
+      "name": "Czyste niebo",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_clearsky.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "clear",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 212,
+      "name": "Czyste niebo",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_clearsky.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "clear",
       "ability": "none"
     },
     {
-      "id": 0,
-      "name": "",
-      "power": 1,
+      "id": 213,
+      "name": "Czyste niebo",
+      "power": 0,
       "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
-      "ability": "none"
-    },
-    {
-      "id": 0,
-      "name": "",
-      "power": 1,
-      "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
-      "ability": "none"
-    },
-    {
-      "id": 0,
-      "name": "",
-      "power": 1,
-      "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
-      "ability": "none"
-    },
-    {
-      "id": 0,
-      "name": "",
-      "power": 1,
-      "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
-      "ability": "none"
-    },
-    {
-      "id": 0,
-      "name": "",
-      "power": 1,
-      "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
-      "ability": "none"
-    },
-    {
-      "id": 0,
-      "name": "",
-      "power": 1,
-      "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
-      "ability": "none"
-    },
-    {
-      "id": 0,
-      "name": "",
-      "power": 1,
-      "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
-      "ability": "none"
-    },
-    {
-      "id": 0,
-      "name": "",
-      "power": 1,
-      "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
-      "ability": "none"
-    },
-    {
-      "id": 0,
-      "name": "",
-      "power": 1,
-      "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
-      "ability": "none"
-    },
-    {
-      "id": 0,
-      "name": "",
-      "power": 1,
-      "description": "",
-      "pictureFilename": "",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
+      "pictureFilename": "spc_clearsky.webp",
+      "faction": 3,
+      "range": 0,
+      "function": "clear",
       "ability": "none"
     }
   ]
