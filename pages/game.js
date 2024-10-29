@@ -48,9 +48,8 @@ const gameContent = `
 `;
 
 const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction, player1Cards, player2Cards) => {
-  let player1SelectedCards = player1Cards.map(a => ({...a}));
-  let player2SelectedCards = player2Cards.map(a => ({...a}));
-
+  let player1DeckCards = player1Cards.map(a => ({...a}));
+  let player2DeckCards = player2Cards.map(a => ({...a}));
   const player1DrawerShowButton = document.getElementById("game_player1_show_drawer");
   const player2DrawerShowButton = document.getElementById("game_player2_show_drawer");
   const player1DrawerHideButton = document.getElementById("game_player1_hide_drawer");
@@ -59,6 +58,36 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   const player1DrawerContainer = document.getElementById("game_player1_drawer_container");
   const player1DrawerCards = document.getElementById("player1_drawer_cards");
   const player2DrawerCards = document.getElementById("player2_drawer_cards");
+  let player1SelectedCards = [];
+  let player2SelectedCards = [];
+
+  for (let i = 0; i < player1DeckCards.length; i++) {
+    player1DrawerCards.innerHTML += `
+      <div id="card-${player1DeckCards[i].id}" class="game__card-container pixel-corners3 ${player1SelectedCards.indexOf('card-' + player1DeckCards[i].id) != -1 ? 'selected-card' : ''}" style="background-image: url('../img/cards/${player1DeckCards[i].pictureFilename}')">
+        <div class="game__card-function">
+          <span class="game__card-power">${player1DeckCards[i].power}</span>
+        </div>
+        <div class="game__card-range">
+          ${player1DeckCards[i].range === 1 ? "bliski" : "daleki"}
+        </div>
+        ${player1DeckCards[i].ability != "none" ? "<div class='game__card-ability'>" + player1DeckCards[i].ability + "</div>" : ""}
+      </div>
+    `;
+  }
+
+  for (let i = 0; i < player2DeckCards.length; i++) {
+    player2DrawerCards.innerHTML += `
+      <div id="card-${player2DeckCards[i].id}" class="game__card-container pixel-corners3 ${player2SelectedCards.indexOf('card-' + player2DeckCards[i].id) != -1 ? 'selected-card' : ''}" style="background-image: url('../img/cards/${player2DeckCards[i].pictureFilename}')">
+        <div class="game__card-function">
+          <span class="game__card-power">${player2DeckCards[i].power}</span>
+        </div>
+        <div class="game__card-range">
+          ${player2DeckCards[i].range === 1 ? "bliski" : "daleki"}
+        </div>
+        ${player2DeckCards[i].ability != "none" ? "<div class='game__card-ability'>" + player2DeckCards[i].ability + "</div>" : ""}
+      </div>
+    `;
+  }
 
   player1DrawerShowButton.addEventListener('click', e => {
     player1DrawerContainer.style.top = '-20rem';
@@ -77,26 +106,26 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   });
 
   player1DrawerCards.addEventListener('click', e => {
-    const cardID = e.target.closest('.cards-select__card-container').id;
-    const arrayIndex = selectedCards.indexOf(cardID);
+    const cardID = e.target.closest('.game__card-container').id;
+    const arrayIndex = player1SelectedCards.indexOf(cardID);
 
     if (arrayIndex == -1) {
-      selectedCards.push(cardID);
+      player1SelectedCards.push(cardID);
     }
     else {
-      selectedCards.splice(arrayIndex, 1);
+      player1SelectedCards.splice(arrayIndex, 1);
     }
   });
 
   player2DrawerCards.addEventListener('click', e => {
-    const cardID = e.target.closest('.cards-select__card-container').id;
-    const arrayIndex = selectedCards.indexOf(cardID);
+    const cardID = e.target.closest('.game__card-container').id;
+    const arrayIndex = player2SelectedCards.indexOf(cardID);
 
     if (arrayIndex == -1) {
-      selectedCards.push(cardID);
+      player2SelectedCards.push(cardID);
     }
     else {
-      selectedCards.splice(arrayIndex, 1);
+      player2SelectedCards.splice(arrayIndex, 1);
     }
   });
 

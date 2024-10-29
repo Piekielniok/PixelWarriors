@@ -19,7 +19,10 @@ const loadPage = (page = 'home', ...args) => {
 			break;
 		case 'factionSelect': 
 			if (args[1]) {
-				player1Cards = args[1];
+				for (let i = 0; i < args[1].length; i++) {
+					const cardObj = cardsData.cards.find(card => card.id == args[1][i].replace('card-',''));
+					player1Cards.push(cardObj);
+				}
 			}
 			rootContainer.innerHTML = factionSelectContent;
 			factionSelectFunctions(loadPage, args[0]);
@@ -35,8 +38,11 @@ const loadPage = (page = 'home', ...args) => {
 			cardsSelectFunctions(loadPage, args[0], args[1], cardsData);
 			break;
 		case 'pickPlayer':
-			if (args[1]) {
-				player2Cards = args[1];
+			if (args[0]) {
+				for (let i = 0; i < args[0].length; i++) {
+					const cardObj = cardsData.cards.find(card => card.id == args[0][i].replace('card-',''));
+					player2Cards.push(cardObj);
+				}
 			}
 			rootContainer.innerHTML = pickPlayerContent;
 			pickPlayerFunctions(loadPage, args[0]);
