@@ -58,10 +58,18 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   const player2DrawerCards = document.getElementById("player2_drawer_cards");
   const player1EndRoundButton = document.getElementById('game_player1_end_round');
   const player2EndRoundButton = document.getElementById('game_player2_end_round');
+  const player1TotalScore = document.getElementById('game_player1_total_score');
+  const player2TotalScore = document.getElementById('game_player2_total_score');
+  const player1CloseRangeRow = document.getElementById('game_player1_close_range_row');
+  const player1LongRangeRow = document.getElementById('game_player1_long_range_row');
+  const player2CloseRangeRow = document.getElementById('game_player2_close_range_row');
+  const player2LongRangeRow = document.getElementById('game_player2_long_range_row');
   let player1DeckCards = player1Cards.map(a => ({...a}));
   let player2DeckCards = player2Cards.map(a => ({...a}));
   let player1SelectedCard = '';
   let player2SelectedCard = '';
+  let player1BlockInput = true;
+  let player2BlockInput = true;
   let activePlayer = 0;
 
   const changePlayer = () => {
@@ -69,21 +77,35 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       activePlayer = startingPlayer;
       if (activePlayer == 1) {
         player1EndRoundButton.classList.remove('next-round-button-gray');
+        player1BlockInput = false;
       }
       else {
         player2EndRoundButton.classList.remove('next-round-button-gray');
+        player1TotalScore.style.transform = 'rotate(180deg)';
+        player2TotalScore.style.transform = 'rotate(180deg)';
+        player2BlockInput = false;
       }
     }
     else {
       if (activePlayer == 1) {
+        player1BlockInput = true;
+        player2BlockInput = true;
         activePlayer = 2;
         player2EndRoundButton.classList.remove('next-round-button-gray');
         player1EndRoundButton.classList.add('next-round-button-gray');
+        player1TotalScore.style.transform = 'rotate(180deg)';
+        player2TotalScore.style.transform = 'rotate(180deg)';
+        player2BlockInput = false;
       }
       else {
+        player1BlockInput = true;
+        player2BlockInput = true;
         activePlayer = 1;
         player1EndRoundButton.classList.remove('next-round-button-gray');
         player2EndRoundButton.classList.add('next-round-button-gray');
+        player1TotalScore.style.transform = 'rotate(0deg)';
+        player2TotalScore.style.transform = 'rotate(0deg)';
+        player1BlockInput = false;
       }
     }
   }
@@ -91,14 +113,112 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   changePlayer();
 
   player1EndRoundButton.addEventListener('click', e => {
-    if (activePlayer == 1) {
-      changePlayer();
+    if (!player1BlockInput) {
+      player1BlockInput = true;
+      player2BlockInput = true;
+
+      if (activePlayer == 1) {
+        if (player1SelectedCard != '') {
+          const selectedCardObj = player1DeckCards.find(({ id }) => id == player1SelectedCard.replace('card-', ''));
+          let selectedRow;
+    
+          if (selectedCardObj.range == 1) {
+            selectedRow = player1CloseRangeRow;
+          }
+          else {
+            selectedRow = player1LongRangeRow;
+          }
+    
+          selectedRow.innerHTML += `
+              <div id="played_card-${selectedCardObj.id}" class="game__played-card-container card-pick-animation">
+                <div class="game__played-card-inner">
+                  <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${selectedCardObj.pictureFilename}')">
+                    <div class="game__card-function">
+                      <span class="game__card-power">${selectedCardObj.power}</span>
+                    </div>
+                    <div class="game__card-range">
+                      ${selectedCardObj.range === 1 ? "bliski" : "daleki"}
+                    </div>
+                    ${selectedCardObj.ability != "none" ? "<div class='game__card-ability'>" + selectedCardObj.ability + "</div>" : ""}
+                  </div>
+                  <div class="game__played-card-back pixel-corners3"></div>
+                </div>
+              </div>
+            `;
+    
+            selectedRow.style.zIndex = 2;
+            player1SelectedCard = '';
+            player1DeckCards.splice(player1DeckCards.findIndex(card => card.id === selectedCardObj.id), 1);
+            player1EndRoundButton.classList.add('next-round-button-gray');
+            player2TotalScore.style.transform = 'rotate(180deg)';
+            refreshPlayer1Cards();
+    
+            setTimeout(() => {
+              document.getElementById(`played_card-${selectedCardObj.id}`).classList.remove('card-pick-animation');
+              selectedRow.style.removeProperty('z-index');
+    
+              changePlayer();
+            }, 2000);
+        }
+        else {
+          changePlayer();
+        }
+      }
     }
   });
 
   player2EndRoundButton.addEventListener('click', e => {
-    if (activePlayer == 2) {
-      changePlayer();
+    if (!player2BlockInput) {
+      player1BlockInput = true;
+      player2BlockInput = true;
+
+      if (activePlayer == 2) {
+        if (player2SelectedCard != '') {
+          const selectedCardObj = player2DeckCards.find(({ id }) => id == player2SelectedCard.replace('card-', ''));
+          let selectedRow;
+    
+          if (selectedCardObj.range == 1) {
+            selectedRow = player2CloseRangeRow;
+          }
+          else {
+            selectedRow = player2LongRangeRow;
+          }
+    
+          selectedRow.innerHTML += `
+              <div id="played_card-${selectedCardObj.id}" class="game__played-card-container card-pick-animation">
+                <div class="game__played-card-inner">
+                  <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${selectedCardObj.pictureFilename}')">
+                    <div class="game__card-function">
+                      <span class="game__card-power">${selectedCardObj.power}</span>
+                    </div>
+                    <div class="game__card-range">
+                      ${selectedCardObj.range === 1 ? "bliski" : "daleki"}
+                    </div>
+                    ${selectedCardObj.ability != "none" ? "<div class='game__card-ability'>" + selectedCardObj.ability + "</div>" : ""}
+                  </div>
+                  <div class="game__played-card-back pixel-corners3"></div>
+                </div>
+              </div>
+            `;
+    
+            selectedRow.style.zIndex = 2;
+            player2SelectedCard = '';
+            player2DeckCards.splice(player2DeckCards.findIndex(card => card.id === selectedCardObj.id), 1);
+            player2EndRoundButton.classList.add('next-round-button-gray');
+            player1TotalScore.style.transform = 'rotate(0deg)';
+            refreshPlayer2Cards();
+    
+            setTimeout(() => {
+              document.getElementById(`played_card-${selectedCardObj.id}`).classList.remove('card-pick-animation');
+              selectedRow.style.removeProperty('z-index');
+  
+              changePlayer();
+            }, 2000);
+        }
+        else {
+          changePlayer();
+        }
+      }
     }
   });
 
@@ -142,13 +262,13 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   refreshPlayer2Cards();
 
   player1DrawerShowButton.addEventListener('click', e => {
-    if (activePlayer == 1) {
+    if (activePlayer == 1 & !player1BlockInput) {
       player1DrawerContainer.style.top = '-20rem';
     }
   });
 
   player2DrawerShowButton.addEventListener('click', e => {
-    if (activePlayer == 2) {
+    if (activePlayer == 2 & !player2BlockInput) {
       player2DrawerContainer.style.bottom = '-20rem';
     }
   });
