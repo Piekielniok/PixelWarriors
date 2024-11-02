@@ -64,6 +64,10 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   const player1LongRangeRow = document.getElementById('game_player1_long_range_row');
   const player2CloseRangeRow = document.getElementById('game_player2_close_range_row');
   const player2LongRangeRow = document.getElementById('game_player2_long_range_row');
+  const player2LongRangeScore = document.getElementById('game_player2_long_range_score');
+  const player2CloseRangeScore = document.getElementById('game_player2_close_range_score');
+  const player1CloseRangeScore = document.getElementById('game_player1_close_range_score');
+  const player1LongRangeScore = document.getElementById('game_player1_long_range_score');
   let player1DeckCards = player1Cards.map(a => ({...a}));
   let player2DeckCards = player2Cards.map(a => ({...a}));
   let player1SelectedCard = '';
@@ -73,6 +77,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   let activePlayer = 0;
 
   const changePlayer = () => {
+    
     if (activePlayer == 0) {
       activePlayer = startingPlayer;
       if (activePlayer == 1) {
@@ -108,9 +113,36 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         player1BlockInput = false;
       }
     }
-  }
+  };
 
   changePlayer();
+
+  const calculateScore = () => {
+    let player2LongRangeScoreNumber = 0;
+    let player2CloseRangeScoreNumber = 0;
+    let player1CloseRangeScoreNumber = 0;
+    let player1LongRangeScoreNumber = 0;
+
+    player2LongRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
+      player2LongRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
+    });
+    player2CloseRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
+      player2CloseRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
+    });
+    player1CloseRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
+      player1CloseRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
+    });
+    player1LongRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
+      player1LongRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
+    });
+
+    player2LongRangeScore.innerText = player2LongRangeScoreNumber;
+    player2CloseRangeScore.innerText = player2CloseRangeScoreNumber;
+    player1CloseRangeScore.innerText = player1CloseRangeScoreNumber;
+    player1LongRangeScore.innerText = player1LongRangeScoreNumber;
+    player2TotalScore.innerText = player2LongRangeScoreNumber + player2CloseRangeScoreNumber;
+    player1TotalScore.innerText = player1LongRangeScoreNumber + player1CloseRangeScoreNumber;
+  };
 
   player1EndRoundButton.addEventListener('click', e => {
     if (!player1BlockInput) {
@@ -130,8 +162,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
           }
     
           selectedRow.innerHTML += `
-              <div id="played_card-${selectedCardObj.id}" class="game__played-card-container card-pick-animation">
-                <div class="game__played-card-inner">
+              <div id="played_card-${selectedCardObj.id}" class="game__played-card-container">
+                <div class="game__played-card-inner card-pick-animation">
                   <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${selectedCardObj.pictureFilename}')">
                     <div class="game__card-function">
                       <span class="game__card-power">${selectedCardObj.power}</span>
@@ -154,9 +186,10 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
             refreshPlayer1Cards();
     
             setTimeout(() => {
-              document.getElementById(`played_card-${selectedCardObj.id}`).classList.remove('card-pick-animation');
+              document.querySelector(`#played_card-${selectedCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
               selectedRow.style.removeProperty('z-index');
     
+              calculateScore();
               changePlayer();
             }, 2000);
         }
@@ -185,8 +218,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
           }
     
           selectedRow.innerHTML += `
-              <div id="played_card-${selectedCardObj.id}" class="game__played-card-container card-pick-animation">
-                <div class="game__played-card-inner">
+              <div id="played_card-${selectedCardObj.id}" class="game__played-card-container">
+                <div class="game__played-card-inner card-pick-animation">
                   <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${selectedCardObj.pictureFilename}')">
                     <div class="game__card-function">
                       <span class="game__card-power">${selectedCardObj.power}</span>
@@ -209,9 +242,10 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
             refreshPlayer2Cards();
     
             setTimeout(() => {
-              document.getElementById(`played_card-${selectedCardObj.id}`).classList.remove('card-pick-animation');
+              document.querySelector(`#played_card-${selectedCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
               selectedRow.style.removeProperty('z-index');
-  
+
+              calculateScore();
               changePlayer();
             }, 2000);
         }
