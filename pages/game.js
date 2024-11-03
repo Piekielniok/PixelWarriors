@@ -180,60 +180,60 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
     player2LongRangeCards.forEach(card => {
       if (card.ability == 'bond') {
         player2LongRangeScoreNumber += (card.power * parseInt(player2LongRangeBonds[card.name])) + player2LongRangeMorale.length;
-        player2LongRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = (card.power * parseInt(player2LongRangeBonds[card.name])) + player2LongRangeMorale.length;
+        player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = (card.power * parseInt(player2LongRangeBonds[card.name])) + player2LongRangeMorale.length;
       }
       else if (card.ability == 'morale') {
         player2LongRangeScoreNumber += (card.power - 1) + player2LongRangeMorale.length;
-        player2LongRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = (card.power - 1) + player2LongRangeMorale.length;
+        player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = (card.power - 1) + player2LongRangeMorale.length;
       }
       else {
         player2LongRangeScoreNumber += card.power + player2LongRangeMorale.length;
-        player2LongRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = card.power + player2LongRangeMorale.length;
+        player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = card.power + player2LongRangeMorale.length;
       }
     })
 
     player2CloseRangeCards.forEach(card => {
       if (card.ability == 'bond') {
         player2CloseRangeScoreNumber += (card.power * parseInt(player2CloseRangeBonds[card.name])) + player2CloseRangeMorale.length;
-        player2CloseRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = (card.power * parseInt(player2CloseRangeBonds[card.name])) + player2CloseRangeMorale.length;
+        player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = (card.power * parseInt(player2CloseRangeBonds[card.name])) + player2CloseRangeMorale.length;
       }
       else if (card.ability == 'morale') {
         player2CloseRangeScoreNumber += (card.power - 1) + player2CloseRangeMorale.length;
-        player2CloseRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = (card.power - 1) + player2CloseRangeMorale.length;
+        player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = (card.power - 1) + player2CloseRangeMorale.length;
       }
       else {
         player2CloseRangeScoreNumber += card.power + player2CloseRangeMorale.length;
-        player2CloseRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = card.power + player2CloseRangeMorale.length;
+        player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = card.power + player2CloseRangeMorale.length;
       }
     })
 
     player1CloseRangeCards.forEach(card => {
       if (card.ability == 'bond') {
         player1CloseRangeScoreNumber += (card.power * parseInt(player1CloseRangeBonds[card.name])) + player1CloseRangeMorale.length;
-        player1CloseRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = (card.power * parseInt(player1CloseRangeBonds[card.name])) + player1CloseRangeMorale.length;
+        player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = (card.power * parseInt(player1CloseRangeBonds[card.name])) + player1CloseRangeMorale.length;
       }
       else if (card.ability == 'morale') {
         player1CloseRangeScoreNumber += (card.power - 1) + player1CloseRangeMorale.length;
-        player1CloseRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = (card.power - 1) + player1CloseRangeMorale.length;
+        player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = (card.power - 1) + player1CloseRangeMorale.length;
       }
       else {
         player1CloseRangeScoreNumber += card.power + player1CloseRangeMorale.length;
-        player1CloseRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = card.power + player1CloseRangeMorale.length;
+        player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = card.power + player1CloseRangeMorale.length;
       }
     })
 
     player1LongRangeCards.forEach(card => {
       if (card.ability == 'bond') {
         player1LongRangeScoreNumber += (card.power * parseInt(player1LongRangeBonds[card.name])) + player1LongRangeMorale.length;
-        player1LongRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = (card.power * parseInt(player1LongRangeBonds[card.name])) + player1LongRangeMorale.length;
+        player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = (card.power * parseInt(player1LongRangeBonds[card.name])) + player1LongRangeMorale.length;
       }
       else if (card.ability == 'morale') {
         player1LongRangeScoreNumber += (card.power - 1) + player1LongRangeMorale.length;
-        player1LongRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = (card.power - 1) + player1LongRangeMorale.length;
+        player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = (card.power - 1) + player1LongRangeMorale.length;
       }
       else {
         player1LongRangeScoreNumber += card.power + player1LongRangeMorale.length;
-        player1LongRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = card.power + player1LongRangeMorale.length;
+        player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = card.power + player1LongRangeMorale.length;
       }
     })
 
@@ -296,7 +296,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
           }
     
           selectedRow.innerHTML += `
-              <div id="played_card-${selectedCardObj.id}" class="game__played-card-container">
+              <div id="player${selectedCardObj.ability == 'spy' ? 2 : 1}_played_card-${selectedCardObj.id}" class="game__played-card-container">
                 <div class="game__played-card-inner card-pick-animation">
                   <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${selectedCardObj.pictureFilename}')">
                     <div class="game__card-function">
@@ -320,7 +320,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
             refreshPlayer1Cards();
     
             setTimeout(() => {
-              document.querySelector(`#played_card-${selectedCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
+              document.querySelector(`#player${selectedCardObj.ability == 'spy' ? 2 : 1}_played_card-${selectedCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
               selectedRow.style.removeProperty('z-index');
     
               calculateScore();
@@ -372,7 +372,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
           }
     
           selectedRow.innerHTML += `
-              <div id="played_card-${selectedCardObj.id}" class="game__played-card-container">
+              <div id="player${selectedCardObj.ability == 'spy' ? 1 : 2}_played_card-${selectedCardObj.id}" class="game__played-card-container">
                 <div class="game__played-card-inner card-pick-animation">
                   <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${selectedCardObj.pictureFilename}')">
                     <div class="game__card-function">
@@ -396,7 +396,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
             refreshPlayer2Cards();
     
             setTimeout(() => {
-              document.querySelector(`#played_card-${selectedCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
+              document.querySelector(`#player${selectedCardObj.ability == 'spy' ? 1 : 2}_played_card-${selectedCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
               selectedRow.style.removeProperty('z-index');
 
               calculateScore();
