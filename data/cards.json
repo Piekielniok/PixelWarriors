@@ -441,17 +441,6 @@
       "ability": "none"
     },
     {
-      "id": 40,
-      "name": "Jaskier",
-      "power": 2,
-      "description": "",
-      "pictureFilename": "neu_dandelion.webp",
-      "faction": 1,
-      "range": 1,
-      "function": "std",
-      "ability": "horn"
-    },
-    {
       "id": 41,
       "name": "Emiel Regis Rohellec Terzieff-Godefroy",
       "power": 5,
@@ -1255,17 +1244,6 @@
       "ability": "none"
     },
     {
-      "id": 114,
-      "name": "Jaskier",
-      "power": 2,
-      "description": "",
-      "pictureFilename": "neu_dandelion.webp",
-      "faction": 2,
-      "range": 1,
-      "function": "std",
-      "ability": "horn"
-    },
-    {
       "id": 115,
       "name": "Emiel Regis Rohellec Terzieff-Godefroy",
       "power": 5,
@@ -2023,17 +2001,6 @@
       "range": 1,
       "function": "hero",
       "ability": "none"
-    },
-    {
-      "id": 184,
-      "name": "Jaskier",
-      "power": 2,
-      "description": "",
-      "pictureFilename": "neu_dandelion.webp",
-      "faction": 3,
-      "range": 1,
-      "function": "std",
-      "ability": "horn"
     },
     {
       "id": 185,
