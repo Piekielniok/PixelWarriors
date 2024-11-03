@@ -68,16 +68,37 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   const player2CloseRangeScore = document.getElementById('game_player2_close_range_score');
   const player1CloseRangeScore = document.getElementById('game_player1_close_range_score');
   const player1LongRangeScore = document.getElementById('game_player1_long_range_score');
-  let player1DeckCards = player1Cards.map(a => ({...a}));
-  let player2DeckCards = player2Cards.map(a => ({...a}));
+  let player1DeckCards = [];
+  let player2DeckCards = [];
+  let player1RejectedCards = [];
+  let player2RejectedCards = [];
   let player1SelectedCard = '';
   let player2SelectedCard = '';
   let player1BlockInput = true;
   let player2BlockInput = true;
   let activePlayer = 0;
 
+  const selectRandomCards = ([...arr], n = 1) => {
+    let m = arr.length;
+    while (m) {
+      const i = Math.floor(Math.random() * m--);
+      [arr[m], arr[i]] = [arr[i], arr[m]];
+    }
+    return arr.slice(0, n);
+  };
+
+  let player1RandomCardsIndex = selectRandomCards([...Array(player1Cards.length).keys()], 10);
+  let player2RandomCardsIndex = selectRandomCards([...Array(player2Cards.length).keys()], 10);
+
+  for (let i = 0; i < player1RandomCardsIndex.length; i++) {
+    player1DeckCards.push(player1Cards[player1RandomCardsIndex[i]]);
+  }
+
+  for (let i = 0; i < player2RandomCardsIndex.length; i++) {
+    player2DeckCards.push(player2Cards[player2RandomCardsIndex[i]]);
+  }
+
   const changePlayer = () => {
-    
     if (activePlayer == 0) {
       activePlayer = startingPlayer;
       if (activePlayer == 1) {
