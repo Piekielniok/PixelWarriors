@@ -74,6 +74,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   let player1LongRangeCards = [];
   let player1DeckCards = [];
   let player2DeckCards = [];
+  let player1LeftCards = [];
+  let player2LeftCards = [];
   let player1RejectedCards = [];
   let player2RejectedCards = [];
   let player1SelectedCard = '';
@@ -101,6 +103,18 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   for (let i = 0; i < player2RandomCardsIndex.length; i++) {
     player2DeckCards.push(player2Cards[player2RandomCardsIndex[i]]);
   }
+
+  function removeElements(a, i) {
+    return a.reduce((acc, current, index) => {
+        if (!i.includes(index)) {
+            acc.push(current);
+        }
+        return acc;
+    }, []);
+  }
+
+  player1LeftCards = removeElements(player1Cards, player1RandomCardsIndex);
+  player2LeftCards = removeElements(player2Cards, player2RandomCardsIndex);
 
   const changePlayer = () => {
     if (activePlayer == 0) {
@@ -174,6 +188,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       }
       else {
         player2LongRangeScoreNumber += card.power + player2LongRangeMorale.length;
+        player2LongRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = card.power + player2LongRangeMorale.length;
       }
     })
 
@@ -188,6 +203,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       }
       else {
         player2CloseRangeScoreNumber += card.power + player2CloseRangeMorale.length;
+        player2CloseRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = card.power + player2CloseRangeMorale.length;
       }
     })
 
@@ -202,6 +218,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       }
       else {
         player1CloseRangeScoreNumber += card.power + player1CloseRangeMorale.length;
+        player1CloseRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = card.power + player1CloseRangeMorale.length;
       }
     })
 
@@ -216,6 +233,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       }
       else {
         player1LongRangeScoreNumber += card.power + player1LongRangeMorale.length;
+        player1LongRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = card.power + player1LongRangeMorale.length;
       }
     })
 
@@ -249,14 +267,32 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         if (player1SelectedCard != '') {
           const selectedCardObj = player1DeckCards.find(({ id }) => id == player1SelectedCard.replace('card-', ''));
           let selectedRow;
-    
-          if (selectedCardObj.range == 1) {
-            selectedRow = player1CloseRangeRow;
-            player1CloseRangeCards.push(selectedCardObj);
+
+          if (selectedCardObj.ability == 'spy') {
+            if (selectedCardObj.range == 1) {
+              selectedRow = player2CloseRangeRow;
+              player2CloseRangeCards.push(selectedCardObj);
+            }
+            else {
+              selectedRow = player2LongRangeRow;
+              player2LongRangeCards.push(selectedCardObj);
+            }
+
+            let spyCardsIndex = selectRandomCards([...Array(player1LeftCards.length).keys()], 2);
+            for (let i = 0; i < spyCardsIndex.length; i++) {
+              player1DeckCards.push(player1LeftCards[spyCardsIndex[i]]);
+            }
+            player1LeftCards = removeElements(player1LeftCards, spyCardsIndex);
           }
           else {
-            selectedRow = player1LongRangeRow;
-            player1LongRangeCards.push(selectedCardObj);
+            if (selectedCardObj.range == 1) {
+              selectedRow = player1CloseRangeRow;
+              player1CloseRangeCards.push(selectedCardObj);
+            }
+            else {
+              selectedRow = player1LongRangeRow;
+              player1LongRangeCards.push(selectedCardObj);
+            }
           }
     
           selectedRow.innerHTML += `
@@ -308,13 +344,31 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
           const selectedCardObj = player2DeckCards.find(({ id }) => id == player2SelectedCard.replace('card-', ''));
           let selectedRow;
     
-          if (selectedCardObj.range == 1) {
-            selectedRow = player2CloseRangeRow;
-            player2CloseRangeCards.push(selectedCardObj);
+          if (selectedCardObj.ability == 'spy') {
+            if (selectedCardObj.range == 1) {
+              selectedRow = player1CloseRangeRow;
+              player1CloseRangeCards.push(selectedCardObj);
+            }
+            else {
+              selectedRow = player1LongRangeRow;
+              player1LongRangeCards.push(selectedCardObj);
+            }
+
+            let spyCardsIndex = selectRandomCards([...Array(player2LeftCards.length).keys()], 2);
+            for (let i = 0; i < spyCardsIndex.length; i++) {
+              player2DeckCards.push(player2LeftCards[spyCardsIndex[i]]);
+            }
+            player2LeftCards = removeElements(player2LeftCards, spyCardsIndex);
           }
           else {
-            selectedRow = player2LongRangeRow;
-            player2LongRangeCards.push(selectedCardObj);
+            if (selectedCardObj.range == 1) {
+              selectedRow = player2CloseRangeRow;
+              player2CloseRangeCards.push(selectedCardObj);
+            }
+            else {
+              selectedRow = player2LongRangeRow;
+              player2LongRangeCards.push(selectedCardObj);
+            }
           }
     
           selectedRow.innerHTML += `
