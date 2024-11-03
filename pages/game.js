@@ -68,6 +68,10 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   const player2CloseRangeScore = document.getElementById('game_player2_close_range_score');
   const player1CloseRangeScore = document.getElementById('game_player1_close_range_score');
   const player1LongRangeScore = document.getElementById('game_player1_long_range_score');
+  let player2LongRangeCards = [];
+  let player2CloseRangeCards = [];
+  let player1CloseRangeCards = [];
+  let player1LongRangeCards = [];
   let player1DeckCards = [];
   let player2DeckCards = [];
   let player1RejectedCards = [];
@@ -144,18 +148,63 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
     let player1CloseRangeScoreNumber = 0;
     let player1LongRangeScoreNumber = 0;
 
-    player2LongRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
-      player2LongRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
-    });
-    player2CloseRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
-      player2CloseRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
-    });
-    player1CloseRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
-      player1CloseRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
-    });
-    player1LongRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
-      player1LongRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
-    });
+    let player2LongRangeBonds = player2LongRangeCards.filter(card => card.ability == 'bond').reduce((acc, val) => { acc[val.name] = acc[val.name] === undefined ? 1 : acc[val.name] += 1; return acc; }, {});
+    let player2CloseRangeBonds = player2CloseRangeCards.filter(card => card.ability == 'bond').reduce((acc, val) => { acc[val.name] = acc[val.name] === undefined ? 1 : acc[val.name] += 1; return acc; }, {});
+    let player1CloseRangeBonds = player1CloseRangeCards.filter(card => card.ability == 'bond').reduce((acc, val) => { acc[val.name] = acc[val.name] === undefined ? 1 : acc[val.name] += 1; return acc; }, {});
+    let player1LongRangeBonds = player1LongRangeCards.filter(card => card.ability == 'bond').reduce((acc, val) => { acc[val.name] = acc[val.name] === undefined ? 1 : acc[val.name] += 1; return acc; }, {});
+
+    player2LongRangeCards.forEach(card => {
+      if (card.ability == 'bond') {
+        player2LongRangeScoreNumber += card.power * parseInt(player2LongRangeBonds[card.name]);
+        player2LongRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = card.power * parseInt(player2LongRangeBonds[card.name]);
+      }
+      else {
+        player2LongRangeScoreNumber += card.power;
+      }
+    })
+
+    player2CloseRangeCards.forEach(card => {
+      if (card.ability == 'bond') {
+        player2CloseRangeScoreNumber += card.power * parseInt(player2CloseRangeBonds[card.name]);
+        player2CloseRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = card.power * parseInt(player2CloseRangeBonds[card.name]);
+      }
+      else {
+        player2CloseRangeScoreNumber += card.power;
+      }
+    })
+
+    player1CloseRangeCards.forEach(card => {
+      if (card.ability == 'bond') {
+        player1CloseRangeScoreNumber += card.power * parseInt(player1CloseRangeBonds[card.name]);
+        player1CloseRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = card.power * parseInt(player1CloseRangeBonds[card.name]);
+      }
+      else {
+        player1CloseRangeScoreNumber += card.power;
+      }
+    })
+
+    player1LongRangeCards.forEach(card => {
+      if (card.ability == 'bond') {
+        player1LongRangeScoreNumber += card.power * parseInt(player1LongRangeBonds[card.name]);
+        player1LongRangeRow.querySelector(`#played_card-${card.id} .game__card-power`).innerText = card.power * parseInt(player1LongRangeBonds[card.name]);
+      }
+      else {
+        player1LongRangeScoreNumber += card.power;
+      }
+    })
+
+    // player2LongRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
+    //   player2LongRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
+    // });
+    // player2CloseRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
+    //   player2CloseRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
+    // });
+    // player1CloseRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
+    //   player1CloseRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
+    // });
+    // player1LongRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
+    //   player1LongRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
+    // });
 
     player2LongRangeScore.innerText = player2LongRangeScoreNumber;
     player2CloseRangeScore.innerText = player2CloseRangeScoreNumber;
@@ -177,9 +226,11 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
     
           if (selectedCardObj.range == 1) {
             selectedRow = player1CloseRangeRow;
+            player1CloseRangeCards.push(selectedCardObj);
           }
           else {
             selectedRow = player1LongRangeRow;
+            player1LongRangeCards.push(selectedCardObj);
           }
     
           selectedRow.innerHTML += `
@@ -233,9 +284,11 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
     
           if (selectedCardObj.range == 1) {
             selectedRow = player2CloseRangeRow;
+            player2CloseRangeCards.push(selectedCardObj);
           }
           else {
             selectedRow = player2LongRangeRow;
+            player2LongRangeCards.push(selectedCardObj);
           }
     
           selectedRow.innerHTML += `
