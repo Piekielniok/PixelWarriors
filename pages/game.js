@@ -301,7 +301,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
           });
           for (let i = player1CloseRangeCards.length - 1; i >= 0; i--) {
             if (parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${player1CloseRangeCards[i].id} .game__card-power`).innerText) == highestPower) {
-              player1RejectedCards.push(player1LongRangeCards[i]);
+              player1RejectedCards.push(player1CloseRangeCards[i]);
               player1CloseRangeRow.querySelector(`#player1_played_card-${player1CloseRangeCards[i].id}`).remove();
               player1CloseRangeCards.splice(i, 1);
             }
@@ -333,7 +333,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       if (activePlayer == 1) {
         if (player1SelectedCard != '') {
           const selectedCardObj = player1DeckCards.find(({ id }) => id == player1SelectedCard.replace('card-', ''));
-          let selectedRow;
+          let selectedRow, medicCardSelectedRow;
+          let medicCardObj = {};
 
           if (selectedCardObj.ability == 'spy') {
             if (selectedCardObj.range == 1) {
@@ -352,6 +353,39 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
             player1LeftCards = removeElements(player1LeftCards, spyCardsIndex);
           }
           else {
+            if (selectedCardObj.ability == 'medic' && player1RejectedCards.length >= 1) {
+              const medicCardIndex = selectRandomCards([...Array(player1RejectedCards.length).keys()], 1)[0];
+              medicCardObj = player1RejectedCards[medicCardIndex];
+  
+              if (medicCardObj.range == 1) {
+                medicCardSelectedRow = player1CloseRangeRow;
+                player1CloseRangeCards.push(medicCardObj);
+              }
+              else {
+                medicCardSelectedRow = player1LongRangeRow;
+                player1LongRangeCards.push(medicCardObj);
+              }
+  
+              medicCardSelectedRow.innerHTML += `
+                <div id="player1_played_card-${medicCardObj.id}" class="game__played-card-container">
+                  <div class="game__played-card-inner card-pick-animation">
+                    <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${medicCardObj.pictureFilename}')">
+                      <div class="game__card-function">
+                        <span class="game__card-power">${medicCardObj.power}</span>
+                      </div>
+                      <div class="game__card-range">
+                        ${medicCardObj.range === 1 ? "bliski" : "daleki"}
+                      </div>
+                      ${medicCardObj.ability != "none" ? "<div class='game__card-ability'>" + medicCardObj.ability + "</div>" : ""}
+                    </div>
+                    <div class="game__played-card-back pixel-corners3"></div>
+                  </div>
+                </div>
+              `;
+  
+              player1RejectedCards.splice(medicCardIndex, 1);
+            }
+
             if (selectedCardObj.range == 1) {
               selectedRow = player1CloseRangeRow;
               player1CloseRangeCards.push(selectedCardObj);
@@ -393,6 +427,9 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               if (selectedCardObj.ability == 'scorch') {
                 scorchFunction(1, selectedCardObj.range);
               }
+              else if (selectedCardObj.ability == 'medic' && player1RejectedCards.length >= 1) {
+                document.querySelector(`#player1_played_card-${medicCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
+              }
               
               calculateScore();
               changePlayer();
@@ -413,7 +450,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       if (activePlayer == 2) {
         if (player2SelectedCard != '') {
           const selectedCardObj = player2DeckCards.find(({ id }) => id == player2SelectedCard.replace('card-', ''));
-          let selectedRow;
+          let selectedRow, medicCardSelectedRow;
+          let medicCardObj = {};
     
           if (selectedCardObj.ability == 'spy') {
             if (selectedCardObj.range == 1) {
@@ -432,6 +470,39 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
             player2LeftCards = removeElements(player2LeftCards, spyCardsIndex);
           }
           else {
+            if (selectedCardObj.ability == 'medic' && playe21RejectedCards.length >= 1) {
+              const medicCardIndex = selectRandomCards([...Array(player2RejectedCards.length).keys()], 1)[0];
+              medicCardObj = player2RejectedCards[medicCardIndex];
+  
+              if (medicCardObj.range == 1) {
+                medicCardSelectedRow = player2CloseRangeRow;
+                player2CloseRangeCards.push(medicCardObj);
+              }
+              else {
+                medicCardSelectedRow = player2LongRangeRow;
+                player2LongRangeCards.push(medicCardObj);
+              }
+  
+              medicCardSelectedRow.innerHTML += `
+                <div id="player2_played_card-${medicCardObj.id}" class="game__played-card-container">
+                  <div class="game__played-card-inner card-pick-animation">
+                    <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${medicCardObj.pictureFilename}')">
+                      <div class="game__card-function">
+                        <span class="game__card-power">${medicCardObj.power}</span>
+                      </div>
+                      <div class="game__card-range">
+                        ${medicCardObj.range === 1 ? "bliski" : "daleki"}
+                      </div>
+                      ${medicCardObj.ability != "none" ? "<div class='game__card-ability'>" + medicCardObj.ability + "</div>" : ""}
+                    </div>
+                    <div class="game__played-card-back pixel-corners3"></div>
+                  </div>
+                </div>
+              `;
+  
+              player2RejectedCards.splice(medicCardIndex, 1);
+            }
+            
             if (selectedCardObj.range == 1) {
               selectedRow = player2CloseRangeRow;
               player2CloseRangeCards.push(selectedCardObj);
@@ -472,6 +543,9 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
 
               if (selectedCardObj.ability == 'scorch') {
                 scorchFunction(2, selectedCardObj.range);
+              }
+              else if (selectedCardObj.ability == 'medic' && player2RejectedCards.length >= 1) {
+                document.querySelector(`#player2_played_card-${medicCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
               }
 
               calculateScore();
