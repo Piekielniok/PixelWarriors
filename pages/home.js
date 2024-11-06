@@ -2,7 +2,7 @@
 
 const homeContent = `
     <section class="home">
-        <h1>Forged<br>Realms</h1>
+        <h1>Pixel<br>Warriors</h1>
         <button class="pixel-corners" id="home_play_btn">GRAJ TERAZ</button>
     </section>
 `;
