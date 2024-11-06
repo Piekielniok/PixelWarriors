@@ -584,17 +584,6 @@
       "ability": "none"
     },
     {
-      "id": 54,
-      "name": "Róg Dowódcy",
-      "power": 0,
-      "description": "",
-      "pictureFilename": "spc_horn.webp",
-      "faction": 1,
-      "range": 0,
-      "function": "horn",
-      "ability": "none"
-    },
-    {
       "id": 55,
       "name": "Manekin do ćwiczeń",
       "power": 0,
@@ -683,17 +672,6 @@
       "ability": "none"
     },
     {
-      "id": 63,
-      "name": "Trzaskający mróz",
-      "power": 0,
-      "description": "",
-      "pictureFilename": "spc_frost.webp",
-      "faction": 1,
-      "range": 0,
-      "function": "frost",
-      "ability": "none"
-    },
-    {
       "id": 64,
       "name": "Gęsta mgła",
       "power": 0,
@@ -706,17 +684,6 @@
     },
     {
       "id": 65,
-      "name": "Gęsta mgła",
-      "power": 0,
-      "description": "",
-      "pictureFilename": "spc_fog.webp",
-      "faction": 1,
-      "range": 0,
-      "function": "fog",
-      "ability": "none"
-    },
-    {
-      "id": 66,
       "name": "Gęsta mgła",
       "power": 0,
       "description": "",
@@ -1387,17 +1354,6 @@
       "ability": "none"
     },
     {
-      "id": 128,
-      "name": "Róg Dowódcy",
-      "power": 0,
-      "description": "",
-      "pictureFilename": "spc_horn.webp",
-      "faction": 2,
-      "range": 0,
-      "function": "horn",
-      "ability": "none"
-    },
-    {
       "id": 129,
       "name": "Manekin do ćwiczeń",
       "power": 0,
@@ -1486,17 +1442,6 @@
       "ability": "none"
     },
     {
-      "id": 137,
-      "name": "Trzaskający mróz",
-      "power": 0,
-      "description": "",
-      "pictureFilename": "spc_frost.webp",
-      "faction": 2,
-      "range": 0,
-      "function": "frost",
-      "ability": "none"
-    },
-    {
       "id": 138,
       "name": "Gęsta mgła",
       "power": 0,
@@ -1509,17 +1454,6 @@
     },
     {
       "id": 139,
-      "name": "Gęsta mgła",
-      "power": 0,
-      "description": "",
-      "pictureFilename": "spc_fog.webp",
-      "faction": 2,
-      "range": 0,
-      "function": "fog",
-      "ability": "none"
-    },
-    {
-      "id": 140,
       "name": "Gęsta mgła",
       "power": 0,
       "description": "",
@@ -2146,17 +2080,6 @@
       "ability": "none"
     },
     {
-      "id": 198,
-      "name": "Róg Dowódcy",
-      "power": 0,
-      "description": "",
-      "pictureFilename": "spc_horn.webp",
-      "faction": 3,
-      "range": 0,
-      "function": "horn",
-      "ability": "none"
-    },
-    {
       "id": 199,
       "name": "Manekin do ćwiczeń",
       "power": 0,
@@ -2245,17 +2168,6 @@
       "ability": "none"
     },
     {
-      "id": 207,
-      "name": "Trzaskający mróz",
-      "power": 0,
-      "description": "",
-      "pictureFilename": "spc_frost.webp",
-      "faction": 3,
-      "range": 0,
-      "function": "frost",
-      "ability": "none"
-    },
-    {
       "id": 208,
       "name": "Gęsta mgła",
       "power": 0,
@@ -2268,17 +2180,6 @@
     },
     {
       "id": 209,
-      "name": "Gęsta mgła",
-      "power": 0,
-      "description": "",
-      "pictureFilename": "spc_fog.webp",
-      "faction": 3,
-      "range": 0,
-      "function": "fog",
-      "ability": "none"
-    },
-    {
-      "id": 210,
       "name": "Gęsta mgła",
       "power": 0,
       "description": "",
