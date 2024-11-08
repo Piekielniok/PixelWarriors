@@ -232,7 +232,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = ((card.power - 1) + player1LongRangeMorale.length) * player1LongRangeHorn;
       }
       else {
-        player1LongRangeScoreNumber += card.power + player1LongRangeMorale.length;
+        player1LongRangeScoreNumber += (card.power + player1CloseRangeMorale.length) * player1LongRangeHorn;
         player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = (card.power + player1LongRangeMorale.length) * player1LongRangeHorn;
       }
     });
@@ -488,7 +488,14 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               player1LongRangeCards.push(selectedCardObj);
             }
             else if (selectedCardObj.range == 0) {
-              
+              if (document.getElementById(player1SelectedCard).querySelector('.selected-button').value == 1) {
+                selectedRow = player1CloseRangeRow;
+                player1CloseRangeCards.push(selectedCardObj);
+              }
+              else {
+                selectedRow = player1LongRangeRow;
+                player1LongRangeCards.push(selectedCardObj);
+              }
             }
           }
     
@@ -674,7 +681,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
             ${player1DeckCards[i].range === 1 ? "bliski" : "daleki"}
           </div>
           ${player1DeckCards[i].ability != "none" ? "<div class='game__card-ability'>" + player1DeckCards[i].ability + "</div>" : ""}
-          ${player1DeckCards[i].function == 'horn' ? "<div class='game__card-button-horn-container'><input id='player1_card-"+ player1DeckCards[i].id +"_close_range_button' type='radio' name='player1_card-"+ player1DeckCards[i].id +"-range-buttons' value='1' checked><label class='game__card-button-horn-label-close' for='player1_card-"+ player1DeckCards[i].id +"_close_range_button'>Bliski</label><input id='player1_card-"+ player1DeckCards[i].id +"_long_range_button' type='radio' name='player1_card-"+ player1DeckCards[i].id +"-range-buttons' value='2'><label class='game__card-button-horn-label-long' for='player1_card-"+ player1DeckCards[i].id +"_long_range_button'>Daleki</label></div>" : ""}
+          ${player1DeckCards[i].function == 'horn' ? "<div class='game__card-button-horn-container'><button class='selected-button' value='1'>Bliski</button><button value='2'>Daleki</button></div>" : ""}
         </div>
       `;
     }
@@ -723,45 +730,36 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   });
 
   player1DrawerCards.addEventListener('click', e => {
-    console.log('sex');
-    // const cardID = e.target.closest('.game__card-container').id;
-    // player1SelectedCard = cardID;
-    // if (Array.from(e.target.classList)[0] == 'game__card-button-horn-label-close') {
-    //   document.getElementById(cardID + '_close_range_button').checked = true;
-    //  // document.getElementById(cardID).classList.add('selected-card');
-    //   console.log(document.getElementById(cardID + '_close_range_button').checked);
-    //   console.log(document.getElementById(cardID + '_long_range_button').checked);
-    // }
-    // else if (Array.from(e.target.classList)[0] == 'game__card-button-horn-label-long') {
-    //   document.getElementById(cardID + '_long_range_button').checked = true; 
-    //   //document.getElementById(cardID).classList.add('selected-card');
-    //   console.log(document.getElementById(cardID + '_close_range_button').checked);
-    //   console.log(document.getElementById(cardID + '_long_range_button').checked); 
-    // }
-    // else {
-    //   //refreshPlayer1Cards();
-    //   console.log('dupa');
-    // }
-
+    const cardID = e.target.closest('.game__card-container').id;
+    
+    if (player1SelectedCard == cardID) {
+      if (e.target.nodeName == 'BUTTON') {
+        if (Array.from(e.target.classList)[0] != 'selected-button') {
+          e.target.closest('.game__card-button-horn-container').querySelector('.selected-button').classList.remove('selected-button');
+          e.target.classList.add('selected-button');
+        }
+      }
+    }
+    else {
+      player1SelectedCard = cardID;
+      refreshPlayer1Cards();
+    }
   });
 
   player2DrawerCards.addEventListener('click', e => {
     const cardID = e.target.closest('.game__card-container').id;
-    player2SelectedCard = cardID;
-    if (Array.from(e.target.classList)[0] == 'game__card-button-horn-label-close') {
-      document.getElementById(cardID + '_close_range_button').checked = true;
-      document.getElementById(cardID).classList.add('selected-card');
-      console.log(document.getElementById(cardID + '_close_range_button').checked);
-      console.log(document.getElementById(cardID + '_long_range_button').checked);
-    }
-    else if (Array.from(e.target.classList)[0] == 'game__card-button-horn-label-long') {
-      document.getElementById(cardID + '_long_range_button').checked = true; 
-      document.getElementById(cardID).classList.add('selected-card');
-      console.log(document.getElementById(cardID + '_close_range_button').checked);
-      console.log(document.getElementById(cardID + '_long_range_button').checked); 
+    
+    if (player2SelectedCard == cardID) {
+      if (e.target.nodeName == 'BUTTON') {
+        if (Array.from(e.target.classList)[0] != 'selected-button') {
+          e.target.closest('.game__card-button-horn-container').querySelector('.selected-button').classList.remove('selected-button');
+          e.target.classList.add('selected-button');
+        }
+      }
     }
     else {
-     // refreshPlayer2Cards();
+      player2SelectedCard = cardID;
+      refreshPlayer2Cards();
     }
   });
 

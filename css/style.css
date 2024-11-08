@@ -281,17 +281,17 @@ div.selected-card::after {
     margin-top: auto;
 }
 
-.game__card-button-horn-container input[type="radio"] {
-    
-}
-
-.game__card-button-horn-container input[type="radio"]:checked + label {
-    background-color: rgba(50, 50, 50, 0.6);
-    color: white;
-}
-
-.game__card-button-horn-container label {
+.game__card-button-horn-container button {
+    display: none;
     padding: 1rem;
+}
+
+.game__card-button-horn-container .selected-button {
+    background: #326197;
+}
+
+.selected-card button {
+    display: flex;
 }
 
 .game__player2--drawer img,
