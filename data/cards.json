@@ -526,7 +526,8 @@
       "faction": 1,
       "range": 2,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [49, 50, 51]
     },
     {
       "id": 49,
@@ -537,7 +538,8 @@
       "faction": 1,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [50, 51]
     },
     {
       "id": 50,
@@ -548,7 +550,8 @@
       "faction": 1,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [49, 51]
     },
     {
       "id": 51,
@@ -559,7 +562,8 @@
       "faction": 1,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [49, 50]
     },
     {
       "id": 52,
@@ -735,7 +739,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [71, 72]
     },
     {
       "id": 71,
@@ -746,7 +751,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [70, 72]
     },
     {
       "id": 72,
@@ -757,7 +763,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [70, 71]
     },
     {
       "id": 73,
@@ -834,7 +841,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [80, 81]
     },
     {
       "id": 80,
@@ -845,7 +853,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [79, 81]
     },
     {
       "id": 81,
@@ -856,7 +865,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [79, 80]
     },
     {
       "id": 82,
@@ -878,7 +888,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [84, 85]
     },
     {
       "id": 84,
@@ -889,7 +900,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [83, 85]
     },
     {
       "id": 85,
@@ -900,7 +912,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [83, 84]
     },
     {
       "id": 86,
@@ -922,7 +935,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [88, 89, 90, 91]
     },
     {
       "id": 88,
@@ -933,7 +947,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [87, 89, 90, 91]
     },
     {
       "id": 89,
@@ -944,7 +959,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [87, 88, 90, 91]
     },
     {
       "id": 90,
@@ -955,7 +971,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [87, 88, 89, 91]
     },
     {
       "id": 91,
@@ -966,7 +983,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [87, 88, 89, 90]
     },
     {
       "id": 92,
@@ -1054,7 +1072,8 @@
       "faction": 2,
       "range": 2,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [83, 84, 85]
     },
     {
       "id": 100,
@@ -1065,7 +1084,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [101, 102]
     },
     {
       "id": 101,
@@ -1076,7 +1096,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [100, 102]
     },
     {
       "id": 102,
@@ -1087,7 +1108,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [100, 101]
     },
     {
       "id": 103,
@@ -1296,7 +1318,8 @@
       "faction": 2,
       "range": 2,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [123, 124, 125]
     },
     {
       "id": 123,
@@ -1307,7 +1330,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [124, 125]
     },
     {
       "id": 124,
@@ -1318,7 +1342,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [123, 125]
     },
     {
       "id": 125,
@@ -1329,7 +1354,8 @@
       "faction": 2,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [123, 124]
     },
     {
       "id": 126,
@@ -2022,7 +2048,8 @@
       "faction": 3,
       "range": 2,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [193, 194, 195]
     },
     {
       "id": 193,
@@ -2033,7 +2060,8 @@
       "faction": 3,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [194, 195]
     },
     {
       "id": 194,
@@ -2044,7 +2072,8 @@
       "faction": 3,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [193, 195]
     },
     {
       "id": 195,
@@ -2055,7 +2084,8 @@
       "faction": 3,
       "range": 1,
       "function": "std",
-      "ability": "muster"
+      "ability": "muster",
+      "summons": [193, 194]
     },
     {
       "id": 196,
