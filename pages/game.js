@@ -186,6 +186,10 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         player2LongRangeScoreNumber += ((card.power - 1) + player2LongRangeMorale.length) * player2LongRangeHorn;
         player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = ((card.power - 1) + player2LongRangeMorale.length) * player2LongRangeHorn;
       }
+      else if (card.function == 'hero') {
+        player2LongRangeScoreNumber += card.power;
+        player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = card.power;
+      }
       else {
         player2LongRangeScoreNumber += (card.power + player2LongRangeMorale.length) * player2LongRangeHorn;
         player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = (card.power + player2LongRangeMorale.length) * player2LongRangeHorn;
@@ -200,6 +204,10 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       else if (card.ability == 'morale') {
         player2CloseRangeScoreNumber += ((card.power - 1) + player2CloseRangeMorale.length) * player2CloseRangeHorn;
         player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = ((card.power - 1) + player2CloseRangeMorale.length) * player2CloseRangeHorn;
+      }
+      else if (card.function == 'hero') {
+        player2CloseRangeScoreNumber += card.power;
+        player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = card.power;
       }
       else {
         player2CloseRangeScoreNumber += (card.power + player2CloseRangeMorale.length) * player2CloseRangeHorn;
@@ -216,6 +224,10 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         player1CloseRangeScoreNumber += ((card.power - 1) + player1CloseRangeMorale.length) * player1CloseRangeHorn;
         player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = ((card.power - 1) + player1CloseRangeMorale.length) * player1CloseRangeHorn;
       }
+      else if (card.function == 'hero') {
+        player1CloseRangeScoreNumber += card.power;
+        player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = card.power;
+      }
       else {
         player1CloseRangeScoreNumber += (card.power + player1CloseRangeMorale.length) * player1CloseRangeHorn;
         player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = (card.power + player1CloseRangeMorale.length) * player1CloseRangeHorn;
@@ -230,6 +242,10 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       else if (card.ability == 'morale') {
         player1LongRangeScoreNumber += ((card.power - 1) + player1LongRangeMorale.length) * player1LongRangeHorn;
         player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = ((card.power - 1) + player1LongRangeMorale.length) * player1LongRangeHorn;
+      }
+      else if (card.function == 'hero') {
+        player1LongRangeScoreNumber += card.power;
+        player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = card.power;
       }
       else {
         player1LongRangeScoreNumber += (card.power + player1CloseRangeMorale.length) * player1LongRangeHorn;
@@ -263,12 +279,12 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       if (range == 1) {
           let highestPower = 0;
           player2CloseRangeCards.forEach(card => {
-            if (parseInt(player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText) > highestPower) {
+            if (parseInt(player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
               highestPower = parseInt(player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText)
             }
           });
           for (let i = player2CloseRangeCards.length - 1; i >= 0; i--) {
-            if (parseInt(player2CloseRangeRow.querySelector(`#player2_played_card-${player2CloseRangeCards[i].id} .game__card-power`).innerText) == highestPower) {
+            if (parseInt(player2CloseRangeRow.querySelector(`#player2_played_card-${player2CloseRangeCards[i].id} .game__card-power`).innerText) == highestPower && player2CloseRangeCards[i].function != 'hero') {
               player2RejectedCards.push(player2CloseRangeCards[i]);
               player2CloseRangeRow.querySelector(`#player2_played_card-${player2CloseRangeCards[i].id}`).remove();
               player2CloseRangeCards.splice(i, 1);
@@ -278,12 +294,12 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       else if (range == 2) {
           let highestPower = 0;
           player2LongRangeCards.forEach(card => {
-            if (parseInt(player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText) > highestPower) {
+            if (parseInt(player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
               highestPower = parseInt(player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText)
             }
           });
           for (let i = player2LongRangeCards.length - 1; i >= 0; i--) {
-            if (parseInt(player2LongRangeRow.querySelector(`#player2_played_card-${player2LongRangeCards[i].id} .game__card-power`).innerText) == highestPower) {
+            if (parseInt(player2LongRangeRow.querySelector(`#player2_played_card-${player2LongRangeCards[i].id} .game__card-power`).innerText) == highestPower && player2LongRangeCards[i].function != 'hero') {
               player2RejectedCards.push(player2LongRangeCards[i]);
               player2LongRangeRow.querySelector(`#player2_played_card-${player2LongRangeCards[i].id}`).remove();
               player2LongRangeCards.splice(i, 1);
@@ -295,12 +311,12 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       if (range == 1) {
           let highestPower = 0;
           player1CloseRangeCards.forEach(card => {
-            if (parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText) > highestPower) {
+            if (parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
               highestPower = parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText)
             }
           });
           for (let i = player1CloseRangeCards.length - 1; i >= 0; i--) {
-            if (parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${player1CloseRangeCards[i].id} .game__card-power`).innerText) == highestPower) {
+            if (parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${player1CloseRangeCards[i].id} .game__card-power`).innerText) == highestPower && player1CloseRangeCards[i].function != 'hero') {
               player1RejectedCards.push(player1CloseRangeCards[i]);
               player1CloseRangeRow.querySelector(`#player1_played_card-${player1CloseRangeCards[i].id}`).remove();
               player1CloseRangeCards.splice(i, 1);
@@ -310,12 +326,12 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       else if (range == 2) {
           let highestPower = 0;
           player1LongRangeCards.forEach(card => {
-            if (parseInt(player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText) > highestPower) {
+            if (parseInt(player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
               highestPower = parseInt(player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText)
             }
           });
           for (let i = player1LongRangeCards.length - 1; i >= 0; i--) {
-            if (parseInt(player1LongRangeRow.querySelector(`#player1_played_card-${player1LongRangeCards[i].id} .game__card-power`).innerText) == highestPower) {
+            if (parseInt(player1LongRangeRow.querySelector(`#player1_played_card-${player1LongRangeCards[i].id} .game__card-power`).innerText) == highestPower && player1LongRangeCards[i].function != 'hero') {
               player1RejectedCards.push(player1LongRangeCards[i]);
               player1LongRangeRow.querySelector(`#player1_played_card-${player1LongRangeCards[i].id}`).remove();
               player1LongRangeCards.splice(i, 1);
@@ -576,7 +592,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
             player2LeftCards = removeElements(player2LeftCards, spyCardsIndex);
           }
           else {
-            if (selectedCardObj.ability == 'medic' && playe21RejectedCards.length >= 1) {
+            if (selectedCardObj.ability == 'medic' && player2RejectedCards.length >= 1) {
               const medicCardIndex = selectRandomCards([...Array(player2RejectedCards.length).keys()], 1)[0];
               medicCardObj = player2RejectedCards[medicCardIndex];
   
