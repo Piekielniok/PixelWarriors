@@ -190,6 +190,9 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         player2LongRangeScoreNumber += card.power;
         player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = card.power;
       }
+      else if (card.function == 'horn') {
+        player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = 0;
+      }
       else {
         player2LongRangeScoreNumber += (card.power + player2LongRangeMorale.length) * player2LongRangeHorn;
         player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = (card.power + player2LongRangeMorale.length) * player2LongRangeHorn;
@@ -208,6 +211,9 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       else if (card.function == 'hero') {
         player2CloseRangeScoreNumber += card.power;
         player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = card.power;
+      }
+      else if (card.function == 'horn') {
+        player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = 0;
       }
       else {
         player2CloseRangeScoreNumber += (card.power + player2CloseRangeMorale.length) * player2CloseRangeHorn;
@@ -228,6 +234,9 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         player1CloseRangeScoreNumber += card.power;
         player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = card.power;
       }
+      else if (card.function == 'horn') {
+        player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = 0;
+      }
       else {
         player1CloseRangeScoreNumber += (card.power + player1CloseRangeMorale.length) * player1CloseRangeHorn;
         player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = (card.power + player1CloseRangeMorale.length) * player1CloseRangeHorn;
@@ -241,14 +250,19 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       }
       else if (card.ability == 'morale') {
         player1LongRangeScoreNumber += ((card.power - 1) + player1LongRangeMorale.length) * player1LongRangeHorn;
+        console.log(player1LongRangeScoreNumber);
         player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = ((card.power - 1) + player1LongRangeMorale.length) * player1LongRangeHorn;
       }
       else if (card.function == 'hero') {
         player1LongRangeScoreNumber += card.power;
         player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = card.power;
       }
+      else if (card.function == 'horn') {
+        player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = 0;
+      }
       else {
-        player1LongRangeScoreNumber += (card.power + player1CloseRangeMorale.length) * player1LongRangeHorn;
+        console.log(player1LongRangeScoreNumber);
+        player1LongRangeScoreNumber += (card.power + player1LongRangeMorale.length) * player1LongRangeHorn;
         player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = (card.power + player1LongRangeMorale.length) * player1LongRangeHorn;
       }
     });
@@ -542,7 +556,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
             setTimeout(() => {
               document.querySelector(`#player${selectedCardObj.ability == 'spy' ? 2 : 1}_played_card-${selectedCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
               selectedRow.style.removeProperty('z-index');
-    
+
               if (selectedCardObj.ability == 'scorch') {
                 scorchFunction(1, selectedCardObj.range);
               }
@@ -552,7 +566,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               else if (selectedCardObj.ability == 'medic' && player1RejectedCards.length >= 1) {
                 document.querySelector(`#player1_played_card-${medicCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
               }
-              
+
               calculateScore();
               changePlayer();
             }, 2000);
@@ -574,7 +588,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
           const selectedCardObj = player2DeckCards.find(({ id }) => id == player2SelectedCard.replace('player2_card-', ''));
           let selectedRow, medicCardSelectedRow;
           let medicCardObj = {};
-    
+
           if (selectedCardObj.ability == 'spy') {
             if (selectedCardObj.range == 1) {
               selectedRow = player1CloseRangeRow;
@@ -624,14 +638,24 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   
               player2RejectedCards.splice(medicCardIndex, 1);
             }
-            
+
             if (selectedCardObj.range == 1) {
               selectedRow = player2CloseRangeRow;
               player2CloseRangeCards.push(selectedCardObj);
             }
-            else {
+            else if (selectedCardObj.range == 2) {
               selectedRow = player2LongRangeRow;
               player2LongRangeCards.push(selectedCardObj);
+            }
+            else if (selectedCardObj.range == 0) {
+              if (document.getElementById(player2SelectedCard).querySelector('.selected-button').value == 1) {
+                selectedRow = player2CloseRangeRow;
+                player2CloseRangeCards.push(selectedCardObj);
+              }
+              else {
+                selectedRow = player2LongRangeRow;
+                player2LongRangeCards.push(selectedCardObj);
+              }
             }
           }
     
@@ -716,7 +740,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
             ${player2DeckCards[i].range === 1 ? "bliski" : "daleki"}
           </div>
           ${player2DeckCards[i].ability != "none" ? "<div class='game__card-ability'>" + player2DeckCards[i].ability + "</div>" : ""}
-          ${player2DeckCards[i].function == 'horn' ? "<div class='game__card-button-horn-container'><input id='player2_card-"+ player2DeckCards[i].id +"_close_range_button' type='radio' name='player2_card-"+ player2DeckCards[i].id +"-range-buttons' value='1' checked><label class='game__card-button-horn-label-close' for='player2_card-"+ player2DeckCards[i].id +"_close_range_button'>Bliski</label><input id='player2_card-"+ player2DeckCards[i].id +"_long_range_button' type='radio' name='player2_card-"+ player2DeckCards[i].id +"-range-buttons' value='2'><label class='game__card-button-horn-label-long' for='player2_card-"+ player2DeckCards[i].id +"_long_range_button'>Daleki</label></div>" : ""}
+          ${player2DeckCards[i].function == 'horn' ? "<div class='game__card-button-horn-container'><button class='selected-button' value='1'>Bliski</button><button value='2'>Daleki</button></div>" : ""}
         </div>
       `;
     }
