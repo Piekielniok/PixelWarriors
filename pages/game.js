@@ -177,91 +177,96 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
     let player1CloseRangeHorn = player1CloseRangeCards.filter(card => card.function == 'horn').length == 1 ? 2 : 1;
     let player1LongRangeHorn = player1LongRangeCards.filter(card => card.function == 'horn').length == 1 ? 2 : 1;
 
+    let player2Fog = player2LongRangeCards.filter(card => card.function == 'fog').length == 1 ? 1 : 0;
+    let player2Frost = player2CloseRangeCards.filter(card => card.function == 'frost').length == 1 ? 1 : 0;
+    let player1Frost = player1CloseRangeCards.filter(card => card.function == 'frost').length == 1 ? 1 : 0;
+    let player1Fog = player1LongRangeCards.filter(card => card.function == 'fog').length == 1 ? 1 : 0;
+
     player2LongRangeCards.forEach(card => {
       if (card.ability == 'bond') {
-        player2LongRangeScoreNumber += ((card.power * parseInt(player2LongRangeBonds[card.name])) + player2LongRangeMorale.length) * player2LongRangeHorn;
-        player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = ((card.power * parseInt(player2LongRangeBonds[card.name])) + player2LongRangeMorale.length) * player2LongRangeHorn;
+        player2LongRangeScoreNumber += (((player1Fog == 1 || player2Fog == 1 ? 1 : card.power) * parseInt(player2LongRangeBonds[card.name])) + player2LongRangeMorale.length) * player2LongRangeHorn;
+        player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = (((player1Fog == 1 || player2Fog == 1 ? 1 : card.power) * parseInt(player2LongRangeBonds[card.name])) + player2LongRangeMorale.length) * player2LongRangeHorn;
       }
       else if (card.ability == 'morale') {
-        player2LongRangeScoreNumber += ((card.power - 1) + player2LongRangeMorale.length) * player2LongRangeHorn;
-        player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = ((card.power - 1) + player2LongRangeMorale.length) * player2LongRangeHorn;
+        player2LongRangeScoreNumber += ((player1Fog == 1 || player2Fog == 1 ? 0 : (card.power - 1)) + player2LongRangeMorale.length) * player2LongRangeHorn;
+        player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = ((player1Fog == 1 || player2Fog == 1 ? 0 : (card.power - 1)) + player2LongRangeMorale.length) * player2LongRangeHorn;
       }
       else if (card.function == 'hero') {
         player2LongRangeScoreNumber += card.power;
         player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = card.power;
       }
-      else if (card.function == 'horn') {
+      else if (card.function == 'horn' || card.function == 'fog') {
         player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = 0;
       }
       else {
-        player2LongRangeScoreNumber += (card.power + player2LongRangeMorale.length) * player2LongRangeHorn;
-        player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = (card.power + player2LongRangeMorale.length) * player2LongRangeHorn;
+        player2LongRangeScoreNumber += ((player1Fog == 1 || player2Fog == 1 ? 1 : card.power) + player2LongRangeMorale.length) * player2LongRangeHorn;
+        player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = ((player1Fog == 1 || player2Fog == 1 ? 1 : card.power) + player2LongRangeMorale.length) * player2LongRangeHorn;
       }
     });
 
     player2CloseRangeCards.forEach(card => {
       if (card.ability == 'bond') {
-        player2CloseRangeScoreNumber += ((card.power * parseInt(player2CloseRangeBonds[card.name])) + player2CloseRangeMorale.length) * player2CloseRangeHorn;
-        player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = ((card.power * parseInt(player2CloseRangeBonds[card.name])) + player2CloseRangeMorale.length) * player2CloseRangeHorn;
+        player2CloseRangeScoreNumber += (((player1Frost == 1 || player2Frost == 1 ? 1 : card.power) * parseInt(player2CloseRangeBonds[card.name])) + player2CloseRangeMorale.length) * player2CloseRangeHorn;
+        player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = (((player1Frost == 1 || player2Frost == 1 ? 1 : card.power) * parseInt(player2CloseRangeBonds[card.name])) + player2CloseRangeMorale.length) * player2CloseRangeHorn;
       }
       else if (card.ability == 'morale') {
-        player2CloseRangeScoreNumber += ((card.power - 1) + player2CloseRangeMorale.length) * player2CloseRangeHorn;
-        player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = ((card.power - 1) + player2CloseRangeMorale.length) * player2CloseRangeHorn;
+        player2CloseRangeScoreNumber += ((player1Frost == 1 || player2Frost == 1 ? 0 : (card.power - 1)) + player2CloseRangeMorale.length) * player2CloseRangeHorn;
+        player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = ((player1Frost == 1 || player2Frost == 1 ? 0 : (card.power - 1)) + player2CloseRangeMorale.length) * player2CloseRangeHorn;
       }
       else if (card.function == 'hero') {
         player2CloseRangeScoreNumber += card.power;
         player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = card.power;
       }
-      else if (card.function == 'horn') {
+      else if (card.function == 'horn' || card.function == 'frost') {
         player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = 0;
       }
       else {
-        player2CloseRangeScoreNumber += (card.power + player2CloseRangeMorale.length) * player2CloseRangeHorn;
-        player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = (card.power + player2CloseRangeMorale.length) * player2CloseRangeHorn;
+        player2CloseRangeScoreNumber += ((player1Frost == 1 || player2Frost == 1 ? 1 : card.power) + player2CloseRangeMorale.length) * player2CloseRangeHorn;
+        player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = ((player1Frost == 1 || player2Frost == 1 ? 1 : card.power) + player2CloseRangeMorale.length) * player2CloseRangeHorn;
       }
     });
 
     player1CloseRangeCards.forEach(card => {
       if (card.ability == 'bond') {
-        player1CloseRangeScoreNumber += ((card.power * parseInt(player1CloseRangeBonds[card.name])) + player1CloseRangeMorale.length) * player1CloseRangeHorn;
-        player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = ((card.power * parseInt(player1CloseRangeBonds[card.name])) + player1CloseRangeMorale.length) * player1CloseRangeHorn;
+        player1CloseRangeScoreNumber += (((player1Frost == 1 || player2Frost == 1 ? 1 : card.power) * parseInt(player1CloseRangeBonds[card.name])) + player1CloseRangeMorale.length) * player1CloseRangeHorn;
+        player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = (((player1Frost == 1 || player2Frost == 1 ? 1 : card.power) * parseInt(player1CloseRangeBonds[card.name])) + player1CloseRangeMorale.length) * player1CloseRangeHorn;
       }
       else if (card.ability == 'morale') {
-        player1CloseRangeScoreNumber += ((card.power - 1) + player1CloseRangeMorale.length) * player1CloseRangeHorn;
-        player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = ((card.power - 1) + player1CloseRangeMorale.length) * player1CloseRangeHorn;
+        player1CloseRangeScoreNumber += ((player1Frost == 1 || player2Frost == 1 ? 0 : (card.power - 1)) + player1CloseRangeMorale.length) * player1CloseRangeHorn;
+        player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = ((player1Frost == 1 || player2Frost == 1 ? 0 : (card.power - 1)) + player1CloseRangeMorale.length) * player1CloseRangeHorn;
       }
       else if (card.function == 'hero') {
         player1CloseRangeScoreNumber += card.power;
         player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = card.power;
       }
-      else if (card.function == 'horn') {
+      else if (card.function == 'horn' || card.function == 'frost') {
         player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = 0;
       }
       else {
-        player1CloseRangeScoreNumber += (card.power + player1CloseRangeMorale.length) * player1CloseRangeHorn;
-        player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = (card.power + player1CloseRangeMorale.length) * player1CloseRangeHorn;
+        player1CloseRangeScoreNumber += ((player1Frost == 1 || player2Frost == 1 ? 1 : card.power) + player1CloseRangeMorale.length) * player1CloseRangeHorn;
+        player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = ((player1Frost == 1 || player2Frost == 1 ? 1 : card.power) + player1CloseRangeMorale.length) * player1CloseRangeHorn;
       }
     });
 
     player1LongRangeCards.forEach(card => {
       if (card.ability == 'bond') {
-        player1LongRangeScoreNumber += ((card.power * parseInt(player1LongRangeBonds[card.name])) + player1LongRangeMorale.length) * player1LongRangeHorn;
-        player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = ((card.power * parseInt(player1LongRangeBonds[card.name])) + player1LongRangeMorale.length) * player1LongRangeHorn;
+        player1LongRangeScoreNumber += (((player1Fog == 1 || player2Fog == 1 ? 1 : card.power) * parseInt(player1LongRangeBonds[card.name])) + player1LongRangeMorale.length) * player1LongRangeHorn;
+        player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = (((player1Fog == 1 || player2Fog == 1 ? 1 : card.power) * parseInt(player1LongRangeBonds[card.name])) + player1LongRangeMorale.length) * player1LongRangeHorn;
       }
       else if (card.ability == 'morale') {
-        player1LongRangeScoreNumber += ((card.power - 1) + player1LongRangeMorale.length) * player1LongRangeHorn;
-        player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = ((card.power - 1) + player1LongRangeMorale.length) * player1LongRangeHorn;
+        player1LongRangeScoreNumber += ((player1Fog == 1 || player2Fog == 1 ? 0 : (card.power - 1)) + player1LongRangeMorale.length) * player1LongRangeHorn;
+        player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = ((player1Fog == 1 || player2Fog == 1 ? 0 : (card.power - 1)) + player1LongRangeMorale.length) * player1LongRangeHorn;
       }
       else if (card.function == 'hero') {
         player1LongRangeScoreNumber += card.power;
         player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = card.power;
       }
-      else if (card.function == 'horn') {
+      else if (card.function == 'horn' || card.function == 'fog') {
         player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = 0;
       }
       else {
-        player1LongRangeScoreNumber += (card.power + player1LongRangeMorale.length) * player1LongRangeHorn;
-        player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = (card.power + player1LongRangeMorale.length) * player1LongRangeHorn;
+        player1LongRangeScoreNumber += ((player1Fog == 1 || player2Fog == 1 ? 1 : card.power) + player1LongRangeMorale.length) * player1LongRangeHorn;
+        player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = ((player1Fog == 1 || player2Fog == 1 ? 1 : card.power) + player1LongRangeMorale.length) * player1LongRangeHorn;
       }
     });
 
