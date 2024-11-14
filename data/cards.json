@@ -476,7 +476,7 @@
     {
       "id": 44,
       "name": "Villentretenmerth",
-      "power": 6,
+      "power": 7,
       "description": "",
       "pictureFilename": "neu_villen.webp",
       "faction": 1,
@@ -660,7 +660,7 @@
       "description": "",
       "pictureFilename": "spc_frost.webp",
       "faction": 1,
-      "range": 0,
+      "range": 1,
       "function": "frost",
       "ability": "none"
     },
@@ -671,7 +671,7 @@
       "description": "",
       "pictureFilename": "spc_frost.webp",
       "faction": 1,
-      "range": 0,
+      "range": 1,
       "function": "frost",
       "ability": "none"
     },
@@ -682,7 +682,7 @@
       "description": "",
       "pictureFilename": "spc_fog.webp",
       "faction": 1,
-      "range": 0,
+      "range": 2,
       "function": "fog",
       "ability": "none"
     },
@@ -693,7 +693,7 @@
       "description": "",
       "pictureFilename": "spc_fog.webp",
       "faction": 1,
-      "range": 0,
+      "range": 2,
       "function": "fog",
       "ability": "none"
     },
@@ -1268,7 +1268,7 @@
     {
       "id": 118,
       "name": "Villentretenmerth",
-      "power": 6,
+      "power": 7,
       "description": "",
       "pictureFilename": "neu_villen.webp",
       "faction": 2,
@@ -1452,7 +1452,7 @@
       "description": "",
       "pictureFilename": "spc_frost.webp",
       "faction": 2,
-      "range": 0,
+      "range": 1,
       "function": "frost",
       "ability": "none"
     },
@@ -1463,7 +1463,7 @@
       "description": "",
       "pictureFilename": "spc_frost.webp",
       "faction": 2,
-      "range": 0,
+      "range": 1,
       "function": "frost",
       "ability": "none"
     },
@@ -1474,7 +1474,7 @@
       "description": "",
       "pictureFilename": "spc_fog.webp",
       "faction": 2,
-      "range": 0,
+      "range": 2,
       "function": "fog",
       "ability": "none"
     },
@@ -1485,7 +1485,7 @@
       "description": "",
       "pictureFilename": "spc_fog.webp",
       "faction": 2,
-      "range": 0,
+      "range": 2,
       "function": "fog",
       "ability": "none"
     },
@@ -1998,7 +1998,7 @@
     {
       "id": 188,
       "name": "Villentretenmerth",
-      "power": 6,
+      "power": 7,
       "description": "",
       "pictureFilename": "neu_villen.webp",
       "faction": 3,
@@ -2182,7 +2182,7 @@
       "description": "",
       "pictureFilename": "spc_frost.webp",
       "faction": 3,
-      "range": 0,
+      "range": 1,
       "function": "frost",
       "ability": "none"
     },
@@ -2193,7 +2193,7 @@
       "description": "",
       "pictureFilename": "spc_frost.webp",
       "faction": 3,
-      "range": 0,
+      "range": 1,
       "function": "frost",
       "ability": "none"
     },
@@ -2204,7 +2204,7 @@
       "description": "",
       "pictureFilename": "spc_fog.webp",
       "faction": 3,
-      "range": 0,
+      "range": 2,
       "function": "fog",
       "ability": "none"
     },
@@ -2215,7 +2215,7 @@
       "description": "",
       "pictureFilename": "spc_fog.webp",
       "faction": 3,
-      "range": 0,
+      "range": 2,
       "function": "fog",
       "ability": "none"
     },
