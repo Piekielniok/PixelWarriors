@@ -250,7 +250,6 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       }
       else if (card.ability == 'morale') {
         player1LongRangeScoreNumber += ((card.power - 1) + player1LongRangeMorale.length) * player1LongRangeHorn;
-        console.log(player1LongRangeScoreNumber);
         player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = ((card.power - 1) + player1LongRangeMorale.length) * player1LongRangeHorn;
       }
       else if (card.function == 'hero') {
@@ -261,7 +260,6 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = 0;
       }
       else {
-        console.log(player1LongRangeScoreNumber);
         player1LongRangeScoreNumber += (card.power + player1LongRangeMorale.length) * player1LongRangeHorn;
         player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = (card.power + player1LongRangeMorale.length) * player1LongRangeHorn;
       }
@@ -291,66 +289,120 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   const scorchFunction = (player, range) => {
     if (player == 1) {
       if (range == 1) {
-          let highestPower = 0;
-          player2CloseRangeCards.forEach(card => {
-            if (parseInt(player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
-              highestPower = parseInt(player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText)
-            }
-          });
-          for (let i = player2CloseRangeCards.length - 1; i >= 0; i--) {
-            if (parseInt(player2CloseRangeRow.querySelector(`#player2_played_card-${player2CloseRangeCards[i].id} .game__card-power`).innerText) == highestPower && player2CloseRangeCards[i].function != 'hero') {
-              player2RejectedCards.push(player2CloseRangeCards[i]);
-              player2CloseRangeRow.querySelector(`#player2_played_card-${player2CloseRangeCards[i].id}`).remove();
-              player2CloseRangeCards.splice(i, 1);
-            }
+        let highestPower = 0;
+        player2CloseRangeCards.forEach(card => {
+          if (parseInt(player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
+            highestPower = parseInt(player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText);
           }
+        });
+        for (let i = player2CloseRangeCards.length - 1; i >= 0; i--) {
+          if (parseInt(player2CloseRangeRow.querySelector(`#player2_played_card-${player2CloseRangeCards[i].id} .game__card-power`).innerText) == highestPower && player2CloseRangeCards[i].function != 'hero') {
+            player2RejectedCards.push(player2CloseRangeCards[i]);
+            player2CloseRangeRow.querySelector(`#player2_played_card-${player2CloseRangeCards[i].id}`).remove();
+            player2CloseRangeCards.splice(i, 1);
+          }
+        }
       }
       else if (range == 2) {
-          let highestPower = 0;
-          player2LongRangeCards.forEach(card => {
-            if (parseInt(player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
-              highestPower = parseInt(player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText)
-            }
-          });
-          for (let i = player2LongRangeCards.length - 1; i >= 0; i--) {
-            if (parseInt(player2LongRangeRow.querySelector(`#player2_played_card-${player2LongRangeCards[i].id} .game__card-power`).innerText) == highestPower && player2LongRangeCards[i].function != 'hero') {
-              player2RejectedCards.push(player2LongRangeCards[i]);
-              player2LongRangeRow.querySelector(`#player2_played_card-${player2LongRangeCards[i].id}`).remove();
-              player2LongRangeCards.splice(i, 1);
-            }
+        let highestPower = 0;
+        player2LongRangeCards.forEach(card => {
+          if (parseInt(player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
+            highestPower = parseInt(player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText);
           }
+        });
+        for (let i = player2LongRangeCards.length - 1; i >= 0; i--) {
+          if (parseInt(player2LongRangeRow.querySelector(`#player2_played_card-${player2LongRangeCards[i].id} .game__card-power`).innerText) == highestPower && player2LongRangeCards[i].function != 'hero') {
+            player2RejectedCards.push(player2LongRangeCards[i]);
+            player2LongRangeRow.querySelector(`#player2_played_card-${player2LongRangeCards[i].id}`).remove();
+            player2LongRangeCards.splice(i, 1);
+          }
+        }
       }
     }
     else if (player == 2) {
       if (range == 1) {
-          let highestPower = 0;
-          player1CloseRangeCards.forEach(card => {
-            if (parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
-              highestPower = parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText)
-            }
-          });
-          for (let i = player1CloseRangeCards.length - 1; i >= 0; i--) {
-            if (parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${player1CloseRangeCards[i].id} .game__card-power`).innerText) == highestPower && player1CloseRangeCards[i].function != 'hero') {
-              player1RejectedCards.push(player1CloseRangeCards[i]);
-              player1CloseRangeRow.querySelector(`#player1_played_card-${player1CloseRangeCards[i].id}`).remove();
-              player1CloseRangeCards.splice(i, 1);
-            }
+        let highestPower = 0;
+        player1CloseRangeCards.forEach(card => {
+          if (parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
+            highestPower = parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText);
           }
+        });
+        for (let i = player1CloseRangeCards.length - 1; i >= 0; i--) {
+          if (parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${player1CloseRangeCards[i].id} .game__card-power`).innerText) == highestPower && player1CloseRangeCards[i].function != 'hero') {
+            player1RejectedCards.push(player1CloseRangeCards[i]);
+            player1CloseRangeRow.querySelector(`#player1_played_card-${player1CloseRangeCards[i].id}`).remove();
+            player1CloseRangeCards.splice(i, 1);
+          }
+        }
       }
       else if (range == 2) {
-          let highestPower = 0;
-          player1LongRangeCards.forEach(card => {
-            if (parseInt(player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
-              highestPower = parseInt(player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText)
-            }
-          });
-          for (let i = player1LongRangeCards.length - 1; i >= 0; i--) {
-            if (parseInt(player1LongRangeRow.querySelector(`#player1_played_card-${player1LongRangeCards[i].id} .game__card-power`).innerText) == highestPower && player1LongRangeCards[i].function != 'hero') {
-              player1RejectedCards.push(player1LongRangeCards[i]);
-              player1LongRangeRow.querySelector(`#player1_played_card-${player1LongRangeCards[i].id}`).remove();
-              player1LongRangeCards.splice(i, 1);
-            }
+        let highestPower = 0;
+        player1LongRangeCards.forEach(card => {
+          if (parseInt(player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
+            highestPower = parseInt(player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText);
           }
+        });
+        for (let i = player1LongRangeCards.length - 1; i >= 0; i--) {
+          if (parseInt(player1LongRangeRow.querySelector(`#player1_played_card-${player1LongRangeCards[i].id} .game__card-power`).innerText) == highestPower && player1LongRangeCards[i].function != 'hero') {
+            player1RejectedCards.push(player1LongRangeCards[i]);
+            player1LongRangeRow.querySelector(`#player1_played_card-${player1LongRangeCards[i].id}`).remove();
+            player1LongRangeCards.splice(i, 1);
+          }
+        }
+      }
+    }
+  };
+
+  const globalScorchFunction = () => {
+    let highestPower = 0;
+
+    player2CloseRangeCards.forEach(card => {
+      if (parseInt(player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
+        highestPower = parseInt(player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText);
+      }
+    });
+    player2LongRangeCards.forEach(card => {
+      if (parseInt(player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
+        highestPower = parseInt(player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText);
+      }
+    });
+    player1CloseRangeCards.forEach(card => {
+      if (parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
+        highestPower = parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText);
+      }
+    });
+    player1LongRangeCards.forEach(card => {
+      if (parseInt(player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText) > highestPower && card.function != 'hero') {
+        highestPower = parseInt(player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText);
+      }
+    });
+
+    for (let i = player2CloseRangeCards.length - 1; i >= 0; i--) {
+      if (parseInt(player2CloseRangeRow.querySelector(`#player2_played_card-${player2CloseRangeCards[i].id} .game__card-power`).innerText) == highestPower && player2CloseRangeCards[i].function != 'hero') {
+        player2RejectedCards.push(player2CloseRangeCards[i]);
+        player2CloseRangeRow.querySelector(`#player2_played_card-${player2CloseRangeCards[i].id}`).remove();
+        player2CloseRangeCards.splice(i, 1);
+      }
+    }
+    for (let i = player2LongRangeCards.length - 1; i >= 0; i--) {
+      if (parseInt(player2LongRangeRow.querySelector(`#player2_played_card-${player2LongRangeCards[i].id} .game__card-power`).innerText) == highestPower && player2LongRangeCards[i].function != 'hero') {
+        player2RejectedCards.push(player2LongRangeCards[i]);
+        player2LongRangeRow.querySelector(`#player2_played_card-${player2LongRangeCards[i].id}`).remove();
+        player2LongRangeCards.splice(i, 1);
+      }
+    }
+    for (let i = player1CloseRangeCards.length - 1; i >= 0; i--) {
+      if (parseInt(player1CloseRangeRow.querySelector(`#player1_played_card-${player1CloseRangeCards[i].id} .game__card-power`).innerText) == highestPower && player1CloseRangeCards[i].function != 'hero') {
+        player1RejectedCards.push(player1CloseRangeCards[i]);
+        player1CloseRangeRow.querySelector(`#player1_played_card-${player1CloseRangeCards[i].id}`).remove();
+        player1CloseRangeCards.splice(i, 1);
+      }
+    }
+    for (let i = player1LongRangeCards.length - 1; i >= 0; i--) {
+      if (parseInt(player1LongRangeRow.querySelector(`#player1_played_card-${player1LongRangeCards[i].id} .game__card-power`).innerText) == highestPower && player1LongRangeCards[i].function != 'hero') {
+        player1RejectedCards.push(player1LongRangeCards[i]);
+        player1LongRangeRow.querySelector(`#player1_played_card-${player1LongRangeCards[i].id}`).remove();
+        player1LongRangeCards.splice(i, 1);
       }
     }
   };
@@ -518,13 +570,19 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               player1LongRangeCards.push(selectedCardObj);
             }
             else if (selectedCardObj.range == 0) {
-              if (document.getElementById(player1SelectedCard).querySelector('.selected-button').value == 1) {
-                selectedRow = player1CloseRangeRow;
-                player1CloseRangeCards.push(selectedCardObj);
+              if (selectedCardObj.function == 'horn') {
+                if (document.getElementById(player1SelectedCard).querySelector('.selected-button').value == 1) {
+                  selectedRow = player1CloseRangeRow;
+                  player1CloseRangeCards.push(selectedCardObj);
+                }
+                else {
+                  selectedRow = player1LongRangeRow;
+                  player1LongRangeCards.push(selectedCardObj);
+                }
               }
               else {
-                selectedRow = player1LongRangeRow;
-                player1LongRangeCards.push(selectedCardObj);
+                selectedRow = player1CloseRangeRow;
+                player1CloseRangeCards.push(selectedCardObj);
               }
             }
           }
@@ -565,6 +623,11 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               }
               else if (selectedCardObj.ability == 'medic' && player1RejectedCards.length >= 1) {
                 document.querySelector(`#player1_played_card-${medicCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
+              }
+              else if (selectedCardObj.function == 'scorch') {
+                document.querySelector(`#player1_played_card-${selectedCardObj.id}`).remove();
+                player1CloseRangeCards.splice(player1CloseRangeCards.findIndex(card => card.id === selectedCardObj.id), 1);
+                globalScorchFunction();
               }
 
               calculateScore();
@@ -648,13 +711,19 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               player2LongRangeCards.push(selectedCardObj);
             }
             else if (selectedCardObj.range == 0) {
-              if (document.getElementById(player2SelectedCard).querySelector('.selected-button').value == 1) {
-                selectedRow = player2CloseRangeRow;
-                player2CloseRangeCards.push(selectedCardObj);
+              if (selectedCardObj.function == 'horn') {
+                if (document.getElementById(player2SelectedCard).querySelector('.selected-button').value == 1) {
+                  selectedRow = player2CloseRangeRow;
+                  player2CloseRangeCards.push(selectedCardObj);
+                }
+                else {
+                  selectedRow = player2LongRangeRow;
+                  player2LongRangeCards.push(selectedCardObj);
+                }
               }
               else {
-                selectedRow = player2LongRangeRow;
-                player2LongRangeCards.push(selectedCardObj);
+                selectedRow = player2CloseRangeRow;
+                player2CloseRangeCards.push(selectedCardObj);
               }
             }
           }
@@ -695,6 +764,11 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               }
               else if (selectedCardObj.ability == 'medic' && player2RejectedCards.length >= 1) {
                 document.querySelector(`#player2_played_card-${medicCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
+              }
+              else if (selectedCardObj.function == 'scorch') {
+                document.querySelector(`#player1_played_card-${selectedCardObj.id}`).remove();
+                player2CloseRangeCards.splice(player1CloseRangeCards.findIndex(card => card.id === selectedCardObj.id), 1);
+                globalScorchFunction();
               }
 
               calculateScore();
