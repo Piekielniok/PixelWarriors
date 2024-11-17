@@ -81,13 +81,11 @@ const cardsSelectFunctions = (loadPage, currentPlayer, factionID, cardsData) => 
       for (let i = 0; i < filteredCards.length; i++) {
         const cardContainer = `
           <div id="card-${filteredCards[i].id}" class="cards-select__card-container pixel-corners3 ${selectedCards.indexOf('card-' + filteredCards[i].id) != -1 ? 'selected-card' : ''}" style="background-image: url('../img/cards/${filteredCards[i].pictureFilename}')">
-            <div class="cards-select__card-function">
-              <span class="cards-select__card-power">${filteredCards[i].power}</span>
+            <div class="cards-select__card-function" style="background-image: url('../img/function/${filteredCards[i].function}.png')">
+              <span class="cards-select__card-power" style="color: ${filteredCards[i].function == 'hero' ? '#ffffff' : '#2b2b2b'}">${filteredCards[i].function == 'std' || filteredCards[i].function == 'hero' ? filteredCards[i].power : ""}</span>
             </div>
-            <div class="cards-select__card-range">
-              ${filteredCards[i].range === 1 ? "bliski" : "daleki"}
-            </div>
-            ${filteredCards[i].ability != "none" ? "<div class='cards-select__card-ability'>" + filteredCards[i].ability + "</div>" : ""}
+            ${filteredCards[i].range != 0 ? `<div class="cards-select__card-range" style="background-image: url('../img/range/`+ filteredCards[i].range + `.png')"></div>` : ""}
+            ${filteredCards[i].ability != "none" ? `<div class="cards-select__card-ability" style="background-image: url('../img/ability/`+ filteredCards[i].ability + `.png')"></div>` : ""}
           </div>
         `;
         cardsContainer.innerHTML += cardContainer;

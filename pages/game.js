@@ -23,12 +23,12 @@ const gameContent = `
         <button id="game_player2_end_round" class="pixel-corners2 next-round-button-gray">Zagraj kartę</button>
       </div>
       <div class="game__player2--rows">
-        <div id="game_player2_long_range_row"></div>
-        <div id="game_player2_close_range_row"></div>
+        <div class="row" id="game_player2_long_range_row"></div>
+        <div class="row" id="game_player2_close_range_row"></div>
       </div>
       <div class="game__player1--rows">
-        <div id="game_player1_close_range_row"></div>
-        <div id="game_player1_long_range_row"></div>
+        <div class="row" id="game_player1_close_range_row"></div>
+        <div class="row" id="game_player1_long_range_row"></div>
       </div>
       <div class="game__player1--info">
         <span id="game_player1_total_score">0</span>
@@ -68,6 +68,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   const player2CloseRangeScore = document.getElementById('game_player2_close_range_score');
   const player1CloseRangeScore = document.getElementById('game_player1_close_range_score');
   const player1LongRangeScore = document.getElementById('game_player1_long_range_score');
+  const player1Rows = document.querySelector('.game__player1--rows');
+  const player2Rows = document.querySelector('.game__player2--rows');
   let player2LongRangeCards = [];
   let player2CloseRangeCards = [];
   let player1CloseRangeCards = [];
@@ -82,6 +84,9 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   let player2SelectedCard = '';
   let player1BlockInput = true;
   let player2BlockInput = true;
+  let player1DecoyActive = false;
+  let player2DecoyActive = false;
+  let player1DecoySelectedCard, player2DecoySelectedCard;
   let activePlayer = 0;
 
   const selectRandomCards = ([...arr], n = 1) => {
@@ -195,8 +200,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         player2LongRangeScoreNumber += card.power;
         player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = card.power;
       }
-      else if (card.function == 'horn' || card.function == 'fog') {
-        player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = 0;
+      else if (card.function == 'horn' || card.function == 'fog' || card.function == 'decoy' || card.function == 'scorch') {
+        player2LongRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = '';
       }
       else {
         player2LongRangeScoreNumber += ((player1Fog == 1 || player2Fog == 1 ? 1 : card.power) + player2LongRangeMorale.length) * player2LongRangeHorn;
@@ -217,8 +222,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         player2CloseRangeScoreNumber += card.power;
         player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = card.power;
       }
-      else if (card.function == 'horn' || card.function == 'frost') {
-        player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = 0;
+      else if (card.function == 'horn' || card.function == 'frost' || card.function == 'decoy' || card.function == 'scorch') {
+        player2CloseRangeRow.querySelector(`#player2_played_card-${card.id} .game__card-power`).innerText = '';
       }
       else {
         player2CloseRangeScoreNumber += ((player1Frost == 1 || player2Frost == 1 ? 1 : card.power) + player2CloseRangeMorale.length) * player2CloseRangeHorn;
@@ -239,8 +244,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         player1CloseRangeScoreNumber += card.power;
         player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = card.power;
       }
-      else if (card.function == 'horn' || card.function == 'frost') {
-        player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = 0;
+      else if (card.function == 'horn' || card.function == 'frost' || card.function == 'decoy' || card.function == 'scorch') {
+        player1CloseRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = '';
       }
       else {
         player1CloseRangeScoreNumber += ((player1Frost == 1 || player2Frost == 1 ? 1 : card.power) + player1CloseRangeMorale.length) * player1CloseRangeHorn;
@@ -261,8 +266,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         player1LongRangeScoreNumber += card.power;
         player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = card.power;
       }
-      else if (card.function == 'horn' || card.function == 'fog') {
-        player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = 0;
+      else if (card.function == 'horn' || card.function == 'fog' || card.function == 'decoy' || card.function == 'scorch') {
+        player1LongRangeRow.querySelector(`#player1_played_card-${card.id} .game__card-power`).innerText = '';
       }
       else {
         player1LongRangeScoreNumber += ((player1Fog == 1 || player2Fog == 1 ? 1 : card.power) + player1LongRangeMorale.length) * player1LongRangeHorn;
@@ -270,25 +275,25 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       }
     });
 
-    // player2LongRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
-    //   player2LongRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
-    // });
-    // player2CloseRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
-    //   player2CloseRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
-    // });
-    // player1CloseRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
-    //   player1CloseRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
-    // });
-    // player1LongRangeRow.querySelectorAll('.game__played-card-container').forEach(card => {
-    //   player1LongRangeScoreNumber += parseInt(card.querySelector('.game__card-power').innerText);
-    // });
-
     player2LongRangeScore.innerText = player2LongRangeScoreNumber;
     player2CloseRangeScore.innerText = player2CloseRangeScoreNumber;
     player1CloseRangeScore.innerText = player1CloseRangeScoreNumber;
     player1LongRangeScore.innerText = player1LongRangeScoreNumber;
     player2TotalScore.innerText = player2LongRangeScoreNumber + player2CloseRangeScoreNumber;
     player1TotalScore.innerText = player1LongRangeScoreNumber + player1CloseRangeScoreNumber;
+
+    if (player1DeckCards.length == 0 && player2DeckCards.length == 0) {
+      if ((player1LongRangeScoreNumber + player1CloseRangeScoreNumber) > (player2LongRangeScoreNumber + player2CloseRangeScoreNumber)) {
+        alert("Wygrał Gracz 1");
+      }
+      else if ((player1LongRangeScoreNumber + player1CloseRangeScoreNumber) < (player2LongRangeScoreNumber + player2CloseRangeScoreNumber)) {
+        alert("Wygrał Gracz 2");
+      }
+      else {
+        alert("Remis");
+      }
+      
+    }
   };
 
   const scorchFunction = (player, range) => {
@@ -481,13 +486,11 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         <div id="player${player}_played_card-${availableCards[i].id}" class="game__played-card-container">
           <div class="game__played-card-inner card-pick-animation">
             <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${availableCards[i].pictureFilename}')">
-              <div class="game__card-function">
-                <span class="game__card-power">${availableCards[i].power}</span>
+              <div class="game__card-function" style="background-image: url('../img/function/${availableCards[i].function}.png')">
+                <span class="game__card-power" style="color: ${availableCards[i].function == 'hero' ? '#ffffff' : '#2b2b2b'}">${availableCards[i].function == 'std' || availableCards[i].function == 'hero' ? availableCards[i].power : ""}</span>
               </div>
-              <div class="game__card-range">
-                ${availableCards[i].range === 1 ? "bliski" : "daleki"}
-              </div>
-              ${availableCards[i].ability != "none" ? "<div class='game__card-ability'>" + availableCards[i].ability + "</div>" : ""}
+              ${availableCards[i].range != 0 ? `<div class="game__card-range" style="background-image: url('../img/range/`+ availableCards[i].range + `.png')"><span class="game__card-range-value" hidden>` + availableCards[i].range + `</span></div>` : ""}
+              ${availableCards[i].ability != "none" ? `<div class="game__card-ability" style="background-image: url('../img/ability/`+ availableCards[i].ability + `.png')"></div>` : ""}
             </div>
             <div class="game__played-card-back pixel-corners3"></div>
           </div>
@@ -532,15 +535,51 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
     }
   };
 
+  const decoyFunction = (player) => {
+    let decoyCardObj;
+    if (player == 1) {
+      if (parseInt(player1DecoySelectedCard.querySelector('.game__card-range-value').innerText) == 1) {
+        decoyCardObj = player1CloseRangeCards.find(({ id }) => id == player1DecoySelectedCard.id.replace('player1_played_card-', ''));
+        document.querySelector(`#player1_played_card-${decoyCardObj.id}`).remove();
+        player1CloseRangeCards.splice(player1CloseRangeCards.findIndex(card => card.id === decoyCardObj.id), 1);
+      }
+      else {
+        decoyCardObj = player1LongRangeCards.find(({ id }) => id == player1DecoySelectedCard.id.replace('player1_played_card-', ''));
+        document.querySelector(`#player1_played_card-${decoyCardObj.id}`).remove();
+        player1LongRangeCards.splice(player1LongRangeCards.findIndex(card => card.id === decoyCardObj.id), 1);
+      }
+
+      player1DeckCards.push(decoyCardObj);
+      refreshPlayer1Cards();
+    }
+    else if (player == 2) {
+      if (parseInt(player2DecoySelectedCard.querySelector('.game__card-range-value').innerText) == 1) {
+        decoyCardObj = player2CloseRangeCards.find(({ id }) => id == player2DecoySelectedCard.id.replace('player2_played_card-', ''));
+        document.querySelector(`#player2_played_card-${decoyCardObj.id}`).remove();
+        player2CloseRangeCards.splice(player2CloseRangeCards.findIndex(card => card.id === decoyCardObj.id), 1);
+      }
+      else {
+        decoyCardObj = player2LongRangeCards.find(({ id }) => id == player2DecoySelectedCard.id.replace('player2_played_card-', ''));
+        document.querySelector(`#player2_played_card-${decoyCardObj.id}`).remove();
+        player2LongRangeCards.splice(player2LongRangeCards.findIndex(card => card.id === decoyCardObj.id), 1);
+      }
+
+      player2DeckCards.push(decoyCardObj);
+      refreshPlayer2Cards();
+    }
+  };
+
   player1EndRoundButton.addEventListener('click', e => {
     if (!player1BlockInput) {
       player1BlockInput = true;
       player2BlockInput = true;
+      player1DecoyActive = false;
+      player1DecoyActive = false;
 
       if (activePlayer == 1) {
         if (player1SelectedCard != '') {
           const selectedCardObj = player1DeckCards.find(({ id }) => id == player1SelectedCard.replace('player1_card-', ''));
-          let selectedRow, medicCardSelectedRow;
+          let selectedRow, medicCardSelectedRow, medicCardIndex;
           let medicCardObj = {};
 
           if (selectedCardObj.ability == 'spy') {
@@ -561,7 +600,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
           }
           else {
             if (selectedCardObj.ability == 'medic' && player1RejectedCards.length >= 1) {
-              const medicCardIndex = selectRandomCards([...Array(player1RejectedCards.length).keys()], 1)[0];
+              medicCardIndex = selectRandomCards([...Array(player1RejectedCards.length).keys()], 1)[0];
               medicCardObj = player1RejectedCards[medicCardIndex];
   
               if (medicCardObj.range == 1) {
@@ -577,20 +616,16 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
                 <div id="player1_played_card-${medicCardObj.id}" class="game__played-card-container">
                   <div class="game__played-card-inner card-pick-animation">
                     <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${medicCardObj.pictureFilename}')">
-                      <div class="game__card-function">
-                        <span class="game__card-power">${medicCardObj.power}</span>
+                      <div class="game__card-function" style="background-image: url('../img/function/${medicCardObj.function}.png')">
+                        <span class="game__card-power" style="color: ${medicCardObj.function == 'hero' ? '#ffffff' : '#2b2b2b'}">${medicCardObj.function == 'std' || medicCardObj.function == 'hero' ? medicCardObj.power : ""}</span>
                       </div>
-                      <div class="game__card-range">
-                        ${medicCardObj.range === 1 ? "bliski" : "daleki"}
-                      </div>
-                      ${medicCardObj.ability != "none" ? "<div class='game__card-ability'>" + medicCardObj.ability + "</div>" : ""}
+                      ${medicCardObj.range != 0 ? `<div class="game__card-range" style="background-image: url('../img/range/`+ medicCardObj.range + `.png')"><span class="game__card-range-value" hidden>` + medicCardObj.range + `</span></div>` : ""}
+                      ${medicCardObj.ability != "none" ? `<div class="game__card-ability" style="background-image: url('../img/ability/`+ medicCardObj.ability + `.png')"></div>` : ""}
                     </div>
                     <div class="game__played-card-back pixel-corners3"></div>
                   </div>
                 </div>
               `;
-  
-              player1RejectedCards.splice(medicCardIndex, 1);
             }
 
             if (selectedCardObj.range == 1) {
@@ -612,6 +647,16 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
                   player1LongRangeCards.push(selectedCardObj);
                 }
               }
+              else if (selectedCardObj.function == 'decoy') {
+                if (player1DecoySelectedCard == null || parseInt(player1DecoySelectedCard.querySelector('.game__card-range-value').innerText) == 1) {
+                  selectedRow = player1CloseRangeRow;
+                  player1CloseRangeCards.push(selectedCardObj);
+                }
+                else {
+                  selectedRow = player1LongRangeRow;
+                  player1LongRangeCards.push(selectedCardObj);
+                }
+              }
               else {
                 selectedRow = player1CloseRangeRow;
                 player1CloseRangeCards.push(selectedCardObj);
@@ -623,13 +668,11 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               <div id="player${selectedCardObj.ability == 'spy' ? 2 : 1}_played_card-${selectedCardObj.id}" class="game__played-card-container">
                 <div class="game__played-card-inner card-pick-animation">
                   <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${selectedCardObj.pictureFilename}')">
-                    <div class="game__card-function">
-                      <span class="game__card-power">${selectedCardObj.power}</span>
+                    <div class="game__card-function" style="background-image: url('../img/function/${selectedCardObj.function}.png')">
+                      <span class="game__card-power" style="color: ${selectedCardObj.function == 'hero' ? '#ffffff' : '#2b2b2b'}">${selectedCardObj.function == 'std' || selectedCardObj.function == 'hero' ? selectedCardObj.power : ""}</span>
                     </div>
-                    <div class="game__card-range">
-                      ${selectedCardObj.range === 1 ? "bliski" : "daleki"}
-                    </div>
-                    ${selectedCardObj.ability != "none" ? "<div class='game__card-ability'>" + selectedCardObj.ability + "</div>" : ""}
+                    ${selectedCardObj.range != 0 ? `<div class="game__card-range" style="background-image: url('../img/range/`+ selectedCardObj.range + `.png')"><span class="game__card-range-value" hidden>` + selectedCardObj.range + `</span></div>` : ""}
+                    ${selectedCardObj.ability != "none" ? `<div class="game__card-ability" style="background-image: url('../img/ability/`+ selectedCardObj.ability + `.png')"></div>` : ""}
                   </div>
                   <div class="game__played-card-back pixel-corners3"></div>
                 </div>
@@ -655,6 +698,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               }
               else if (selectedCardObj.ability == 'medic' && player1RejectedCards.length >= 1) {
                 document.querySelector(`#player1_played_card-${medicCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
+                player1RejectedCards.splice(medicCardIndex, 1);
               }
               else if (selectedCardObj.function == 'scorch') {
                 document.querySelector(`#player1_played_card-${selectedCardObj.id}`).remove();
@@ -665,6 +709,9 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
                 document.querySelector(`#player1_played_card-${selectedCardObj.id}`).remove();
                 player1CloseRangeCards.splice(player1CloseRangeCards.findIndex(card => card.id === selectedCardObj.id), 1);
                 clearSkyFunction();
+              }
+              else if (selectedCardObj.function == 'decoy') {
+                decoyFunction(1);
               }
 
               calculateScore();
@@ -686,7 +733,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       if (activePlayer == 2) {
         if (player2SelectedCard != '') {
           const selectedCardObj = player2DeckCards.find(({ id }) => id == player2SelectedCard.replace('player2_card-', ''));
-          let selectedRow, medicCardSelectedRow;
+          let selectedRow, medicCardSelectedRow, medicCardIndex;
           let medicCardObj = {};
 
           if (selectedCardObj.ability == 'spy') {
@@ -707,7 +754,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
           }
           else {
             if (selectedCardObj.ability == 'medic' && player2RejectedCards.length >= 1) {
-              const medicCardIndex = selectRandomCards([...Array(player2RejectedCards.length).keys()], 1)[0];
+              medicCardIndex = selectRandomCards([...Array(player2RejectedCards.length).keys()], 1)[0];
               medicCardObj = player2RejectedCards[medicCardIndex];
   
               if (medicCardObj.range == 1) {
@@ -723,20 +770,16 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
                 <div id="player2_played_card-${medicCardObj.id}" class="game__played-card-container">
                   <div class="game__played-card-inner card-pick-animation">
                     <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${medicCardObj.pictureFilename}')">
-                      <div class="game__card-function">
-                        <span class="game__card-power">${medicCardObj.power}</span>
+                      <div class="game__card-function" style="background-image: url('../img/function/${medicCardObj.function}.png')">
+                        <span class="game__card-power" style="color: ${medicCardObj.function == 'hero' ? '#ffffff' : '#2b2b2b'}">${medicCardObj.function == 'std' || medicCardObj.function == 'hero' ? medicCardObj.power : ""}</span>
                       </div>
-                      <div class="game__card-range">
-                        ${medicCardObj.range === 1 ? "bliski" : "daleki"}
-                      </div>
-                      ${medicCardObj.ability != "none" ? "<div class='game__card-ability'>" + medicCardObj.ability + "</div>" : ""}
+                      ${medicCardObj.range != 0 ? `<div class="game__card-range" style="background-image: url('../img/range/`+ medicCardObj.range + `.png')"><span class="game__card-range-value" hidden>` + medicCardObj.range + `</span></div>` : ""}
+                      ${medicCardObj.ability != "none" ? `<div class="game__card-ability" style="background-image: url('../img/ability/`+ medicCardObj.ability + `.png')"></div>` : ""}
                     </div>
                     <div class="game__played-card-back pixel-corners3"></div>
                   </div>
                 </div>
               `;
-  
-              player2RejectedCards.splice(medicCardIndex, 1);
             }
 
             if (selectedCardObj.range == 1) {
@@ -758,6 +801,16 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
                   player2LongRangeCards.push(selectedCardObj);
                 }
               }
+              else if (selectedCardObj.function == 'decoy') {
+                if (player2DecoySelectedCard == null || parseInt(player2DecoySelectedCard.querySelector('.game__card-range-value').innerText) == 1) {
+                  selectedRow = player2CloseRangeRow;
+                  player2CloseRangeCards.push(selectedCardObj);
+                }
+                else {
+                  selectedRow = player2LongRangeRow;
+                  player2LongRangeCards.push(selectedCardObj);
+                }
+              }
               else {
                 selectedRow = player2CloseRangeRow;
                 player2CloseRangeCards.push(selectedCardObj);
@@ -769,13 +822,11 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               <div id="player${selectedCardObj.ability == 'spy' ? 1 : 2}_played_card-${selectedCardObj.id}" class="game__played-card-container">
                 <div class="game__played-card-inner card-pick-animation">
                   <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${selectedCardObj.pictureFilename}')">
-                    <div class="game__card-function">
-                      <span class="game__card-power">${selectedCardObj.power}</span>
+                    <div class="game__card-function" style="background-image: url('../img/function/${selectedCardObj.function}.png')">
+                      <span class="game__card-power" style="color: ${selectedCardObj.function == 'hero' ? '#ffffff' : '#2b2b2b'}">${selectedCardObj.function == 'std' || selectedCardObj.function == 'hero' ? selectedCardObj.power : ""}</span>
                     </div>
-                    <div class="game__card-range">
-                      ${selectedCardObj.range === 1 ? "bliski" : "daleki"}
-                    </div>
-                    ${selectedCardObj.ability != "none" ? "<div class='game__card-ability'>" + selectedCardObj.ability + "</div>" : ""}
+                    ${selectedCardObj.range != 0 ? `<div class="game__card-range" style="background-image: url('../img/range/`+ selectedCardObj.range + `.png')"><span class="game__card-range-value" hidden>` + selectedCardObj.range + `</span></div>` : ""}
+                    ${selectedCardObj.ability != "none" ? `<div class="game__card-ability" style="background-image: url('../img/ability/`+ selectedCardObj.ability + `.png')"></div>` : ""}
                   </div>
                   <div class="game__played-card-back pixel-corners3"></div>
                 </div>
@@ -801,16 +852,20 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               }
               else if (selectedCardObj.ability == 'medic' && player2RejectedCards.length >= 1) {
                 document.querySelector(`#player2_played_card-${medicCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
+                player2RejectedCards.splice(medicCardIndex, 1);
               }
               else if (selectedCardObj.function == 'scorch') {
-                document.querySelector(`#player1_played_card-${selectedCardObj.id}`).remove();
-                player2CloseRangeCards.splice(player1CloseRangeCards.findIndex(card => card.id === selectedCardObj.id), 1);
+                document.querySelector(`#player2_played_card-${selectedCardObj.id}`).remove();
+                player2CloseRangeCards.splice(player2CloseRangeCards.findIndex(card => card.id === selectedCardObj.id), 1);
                 globalScorchFunction();
               }
               else if (selectedCardObj.function == 'clear') {
                 document.querySelector(`#player2_played_card-${selectedCardObj.id}`).remove();
                 player2CloseRangeCards.splice(player2CloseRangeCards.findIndex(card => card.id === selectedCardObj.id), 1);
                 clearSkyFunction();
+              }
+              else if (selectedCardObj.function == 'decoy') {
+                decoyFunction(2);
               }
 
               calculateScore();
@@ -830,14 +885,13 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
     for (let i = 0; i < player1DeckCards.length; i++) {
       player1DrawerCards.innerHTML += `
         <div id="player1_card-${player1DeckCards[i].id}" class="game__card-container pixel-corners3 ${player1SelectedCard == 'player1_card-' + player1DeckCards[i].id ? 'selected-card' : ''}" style="background-image: url('../img/cards/${player1DeckCards[i].pictureFilename}')">
-          <div class="game__card-function">
-            <span class="game__card-power">${player1DeckCards[i].power}</span>
+          <div class="game__card-function" style="background-image: url('../img/function/${player1DeckCards[i].function}.png')">
+            <span class="game__card-power" style="color: ${player1DeckCards[i].function == 'hero' ? '#ffffff' : '#2b2b2b'}">${player1DeckCards[i].function == 'std' || player1DeckCards[i].function == 'hero' ? player1DeckCards[i].power : ""}</span>
           </div>
-          <div class="game__card-range">
-            ${player1DeckCards[i].range === 1 ? "bliski" : "daleki"}
-          </div>
-          ${player1DeckCards[i].ability != "none" ? "<div class='game__card-ability'>" + player1DeckCards[i].ability + "</div>" : ""}
+          ${player1DeckCards[i].range != 0 ? `<div class="game__card-range" style="background-image: url('../img/range/`+ player1DeckCards[i].range + `.png')"><span class="game__card-range-value" hidden>` + player1DeckCards[i].range + `</span></div>` : ""}
+          ${player1DeckCards[i].ability != "none" ? `<div class="game__card-ability" style="background-image: url('../img/ability/`+ player1DeckCards[i].ability + `.png')"></div>` : ""}
           ${player1DeckCards[i].function == 'horn' ? "<div class='game__card-button-horn-container'><button class='selected-button' value='1'>Bliski</button><button value='2'>Daleki</button></div>" : ""}
+          ${player1DeckCards[i].function == 'decoy' ? "<div class='game__card-button-decoy-container'><button class='decoy-button'>Wybierz kartę</button></div>" : ""}
         </div>
       `;
     }
@@ -849,14 +903,13 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
     for (let i = 0; i < player2DeckCards.length; i++) {
       player2DrawerCards.innerHTML += `
         <div id="player2_card-${player2DeckCards[i].id}" class="game__card-container pixel-corners3 ${player2SelectedCard == 'player2_card-' + player2DeckCards[i].id ? 'selected-card' : ''}" style="background-image: url('../img/cards/${player2DeckCards[i].pictureFilename}')">
-          <div class="game__card-function">
-            <span class="game__card-power">${player2DeckCards[i].power}</span>
+          <div class="game__card-function" style="background-image: url('../img/function/${player2DeckCards[i].function}.png')">
+            <span class="game__card-power" style="color: ${player2DeckCards[i].function == 'hero' ? '#ffffff' : '#2b2b2b'}">${player2DeckCards[i].function == 'std' || player2DeckCards[i].function == 'hero' ? player2DeckCards[i].power : ""}</span>
           </div>
-          <div class="game__card-range">
-            ${player2DeckCards[i].range === 1 ? "bliski" : "daleki"}
-          </div>
-          ${player2DeckCards[i].ability != "none" ? "<div class='game__card-ability'>" + player2DeckCards[i].ability + "</div>" : ""}
+          ${player2DeckCards[i].range != 0 ? `<div class="game__card-range" style="background-image: url('../img/range/`+ player2DeckCards[i].range + `.png')"><span class="game__card-range-value" hidden>` + player2DeckCards[i].range + `</span></div>` : ""}
+          ${player2DeckCards[i].ability != "none" ? `<div class="game__card-ability" style="background-image: url('../img/ability/`+ player2DeckCards[i].ability + `.png')"></div>` : ""}
           ${player2DeckCards[i].function == 'horn' ? "<div class='game__card-button-horn-container'><button class='selected-button' value='1'>Bliski</button><button value='2'>Daleki</button></div>" : ""}
+          ${player2DeckCards[i].function == 'decoy' ? "<div class='game__card-button-decoy-container'><button class='decoy-button'>Wybierz kartę</button></div>" : ""}
         </div>
       `;
     }
@@ -890,7 +943,10 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
     
     if (player1SelectedCard == cardID) {
       if (e.target.nodeName == 'BUTTON') {
-        if (Array.from(e.target.classList)[0] != 'selected-button') {
+        if (Array.from(e.target.classList)[0] == 'decoy-button') {
+          player1DecoyActive = true;
+        }
+        else if (Array.from(e.target.classList)[0] != 'selected-button') {
           e.target.closest('.game__card-button-horn-container').querySelector('.selected-button').classList.remove('selected-button');
           e.target.classList.add('selected-button');
         }
@@ -907,7 +963,10 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
     
     if (player2SelectedCard == cardID) {
       if (e.target.nodeName == 'BUTTON') {
-        if (Array.from(e.target.classList)[0] != 'selected-button') {
+        if (Array.from(e.target.classList)[0] == 'decoy-button') {
+          player2DecoyActive = true;
+        }
+        else if (Array.from(e.target.classList)[0] != 'selected-button') {
           e.target.closest('.game__card-button-horn-container').querySelector('.selected-button').classList.remove('selected-button');
           e.target.classList.add('selected-button');
         }
@@ -919,11 +978,37 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
     }
   });
 
-  // gameContainer.innerHTML += `<span>Zaczyna gracz - ${startingPlayer}</span>`;
-  // gameContainer.innerHTML += `<span>Frakcja gracz 1 - ${player1Faction}</span>`;
-  // gameContainer.innerHTML += `<span>Frakcja gracz 2 - ${player2Faction}</span>`;
-  // gameContainer.innerHTML += `<span>Talia gracz 1 - ${player1Cards}</span>`;
-  // gameContainer.innerHTML += `<span>Talia gracz 2 - ${player2Cards}</span>`;
-};
+  player1Rows.addEventListener('click', e => {
+    const card = e.target.closest('.game__played-card-container');
+
+    if (player1DecoyActive) {
+      player1DecoySelectedCard = card;
+
+      if (e.target.closest('.game__player1--rows').querySelector('.selected-card') == null) {
+        e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList.add('selected-card');
+      }
+      else if (Array.from(e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList)[2] != 'selected-card') {
+        e.target.closest('.game__player1--rows').querySelector('.selected-card').classList.remove('selected-card');
+        e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList.add('selected-card');
+      }
+    }
+  });
+
+  player2Rows.addEventListener('click', e => {
+    const card = e.target.closest('.game__played-card-container');
+
+    if (player2DecoyActive) {
+      player2DecoySelectedCard = card;
+
+      if (e.target.closest('.game__player2--rows').querySelector('.selected-card') == null) {
+        e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList.add('selected-card');
+      }
+      else if (Array.from(e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList)[2] != 'selected-card') {
+        e.target.closest('.game__player2--rows').querySelector('.selected-card').classList.remove('selected-card');
+        e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList.add('selected-card');
+      }
+    }
+  });
+}
 
 export { gameContent, gameFunctions };
