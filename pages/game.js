@@ -505,6 +505,33 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
     }
   };
 
+  const clearSkyFunction = () => {
+    for (let i = player2CloseRangeCards.length - 1; i >= 0; i--) {
+      if (player2CloseRangeCards[i].function == 'frost') {
+        player2CloseRangeRow.querySelector(`#player2_played_card-${player2CloseRangeCards[i].id}`).remove();
+        player2CloseRangeCards.splice(i, 1);
+      }
+    }
+    for (let i = player2LongRangeCards.length - 1; i >= 0; i--) {
+      if (player2LongRangeCards[i].function == 'fog') {
+        player2LongRangeRow.querySelector(`#player2_played_card-${player2LongRangeCards[i].id}`).remove();
+        player2LongRangeCards.splice(i, 1);
+      }
+    }
+    for (let i = player1CloseRangeCards.length - 1; i >= 0; i--) {
+      if (player1CloseRangeCards[i].function == 'frost') {
+        player1CloseRangeRow.querySelector(`#player1_played_card-${player1CloseRangeCards[i].id}`).remove();
+        player1CloseRangeCards.splice(i, 1);
+      }
+    }
+    for (let i = player1LongRangeCards.length - 1; i >= 0; i--) {
+      if (player1LongRangeCards[i].function == 'fog') {
+        player1LongRangeRow.querySelector(`#player1_played_card-${player1LongRangeCards[i].id}`).remove();
+        player1LongRangeCards.splice(i, 1);
+      }
+    }
+  };
+
   player1EndRoundButton.addEventListener('click', e => {
     if (!player1BlockInput) {
       player1BlockInput = true;
@@ -633,6 +660,11 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
                 document.querySelector(`#player1_played_card-${selectedCardObj.id}`).remove();
                 player1CloseRangeCards.splice(player1CloseRangeCards.findIndex(card => card.id === selectedCardObj.id), 1);
                 globalScorchFunction();
+              }
+              else if (selectedCardObj.function == 'clear') {
+                document.querySelector(`#player1_played_card-${selectedCardObj.id}`).remove();
+                player1CloseRangeCards.splice(player1CloseRangeCards.findIndex(card => card.id === selectedCardObj.id), 1);
+                clearSkyFunction();
               }
 
               calculateScore();
@@ -774,6 +806,11 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
                 document.querySelector(`#player1_played_card-${selectedCardObj.id}`).remove();
                 player2CloseRangeCards.splice(player1CloseRangeCards.findIndex(card => card.id === selectedCardObj.id), 1);
                 globalScorchFunction();
+              }
+              else if (selectedCardObj.function == 'clear') {
+                document.querySelector(`#player2_played_card-${selectedCardObj.id}`).remove();
+                player2CloseRangeCards.splice(player2CloseRangeCards.findIndex(card => card.id === selectedCardObj.id), 1);
+                clearSkyFunction();
               }
 
               calculateScore();
