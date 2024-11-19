@@ -1,10 +1,10 @@
 const gameContent = `
   <div class="game">
     <div class="game__player2--drawer">
-      <img src="../img/ui/caret-down-solid.svg" id="game_player2_show_drawer">
+      <img src="https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/ui/caret-down-solid.svg" id="game_player2_show_drawer">
       <div id="game_player2_drawer_container">
         <div class="game__player2--drawer">
-          <img src="../img/ui/caret-up-solid.svg" id="game_player2_hide_drawer">
+          <img src="https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/ui/caret-up-solid.svg" id="game_player2_hide_drawer">
         </div>
         <div id="player2_drawer_cards"></div>
       </div>
