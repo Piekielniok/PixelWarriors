@@ -58,7 +58,7 @@ const loadPage = (page = 'home', ...args) => {
 };
 
 const fetchCardsData = () => {
-	fetch("../data/cards.json")
+	fetch("https://piekielniok.github.io/PixelWarriors/data/cards.json")
 		.then((res) => {
 			if (!res.ok) {
 				throw new Error
