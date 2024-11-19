@@ -282,18 +282,19 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
     player2TotalScore.innerText = player2LongRangeScoreNumber + player2CloseRangeScoreNumber;
     player1TotalScore.innerText = player1LongRangeScoreNumber + player1CloseRangeScoreNumber;
 
-    if (player1DeckCards.length == 0 && player2DeckCards.length == 0) {
-      if ((player1LongRangeScoreNumber + player1CloseRangeScoreNumber) > (player2LongRangeScoreNumber + player2CloseRangeScoreNumber)) {
-        alert("Wygrał Gracz 1");
+    setTimeout(() => {
+      if (player1DeckCards.length == 0 && player2DeckCards.length == 0) {
+        if ((player1LongRangeScoreNumber + player1CloseRangeScoreNumber) > (player2LongRangeScoreNumber + player2CloseRangeScoreNumber)) {
+          alert("Wygrał Gracz 1 z " + (player1LongRangeScoreNumber + player1CloseRangeScoreNumber) + "pkt");
+        }
+        else if ((player1LongRangeScoreNumber + player1CloseRangeScoreNumber) < (player2LongRangeScoreNumber + player2CloseRangeScoreNumber)) {
+          alert("Wygrał Gracz 2 z " + (player2LongRangeScoreNumber + player2CloseRangeScoreNumber) + "pkt");
+        }
+        else {
+          alert("Remis");
+        }
       }
-      else if ((player1LongRangeScoreNumber + player1CloseRangeScoreNumber) < (player2LongRangeScoreNumber + player2CloseRangeScoreNumber)) {
-        alert("Wygrał Gracz 2");
-      }
-      else {
-        alert("Remis");
-      }
-      
-    }
+    }, 500);    
   };
 
   const scorchFunction = (player, range) => {
@@ -483,8 +484,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       }
 
       selectedRow.innerHTML += `
-        <div id="player${player}_played_card-${availableCards[i].id}" class="game__played-card-container">
-          <div class="game__played-card-inner card-pick-animation">
+        <div id="player${player}_played_card-${availableCards[i].id}" class="game__played-card-container" style="position: absolute; height: ${Math.round(selectedRow.getBoundingClientRect().height * 100) / 100}px; left: calc(50% - ${(Math.round(selectedRow.getBoundingClientRect().height * 100) / 100) / 3}px${player == 1 ? '+ 1rem' : ''})">
+          <div class="game__played-card-inner ${selectedRow.id == 'game_player' + player + '_close_range_row' ? 'close-card-pick-animation' : 'long-card-pick-animation'}">
             <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${availableCards[i].pictureFilename}')">
               <div class="game__card-function" style="background-image: url('../img/function/${availableCards[i].function}.png')">
                 <span class="game__card-power" style="color: ${availableCards[i].function == 'hero' ? '#ffffff' : '#2b2b2b'}">${availableCards[i].function == 'std' || availableCards[i].function == 'hero' ? availableCards[i].power : ""}</span>
@@ -500,11 +501,21 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       selectedRow.style.zIndex = 2;
 
       setTimeout(() => {
-        document.querySelector(`#player${player}_played_card-${availableCards[i].id} .game__played-card-inner`).classList.remove('card-pick-animation');
+        document.querySelector(`#player${player}_played_card-${availableCards[i].id} .game__played-card-inner`).classList.remove(selectedRow.id == `game_player${player}_close_range_row` ? 'close-card-pick-animation' : 'long-card-pick-animation');
+        document.querySelector(`#player${player}_played_card-${availableCards[i].id}`).style.position = 'static';
+        if (document.querySelectorAll(`#${selectedRow.id} .game__played-card-container`).length > 1) {
+          document.querySelector(`#${selectedRow.id} .game__played-card-container:nth-last-child(2)`).style.marginRight = 0;
+          document.querySelector(`#${selectedRow.id} .game__played-card-container:nth-last-child(${document.querySelectorAll(`#${selectedRow.id} .game__played-card-container`).length})`).style.marginRight = 0;
+        }
         selectedRow.style.removeProperty('z-index');
+        if (selectedRow.id == 'game_player2_close_range_row' || selectedRow.id == 'game_player2_long_range_row') {
+          if (document.querySelectorAll(`#${selectedRow.id} .game__played-card-container`).length > 3) {
+            selectedRow.style.overflowX = 'auto';
+          }
+        }
         
         calculateScore();
-      }, 2000);
+      }, 1700);
     }
   };
 
@@ -613,8 +624,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               }
   
               medicCardSelectedRow.innerHTML += `
-                <div id="player1_played_card-${medicCardObj.id}" class="game__played-card-container">
-                  <div class="game__played-card-inner card-pick-animation">
+                <div id="player1_played_card-${medicCardObj.id}" class="game__played-card-container" style="position: absolute; height: ${Math.round(medicCardSelectedRow.getBoundingClientRect().height * 100) / 100}px; left: calc(50% - ${(Math.round(medicCardSelectedRow.getBoundingClientRect().height * 100) / 100) / 3}px + 1rem)">
+                  <div class="game__played-card-inner ${medicCardSelectedRow.id == 'game_player1_close_range_row' ? 'close-card-pick-animation' : 'long-card-pick-animation'}">
                     <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${medicCardObj.pictureFilename}')">
                       <div class="game__card-function" style="background-image: url('../img/function/${medicCardObj.function}.png')">
                         <span class="game__card-power" style="color: ${medicCardObj.function == 'hero' ? '#ffffff' : '#2b2b2b'}">${medicCardObj.function == 'std' || medicCardObj.function == 'hero' ? medicCardObj.power : ""}</span>
@@ -665,8 +676,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
           }
     
           selectedRow.innerHTML += `
-              <div id="player${selectedCardObj.ability == 'spy' ? 2 : 1}_played_card-${selectedCardObj.id}" class="game__played-card-container">
-                <div class="game__played-card-inner card-pick-animation">
+              <div id="player${selectedCardObj.ability == 'spy' ? 2 : 1}_played_card-${selectedCardObj.id}" class="game__played-card-container" style="position: absolute; height: ${Math.round(selectedRow.getBoundingClientRect().height * 100) / 100}px; left: calc(50% - ${(Math.round(selectedRow.getBoundingClientRect().height * 100) / 100) / 3}px + 1rem)">
+                <div class="game__played-card-inner ${selectedRow.id == 'game_player1_close_range_row' ? 'close-card-pick-animation' : 'long-card-pick-animation'}">
                   <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${selectedCardObj.pictureFilename}')">
                     <div class="game__card-function" style="background-image: url('../img/function/${selectedCardObj.function}.png')">
                       <span class="game__card-power" style="color: ${selectedCardObj.function == 'hero' ? '#ffffff' : '#2b2b2b'}">${selectedCardObj.function == 'std' || selectedCardObj.function == 'hero' ? selectedCardObj.power : ""}</span>
@@ -687,7 +698,11 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
             refreshPlayer1Cards();
     
             setTimeout(() => {
-              document.querySelector(`#player${selectedCardObj.ability == 'spy' ? 2 : 1}_played_card-${selectedCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
+              document.querySelector(`#player${selectedCardObj.ability == 'spy' ? 2 : 1}_played_card-${selectedCardObj.id} .game__played-card-inner`).classList.remove(selectedRow.id == 'game_player1_close_range_row' ? 'close-card-pick-animation' : 'long-card-pick-animation');
+              document.querySelector(`#player${selectedCardObj.ability == 'spy' ? 2 : 1}_played_card-${selectedCardObj.id}`).style.position = 'static';
+              if (document.querySelectorAll(`#${selectedRow.id} .game__played-card-container`).length > 1) {
+                document.querySelector(`#${selectedRow.id} .game__played-card-container:nth-last-child(2)`).style.marginRight = 0;
+              }
               selectedRow.style.removeProperty('z-index');
 
               if (selectedCardObj.ability == 'scorch') {
@@ -697,7 +712,11 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
                 musterFunction(1, selectedCardObj);
               }
               else if (selectedCardObj.ability == 'medic' && player1RejectedCards.length >= 1) {
-                document.querySelector(`#player1_played_card-${medicCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
+                document.querySelector(`#player1_played_card-${medicCardObj.id} .game__played-card-inner`).classList.remove(medicCardSelectedRow.id == 'game_player1_close_range_row' ? 'close-card-pick-animation' : 'long-card-pick-animation');
+                document.querySelector(`#player1_played_card-${medicCardObj.id}`).style.position = 'static';
+                if (document.querySelectorAll(`#${medicCardSelectedRow.id} .game__played-card-container`).length > 1) {
+                  document.querySelector(`#${medicCardSelectedRow.id} .game__played-card-container:nth-last-child(2)`).style.marginRight = 0;
+                }
                 player1RejectedCards.splice(medicCardIndex, 1);
               }
               else if (selectedCardObj.function == 'scorch') {
@@ -716,7 +735,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
 
               calculateScore();
               changePlayer();
-            }, 2000);
+            }, 1700);
         }
         else {
           changePlayer();
@@ -767,8 +786,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               }
   
               medicCardSelectedRow.innerHTML += `
-                <div id="player2_played_card-${medicCardObj.id}" class="game__played-card-container">
-                  <div class="game__played-card-inner card-pick-animation">
+                <div id="player2_played_card-${medicCardObj.id}" class="game__played-card-container" style="position: absolute; height: ${Math.round(medicCardSelectedRow.getBoundingClientRect().height * 100) / 100}px; left: calc(50% - ${(Math.round(medicCardSelectedRow.getBoundingClientRect().height * 100) / 100) / 3}px)">
+                  <div class="game__played-card-inner ${medicCardSelectedRow.id == 'game_player2_close_range_row' ? 'close-card-pick-animation' : 'long-card-pick-animation'}">
                     <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${medicCardObj.pictureFilename}')">
                       <div class="game__card-function" style="background-image: url('../img/function/${medicCardObj.function}.png')">
                         <span class="game__card-power" style="color: ${medicCardObj.function == 'hero' ? '#ffffff' : '#2b2b2b'}">${medicCardObj.function == 'std' || medicCardObj.function == 'hero' ? medicCardObj.power : ""}</span>
@@ -819,8 +838,8 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
           }
     
           selectedRow.innerHTML += `
-              <div id="player${selectedCardObj.ability == 'spy' ? 1 : 2}_played_card-${selectedCardObj.id}" class="game__played-card-container">
-                <div class="game__played-card-inner card-pick-animation">
+              <div id="player${selectedCardObj.ability == 'spy' ? 1 : 2}_played_card-${selectedCardObj.id}" class="game__played-card-container" style="position: absolute; height: ${Math.round(selectedRow.getBoundingClientRect().height * 100) / 100}px; left: calc(50% - ${(Math.round(selectedRow.getBoundingClientRect().height * 100) / 100) / 3}px)">
+                <div class="game__played-card-inner ${selectedRow.id == 'game_player2_close_range_row' ? 'close-card-pick-animation' : 'long-card-pick-animation'}">
                   <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${selectedCardObj.pictureFilename}')">
                     <div class="game__card-function" style="background-image: url('../img/function/${selectedCardObj.function}.png')">
                       <span class="game__card-power" style="color: ${selectedCardObj.function == 'hero' ? '#ffffff' : '#2b2b2b'}">${selectedCardObj.function == 'std' || selectedCardObj.function == 'hero' ? selectedCardObj.power : ""}</span>
@@ -841,8 +860,15 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
             refreshPlayer2Cards();
     
             setTimeout(() => {
-              document.querySelector(`#player${selectedCardObj.ability == 'spy' ? 1 : 2}_played_card-${selectedCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
+              document.querySelector(`#player${selectedCardObj.ability == 'spy' ? 1 : 2}_played_card-${selectedCardObj.id} .game__played-card-inner`).classList.remove(selectedRow.id == 'game_player2_close_range_row' ? 'close-card-pick-animation' : 'long-card-pick-animation');
+              document.querySelector(`#player${selectedCardObj.ability == 'spy' ? 1 : 2}_played_card-${selectedCardObj.id}`).style.position = 'static';
+              if (document.querySelectorAll(`#${selectedRow.id} .game__played-card-container`).length > 1) {
+                document.querySelector(`#${selectedRow.id} .game__played-card-container:nth-last-child(2)`).style.marginRight = 0;
+              }
               selectedRow.style.removeProperty('z-index');
+              if (document.querySelectorAll(`#${selectedRow.id} .game__played-card-container`).length > 3) {
+                selectedRow.style.overflowX = 'auto';
+              }
 
               if (selectedCardObj.ability == 'scorch') {
                 scorchFunction(2, selectedCardObj.range);
@@ -851,7 +877,14 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
                 musterFunction(2, selectedCardObj);
               }
               else if (selectedCardObj.ability == 'medic' && player2RejectedCards.length >= 1) {
-                document.querySelector(`#player2_played_card-${medicCardObj.id} .game__played-card-inner`).classList.remove('card-pick-animation');
+                document.querySelector(`#player2_played_card-${medicCardObj.id} .game__played-card-inner`).classList.remove(medicCardSelectedRow.id == 'game_player2_close_range_row' ? 'close-card-pick-animation' : 'long-card-pick-animation');
+                document.querySelector(`#player2_played_card-${medicCardObj.id}`).style.position = 'static';
+                if (document.querySelectorAll(`#${medicCardSelectedRow.id} .game__played-card-container`).length > 1) {
+                  document.querySelector(`#${medicCardSelectedRow.id} .game__played-card-container:nth-last-child(2)`).style.marginRight = 0;
+                }
+                if (document.querySelectorAll(`#${medicCardSelectedRow.id} .game__played-card-container`).length > 3) {
+                  medicCardSelectedRow.style.overflowX = 'auto';
+                }
                 player2RejectedCards.splice(medicCardIndex, 1);
               }
               else if (selectedCardObj.function == 'scorch') {
@@ -870,7 +903,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
 
               calculateScore();
               changePlayer();
-            }, 2000);
+            }, 1700);
         }
         else {
           changePlayer();
@@ -939,73 +972,85 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
   });
 
   player1DrawerCards.addEventListener('click', e => {
-    const cardID = e.target.closest('.game__card-container').id;
-    
-    if (player1SelectedCard == cardID) {
-      if (e.target.nodeName == 'BUTTON') {
-        if (Array.from(e.target.classList)[0] == 'decoy-button') {
-          player1DecoyActive = true;
-        }
-        else if (Array.from(e.target.classList)[0] != 'selected-button') {
-          e.target.closest('.game__card-button-horn-container').querySelector('.selected-button').classList.remove('selected-button');
-          e.target.classList.add('selected-button');
+    let cardID;
+    if (e.target.closest('.game__card-container') != null) {
+      cardID = e.target.closest('.game__card-container').id;
+
+      if (player1SelectedCard == cardID) {
+        if (e.target.nodeName == 'BUTTON') {
+          if (Array.from(e.target.classList)[0] == 'decoy-button') {
+            player1DecoyActive = true;
+          }
+          else if (Array.from(e.target.classList)[0] != 'selected-button') {
+            e.target.closest('.game__card-button-horn-container').querySelector('.selected-button').classList.remove('selected-button');
+            e.target.classList.add('selected-button');
+          }
         }
       }
-    }
-    else {
-      player1SelectedCard = cardID;
-      refreshPlayer1Cards();
+      else {
+        player1SelectedCard = cardID;
+        refreshPlayer1Cards();
+      }
     }
   });
 
   player2DrawerCards.addEventListener('click', e => {
-    const cardID = e.target.closest('.game__card-container').id;
-    
-    if (player2SelectedCard == cardID) {
-      if (e.target.nodeName == 'BUTTON') {
-        if (Array.from(e.target.classList)[0] == 'decoy-button') {
-          player2DecoyActive = true;
-        }
-        else if (Array.from(e.target.classList)[0] != 'selected-button') {
-          e.target.closest('.game__card-button-horn-container').querySelector('.selected-button').classList.remove('selected-button');
-          e.target.classList.add('selected-button');
+    let cardID;
+    if (e.target.closest('.game__card-container') != null) {
+      cardID = e.target.closest('.game__card-container').id;
+
+      if (player2SelectedCard == cardID) {
+        if (e.target.nodeName == 'BUTTON') {
+          if (Array.from(e.target.classList)[0] == 'decoy-button') {
+            player2DecoyActive = true;
+          }
+          else if (Array.from(e.target.classList)[0] != 'selected-button') {
+            e.target.closest('.game__card-button-horn-container').querySelector('.selected-button').classList.remove('selected-button');
+            e.target.classList.add('selected-button');
+          }
         }
       }
-    }
-    else {
-      player2SelectedCard = cardID;
-      refreshPlayer2Cards();
+      else {
+        player2SelectedCard = cardID;
+        refreshPlayer2Cards();
+      }
     }
   });
 
   player1Rows.addEventListener('click', e => {
-    const card = e.target.closest('.game__played-card-container');
+    let card;
+    if (e.target.closest('.game__played-card-container') != null) {
+      card = e.target.closest('.game__played-card-container');
 
-    if (player1DecoyActive) {
-      player1DecoySelectedCard = card;
-
-      if (e.target.closest('.game__player1--rows').querySelector('.selected-card') == null) {
-        e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList.add('selected-card');
-      }
-      else if (Array.from(e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList)[2] != 'selected-card') {
-        e.target.closest('.game__player1--rows').querySelector('.selected-card').classList.remove('selected-card');
-        e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList.add('selected-card');
+      if (player1DecoyActive) {
+        player1DecoySelectedCard = card;
+  
+        if (e.target.closest('.game__player1--rows').querySelector('.selected-card') == null) {
+          e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList.add('selected-card');
+        }
+        else if (Array.from(e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList)[2] != 'selected-card') {
+          e.target.closest('.game__player1--rows').querySelector('.selected-card').classList.remove('selected-card');
+          e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList.add('selected-card');
+        }
       }
     }
   });
 
   player2Rows.addEventListener('click', e => {
-    const card = e.target.closest('.game__played-card-container');
+    let card;
+    if (e.target.closest('.game__played-card-container') != null) {
+      card = e.target.closest('.game__played-card-container');
 
-    if (player2DecoyActive) {
-      player2DecoySelectedCard = card;
-
-      if (e.target.closest('.game__player2--rows').querySelector('.selected-card') == null) {
-        e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList.add('selected-card');
-      }
-      else if (Array.from(e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList)[2] != 'selected-card') {
-        e.target.closest('.game__player2--rows').querySelector('.selected-card').classList.remove('selected-card');
-        e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList.add('selected-card');
+      if (player2DecoyActive) {
+        player2DecoySelectedCard = card;
+  
+        if (e.target.closest('.game__player2--rows').querySelector('.selected-card') == null) {
+          e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList.add('selected-card');
+        }
+        else if (Array.from(e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList)[2] != 'selected-card') {
+          e.target.closest('.game__player2--rows').querySelector('.selected-card').classList.remove('selected-card');
+          e.target.closest('.game__played-card-container').querySelector('.game__played-card-front').classList.add('selected-card');
+        }
       }
     }
   });

@@ -17,7 +17,7 @@ const cardsSelectContent = `
       </label>
     </div>
     <div class="cards-select__filter--function">
-      <p>Funkcje</p>
+      <p>Funkcja</p>
       <label for="filter_weather">
         <input id="filter_weather" type="checkbox" />
         <span>Pogodowe</span>
@@ -47,6 +47,7 @@ const cardsSelectFunctions = (loadPage, currentPlayer, factionID, cardsData) => 
     const rangeFilters = document.querySelectorAll('.cards-select__filter--range input');
     const functionFiltersContainer = document.querySelector('.cards-select__filter--function');
     const functionFilters = document.querySelectorAll('.cards-select__filter--function input');
+    const readyBtn = document.getElementById('cards_select_ready_btn');
     let filteredCards = [];
     let selectedCards = [];
 
@@ -63,10 +64,10 @@ const cardsSelectFunctions = (loadPage, currentPlayer, factionID, cardsData) => 
         if (functionFilters[i].checked)  {
           switch (functionFilters[i].id) {
             case 'filter_weather':
-              filteredCards = filteredCards.filter(card => card.function == 'weather');
+              filteredCards = filteredCards.filter(card => card.function == 'frost' || card.function == 'fog' || card.function == 'clear');
               break;
             case 'filter_special':
-              filteredCards = filteredCards.filter(card => card.function == 'special');
+              filteredCards = filteredCards.filter(card => card.function == 'horn' || card.function == 'decoy' || card.function == 'scorch');
               break;
             case 'filter_hero':
               filteredCards = filteredCards.filter(card => card.function == 'hero');
@@ -75,7 +76,7 @@ const cardsSelectFunctions = (loadPage, currentPlayer, factionID, cardsData) => 
         }
       }
       
-      cardsNumber.innerHTML = `Ilość kart: ${selectedCards.length}/22`;
+      cardsNumber.innerHTML = `Ilość kart: <b style="color: ${selectedCards.length < 22 ? '#f00' : '#34eb43'}">${selectedCards.length}</b>/22`;
       cardsContainer.innerHTML = '';
 
       for (let i = 0; i < filteredCards.length; i++) {
@@ -90,10 +91,19 @@ const cardsSelectFunctions = (loadPage, currentPlayer, factionID, cardsData) => 
         `;
         cardsContainer.innerHTML += cardContainer;
       }
+
+      if (selectedCards.length < 22) {
+        readyBtn.style.background = 'linear-gradient(30deg, #303336, #494c50)';
+        readyBtn.classList.add('disabled-btn');
+      }
+      else {
+        readyBtn.style.background = 'linear-gradient(30deg, #326197, #3386E8)';
+        readyBtn.classList.remove('disabled-btn');
+      }
     };
 
     playerContainer.innerHTML = currentPlayer;
-    playerContainer.style.color = currentPlayer == 1 ? 'red' : 'blue';
+    playerContainer.style.color = currentPlayer == 1 ? '#e8aa0e' : '#348ceb';
 
     rangeFiltersContainer.addEventListener('click', e => {
       refreshCards();
@@ -104,28 +114,32 @@ const cardsSelectFunctions = (loadPage, currentPlayer, factionID, cardsData) => 
     });
 
     cardsContainer.addEventListener('click', e => {
-      const cardID = e.target.closest('.cards-select__card-container').id;
-      const arrayIndex = selectedCards.indexOf(cardID);
+      let cardID, arrayIndex;
+      if (e.target.closest('.cards-select__card-container') != null) {
+        cardID = e.target.closest('.cards-select__card-container').id;
+        arrayIndex = selectedCards.indexOf(cardID);
 
-      if (arrayIndex == -1) {
-        selectedCards.push(cardID);
+        if (arrayIndex == -1) {
+          selectedCards.push(cardID);
+        }
+        else {
+          selectedCards.splice(arrayIndex, 1);
+        }
       }
-      else {
-        selectedCards.splice(arrayIndex, 1);
-      }
-
       refreshCards();
     });
 
     refreshCards();
 
-    document.getElementById('cards_select_ready_btn').addEventListener('click', e => {
+    readyBtn.addEventListener('click', e => {
+      if (selectedCards.length >= 22) {
         if (currentPlayer == 1) {
-            loadPage('factionSelect', 2, selectedCards);
+          loadPage('factionSelect', 2, selectedCards);
         }
         else {
             loadPage('pickPlayer', selectedCards);
         }
+      }
     });
 };
 

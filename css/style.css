@@ -1,10 +1,15 @@
 @font-face {
-    font-family: BetterVCR;
+    font-family: Born2bSportyFS;
     src: url('./Born2bSportyFS.otf') format("opentype");
   }
 
 * {
-    font-family: 'BetterVCR';
+    font-family: 'Born2bSportyFS';
+    font-weight: 300;
+}
+
+html {
+    overflow-y: hidden;
 }
 
 #root {
@@ -19,13 +24,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 4rem;
     height: 100%;
     text-align: center;
-    /* text-transform: uppercase; */
 }
 
 .home h1 {
-    font-size: 3rem;
+    padding-top: 3rem;
+    font-size: 3.5rem;
     font-weight: 700;
     line-height: 93%;
     color: #fff;
@@ -34,15 +40,25 @@
 
 .home button {
     padding: .3rem 1.2rem;
-    margin-top: 2rem;
-    font-size: 1.5rem;
-    font-weight: 600;
+    margin-top: 1.7rem;
+    margin-bottom: auto;
+    font-size: 1.8rem;
+    font-weight: 300;
     background: linear-gradient(30deg, #326197, #3386E8);
     color: #fff;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 35%);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
 }
 
-h1::before, button::before, span::before, p::before, select::before, label::before {
+.home button:nth-of-type(1) {
+    padding: .15rem .7rem;
+    margin-top: 2rem;
+    color: #333;
+    background: #fff;
+    font-size: 1.2rem;
+    text-shadow: none;
+}
+
+h1::before, h3::before, button::before, span::before, p::before, select::before, label::before {
     content: '';
     display: block;
     height: 0;
@@ -53,39 +69,44 @@ h1::before, button::before, span::before, p::before, select::before, label::befo
 .faction-select {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 100%;
 }
 
-.faction-select__text {
+.faction-select__player {
     padding: 2rem 1.75rem;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: #fff;
     font-weight: 600;
-    line-height: 100%;
+    line-height: 102%;
     text-shadow: 0 6px 4px rgba(0, 0, 0, 50%);
     text-align: center;
 }
 
-.faction-select__text h3 {
-   margin-bottom: 1rem;
+.faction-select__text {
+    display: flex;
+    flex-direction: column;
 }
-
-/* .faction-select__text b {
-    font-family: 'Jersey 10';
-    font-size: 2.8rem;
-} */
 
 .faction-select__menu {
     display: flex;
     flex-direction: column;
-    padding-inline: 2rem;
+    padding: 0 2rem 2rem 2rem;
+    font-size: 2.4rem;
+    color: #fff;
+    font-weight: 600;
+    line-height: 103%;
+    text-shadow: 0 6px 4px rgba(0, 0, 0, 50%);
+    text-align: center;
 }
 
 #faction_select_dropdown {
-    padding: .5rem .75rem;
-    color: #000;
-    font-size: 1.5rem;
-    font-weight: 600;
+    padding: .2rem .9rem .5rem .9rem;
+    margin-top: 2rem;
+    color: #222;
+    background-color: #fff;
+    font-size: 1.7rem;
+    font-weight: 300;
 }
 
 #faction_select_dropdown option {
@@ -93,10 +114,10 @@ h1::before, button::before, span::before, p::before, select::before, label::befo
 }
 
 #faction_select_ready_btn {
-    margin: auto 2rem 2rem 2rem;
+    margin: 2rem;
     padding: .3rem .6rem;
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 300;
     background: linear-gradient(30deg, #326197, #3386E8);
     color: #fff;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 35%);
@@ -111,24 +132,16 @@ h1::before, button::before, span::before, p::before, select::before, label::befo
 .cards-select__text {
     flex-shrink: 0;
     display: flex;
-    padding: 2rem 1.75rem .75rem 1.75rem;
+    padding: 2rem 1.75rem 1rem 1.75rem;
     color: #fff;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 600;
     line-height: 112%;
     text-shadow: 0 6px 4px rgba(0, 0, 0, 50%);
 }
 
-.cards-select__text b {
-    margin-left: .2rem;
-    /* font-family: 'Jersey 10';
-    font-size: 1.7rem; */
-}
-
 .cards-select__text span:nth-of-type(2) {
     margin-left: auto;
-    /* font-family: 'Jersey 10';
-    font-size: 1.7rem; */
 }
 
 .cards-select__filter--range,
@@ -138,8 +151,8 @@ h1::before, button::before, span::before, p::before, select::before, label::befo
     gap: .5rem;
     align-items: center;
     margin: .3rem 1.75rem;
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: 1.7rem;
+    font-weight: 300;
     line-height: 175%;
     overflow-x: auto;
     user-select: none;
@@ -148,6 +161,7 @@ h1::before, button::before, span::before, p::before, select::before, label::befo
 .cards-select__filter--range p,
 .cards-select__filter--function p {
     margin-right: .5rem;
+    margin-bottom: .2rem;
     color: #fff;
     text-shadow: 0 6px 4px rgba(0, 0, 0, 50%);
 }
@@ -162,10 +176,11 @@ h1::before, button::before, span::before, p::before, select::before, label::befo
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    padding: .25rem .8rem;
-    color: #000;
+    padding: 0 .8rem .185rem .8rem;
+    color: #222;
     background: #fff;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: 300;
     line-height: 150%;
 }
 
@@ -223,8 +238,9 @@ h1::before, button::before, span::before, p::before, select::before, label::befo
     margin-top: 0.18rem;
     width: 43px;
     font-size: 1.7rem;
+    font-weight: 300;
     text-align: center;
-    color: #2b2b2b;
+    color: #222;
 }
 
 .cards-select__card-range,
@@ -260,11 +276,15 @@ div.selected-card::after {
 #cards_select_ready_btn {
     padding: .3rem .6rem;
     width: 100%;
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 300;
     background: linear-gradient(30deg, #326197, #3386E8);
     color: #fff;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 35%);
+}
+
+button.disabled-btn::after {
+    background: #5f5f5f;
 }
 
 .pick-player {
@@ -274,12 +294,16 @@ div.selected-card::after {
     align-items: center;
     gap: 1rem;
     height: 100%;
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 2.4rem;
+    font-weight: 300;
     line-height: 100%;
     color: #fff;
     text-shadow: 0 6px 4px rgba(0, 0, 0, 50%);
     padding: 2rem 1.75rem;
+}
+
+.pick-player h3 {
+    font-size: 3.5rem;
 }
 
 .game {
@@ -380,7 +404,7 @@ div.selected-card::after {
 .game__player1--drawer img {
     height: 100%;
     filter: invert(1);
-    width: 100%;
+    width: 35%;
 }
 
 .game__sidebar {
@@ -402,13 +426,14 @@ div.selected-card::after {
     width: calc(100vh - 4rem);
     height: 2rem;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .game__main-container {
     flex: 1;
     display: flex;
     flex-direction: column;
+    max-width: calc(100% - 2rem);
 }
 
 .game__player2--info,
@@ -419,8 +444,8 @@ div.selected-card::after {
     padding-inline: .5rem;
     width: 100%;
     height: 4rem;
-    color: white;
-    font-size: 2rem;
+    color: #fff;
+    font-size: 2.5rem;
 }
 
 #game_player2_total_score,
@@ -433,9 +458,11 @@ div.selected-card::after {
 
 .game__player2--info button,
 .game__player1--info button {
-    padding: 0 .6rem;
+    padding: 0.05rem .6rem 0 .7rem;
+    color: #222;
     background: #fff;
-    font-size: 1rem;
+    font-size: 1.3rem;
+    font-weight: 300;
     text-align: center;
 }
 
@@ -467,26 +494,28 @@ button.next-round-button-gray::after {
     width: calc(100% - .8rem);
     height: 50%;
     background: rgba(0,0,0,0.25);
+    overflow-x: auto;
 }
 
 .game__player2--rows > div {
     transform: rotate(180deg);
+    overflow: visible;
 }
 
 .game__played-card-container:first-child {
     margin-left: auto;
 }
 
-.game__played-card-container:last-child {
-    margin-right: auto;
-}
-
 .game__played-card-container {
     flex-shrink: 0;
+    position: absolute;
+    margin-right: auto;
     height: 100%;
     aspect-ratio: 2 / 3;
     background-color: transparent;
     perspective: 1000px;
+    left: auto;
+    transition: left .5s ease-in-out;
 }
 
 .game__played-card-inner {
@@ -506,34 +535,55 @@ div.game__played-card-front, div.game__played-card-back {
     background-size: cover;
 }
 
-div.game__player-card-front {
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 div.game__played-card-back {
     background: url('../img/cards/back.jpg') no-repeat;
     background-size: cover;
     transform: rotateY(180deg);
 }
 
-.card-pick-animation {
-    animation: card-anim 2s ease-in-out;
+div.game__player-card-front {
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-@keyframes card-anim {
+.close-card-pick-animation {
+    animation: close-card-anim 1.7s ease-in-out;
+}
+
+.long-card-pick-animation {
+    animation: long-card-anim 1.7s ease-in-out;
+}
+
+@keyframes close-card-anim {
+    0% {
+        transform: rotateY(180deg) translateY(380%) scale(2);
+        animation-timing-function: ease-in;
+    }
+    38% {
+        transform: rotateY(180deg) translateY(190%) scale(2);
+        animation-timing-function: ease-out;
+    }
+    76% {
+        transform: rotateY(0deg) translateY(0%) scale(2);
+    }
+    100% {
+        transform: rotateY(0deg) translateY(0%) scale(0);
+    }
+}
+
+@keyframes long-card-anim {
     0% {
         transform: rotateY(180deg) translateY(220%) scale(2);
         animation-timing-function: ease-in;
     }
-    35% {
+    38% {
         transform: rotateY(180deg) translateY(80%) scale(2);
         animation-timing-function: ease-out;
     }
-    70% {
+    76% {
         transform: rotateY(0deg) translateY(-60%) scale(2);
     }
     100% {
-        transform: rotateY(0deg) translateY(0) scale(1);
+        transform: rotateY(0deg) translateY(0%) scale(0);
     }
 }
