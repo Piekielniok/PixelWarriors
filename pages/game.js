@@ -486,12 +486,12 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
       selectedRow.innerHTML += `
         <div id="player${player}_played_card-${availableCards[i].id}" class="game__played-card-container" style="position: absolute; height: ${Math.round(selectedRow.getBoundingClientRect().height * 100) / 100}px; left: calc(50% - ${(Math.round(selectedRow.getBoundingClientRect().height * 100) / 100) / 3}px${player == 1 ? '+ 1rem' : ''})">
           <div class="game__played-card-inner ${selectedRow.id == 'game_player' + player + '_close_range_row' ? 'close-card-pick-animation' : 'long-card-pick-animation'}">
-            <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${availableCards[i].pictureFilename}')">
-              <div class="game__card-function" style="background-image: url('../img/function/${availableCards[i].function}.png')">
+            <div class="game__played-card-front pixel-corners3" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/cards/${availableCards[i].pictureFilename}')">
+              <div class="game__card-function" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/function/${availableCards[i].function}.png')">
                 <span class="game__card-power" style="color: ${availableCards[i].function == 'hero' ? '#ffffff' : '#2b2b2b'}">${availableCards[i].function == 'std' || availableCards[i].function == 'hero' ? availableCards[i].power : ""}</span>
               </div>
-              ${availableCards[i].range != 0 ? `<div class="game__card-range" style="background-image: url('../img/range/`+ availableCards[i].range + `.png')"><span class="game__card-range-value" hidden>` + availableCards[i].range + `</span></div>` : ""}
-              ${availableCards[i].ability != "none" ? `<div class="game__card-ability" style="background-image: url('../img/ability/`+ availableCards[i].ability + `.png')"></div>` : ""}
+              ${availableCards[i].range != 0 ? `<div class="game__card-range" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/range/`+ availableCards[i].range + `.png')"><span class="game__card-range-value" hidden>` + availableCards[i].range + `</span></div>` : ""}
+              ${availableCards[i].ability != "none" ? `<div class="game__card-ability" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/ability/`+ availableCards[i].ability + `.png')"></div>` : ""}
             </div>
             <div class="game__played-card-back pixel-corners3"></div>
           </div>
@@ -626,12 +626,12 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               medicCardSelectedRow.innerHTML += `
                 <div id="player1_played_card-${medicCardObj.id}" class="game__played-card-container" style="position: absolute; height: ${Math.round(medicCardSelectedRow.getBoundingClientRect().height * 100) / 100}px; left: calc(50% - ${(Math.round(medicCardSelectedRow.getBoundingClientRect().height * 100) / 100) / 3}px + 1rem)">
                   <div class="game__played-card-inner ${medicCardSelectedRow.id == 'game_player1_close_range_row' ? 'close-card-pick-animation' : 'long-card-pick-animation'}">
-                    <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${medicCardObj.pictureFilename}')">
-                      <div class="game__card-function" style="background-image: url('../img/function/${medicCardObj.function}.png')">
+                    <div class="game__played-card-front pixel-corners3" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/cards/${medicCardObj.pictureFilename}')">
+                      <div class="game__card-function" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/function/${medicCardObj.function}.png')">
                         <span class="game__card-power" style="color: ${medicCardObj.function == 'hero' ? '#ffffff' : '#2b2b2b'}">${medicCardObj.function == 'std' || medicCardObj.function == 'hero' ? medicCardObj.power : ""}</span>
                       </div>
-                      ${medicCardObj.range != 0 ? `<div class="game__card-range" style="background-image: url('../img/range/`+ medicCardObj.range + `.png')"><span class="game__card-range-value" hidden>` + medicCardObj.range + `</span></div>` : ""}
-                      ${medicCardObj.ability != "none" ? `<div class="game__card-ability" style="background-image: url('../img/ability/`+ medicCardObj.ability + `.png')"></div>` : ""}
+                      ${medicCardObj.range != 0 ? `<div class="game__card-range" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/range/`+ medicCardObj.range + `.png')"><span class="game__card-range-value" hidden>` + medicCardObj.range + `</span></div>` : ""}
+                      ${medicCardObj.ability != "none" ? `<div class="game__card-ability" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/ability/`+ medicCardObj.ability + `.png')"></div>` : ""}
                     </div>
                     <div class="game__played-card-back pixel-corners3"></div>
                   </div>
@@ -678,12 +678,12 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
           selectedRow.innerHTML += `
               <div id="player${selectedCardObj.ability == 'spy' ? 2 : 1}_played_card-${selectedCardObj.id}" class="game__played-card-container" style="position: absolute; height: ${Math.round(selectedRow.getBoundingClientRect().height * 100) / 100}px; left: calc(50% - ${(Math.round(selectedRow.getBoundingClientRect().height * 100) / 100) / 3}px + 1rem)">
                 <div class="game__played-card-inner ${selectedRow.id == 'game_player1_close_range_row' ? 'close-card-pick-animation' : 'long-card-pick-animation'}">
-                  <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${selectedCardObj.pictureFilename}')">
-                    <div class="game__card-function" style="background-image: url('../img/function/${selectedCardObj.function}.png')">
+                  <div class="game__played-card-front pixel-corners3" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/cards/${selectedCardObj.pictureFilename}')">
+                    <div class="game__card-function" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/function/${selectedCardObj.function}.png')">
                       <span class="game__card-power" style="color: ${selectedCardObj.function == 'hero' ? '#ffffff' : '#2b2b2b'}">${selectedCardObj.function == 'std' || selectedCardObj.function == 'hero' ? selectedCardObj.power : ""}</span>
                     </div>
-                    ${selectedCardObj.range != 0 ? `<div class="game__card-range" style="background-image: url('../img/range/`+ selectedCardObj.range + `.png')"><span class="game__card-range-value" hidden>` + selectedCardObj.range + `</span></div>` : ""}
-                    ${selectedCardObj.ability != "none" ? `<div class="game__card-ability" style="background-image: url('../img/ability/`+ selectedCardObj.ability + `.png')"></div>` : ""}
+                    ${selectedCardObj.range != 0 ? `<div class="game__card-range" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/range/`+ selectedCardObj.range + `.png')"><span class="game__card-range-value" hidden>` + selectedCardObj.range + `</span></div>` : ""}
+                    ${selectedCardObj.ability != "none" ? `<div class="game__card-ability" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/ability/`+ selectedCardObj.ability + `.png')"></div>` : ""}
                   </div>
                   <div class="game__played-card-back pixel-corners3"></div>
                 </div>
@@ -788,12 +788,12 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
               medicCardSelectedRow.innerHTML += `
                 <div id="player2_played_card-${medicCardObj.id}" class="game__played-card-container" style="position: absolute; height: ${Math.round(medicCardSelectedRow.getBoundingClientRect().height * 100) / 100}px; left: calc(50% - ${(Math.round(medicCardSelectedRow.getBoundingClientRect().height * 100) / 100) / 3}px)">
                   <div class="game__played-card-inner ${medicCardSelectedRow.id == 'game_player2_close_range_row' ? 'close-card-pick-animation' : 'long-card-pick-animation'}">
-                    <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${medicCardObj.pictureFilename}')">
-                      <div class="game__card-function" style="background-image: url('../img/function/${medicCardObj.function}.png')">
+                    <div class="game__played-card-front pixel-corners3" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/cards/${medicCardObj.pictureFilename}')">
+                      <div class="game__card-function" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/function/${medicCardObj.function}.png')">
                         <span class="game__card-power" style="color: ${medicCardObj.function == 'hero' ? '#ffffff' : '#2b2b2b'}">${medicCardObj.function == 'std' || medicCardObj.function == 'hero' ? medicCardObj.power : ""}</span>
                       </div>
-                      ${medicCardObj.range != 0 ? `<div class="game__card-range" style="background-image: url('../img/range/`+ medicCardObj.range + `.png')"><span class="game__card-range-value" hidden>` + medicCardObj.range + `</span></div>` : ""}
-                      ${medicCardObj.ability != "none" ? `<div class="game__card-ability" style="background-image: url('../img/ability/`+ medicCardObj.ability + `.png')"></div>` : ""}
+                      ${medicCardObj.range != 0 ? `<div class="game__card-range" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/range/`+ medicCardObj.range + `.png')"><span class="game__card-range-value" hidden>` + medicCardObj.range + `</span></div>` : ""}
+                      ${medicCardObj.ability != "none" ? `<div class="game__card-ability" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/ability/`+ medicCardObj.ability + `.png')"></div>` : ""}
                     </div>
                     <div class="game__played-card-back pixel-corners3"></div>
                   </div>
@@ -840,12 +840,12 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
           selectedRow.innerHTML += `
               <div id="player${selectedCardObj.ability == 'spy' ? 1 : 2}_played_card-${selectedCardObj.id}" class="game__played-card-container" style="position: absolute; height: ${Math.round(selectedRow.getBoundingClientRect().height * 100) / 100}px; left: calc(50% - ${(Math.round(selectedRow.getBoundingClientRect().height * 100) / 100) / 3}px)">
                 <div class="game__played-card-inner ${selectedRow.id == 'game_player2_close_range_row' ? 'close-card-pick-animation' : 'long-card-pick-animation'}">
-                  <div class="game__played-card-front pixel-corners3" style="background-image: url('../img/cards/${selectedCardObj.pictureFilename}')">
-                    <div class="game__card-function" style="background-image: url('../img/function/${selectedCardObj.function}.png')">
+                  <div class="game__played-card-front pixel-corners3" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/cards/${selectedCardObj.pictureFilename}')">
+                    <div class="game__card-function" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/function/${selectedCardObj.function}.png')">
                       <span class="game__card-power" style="color: ${selectedCardObj.function == 'hero' ? '#ffffff' : '#2b2b2b'}">${selectedCardObj.function == 'std' || selectedCardObj.function == 'hero' ? selectedCardObj.power : ""}</span>
                     </div>
-                    ${selectedCardObj.range != 0 ? `<div class="game__card-range" style="background-image: url('../img/range/`+ selectedCardObj.range + `.png')"><span class="game__card-range-value" hidden>` + selectedCardObj.range + `</span></div>` : ""}
-                    ${selectedCardObj.ability != "none" ? `<div class="game__card-ability" style="background-image: url('../img/ability/`+ selectedCardObj.ability + `.png')"></div>` : ""}
+                    ${selectedCardObj.range != 0 ? `<div class="game__card-range" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/range/`+ selectedCardObj.range + `.png')"><span class="game__card-range-value" hidden>` + selectedCardObj.range + `</span></div>` : ""}
+                    ${selectedCardObj.ability != "none" ? `<div class="game__card-ability" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/ability/`+ selectedCardObj.ability + `.png')"></div>` : ""}
                   </div>
                   <div class="game__played-card-back pixel-corners3"></div>
                 </div>
@@ -917,12 +917,12 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
     
     for (let i = 0; i < player1DeckCards.length; i++) {
       player1DrawerCards.innerHTML += `
-        <div id="player1_card-${player1DeckCards[i].id}" class="game__card-container pixel-corners3 ${player1SelectedCard == 'player1_card-' + player1DeckCards[i].id ? 'selected-card' : ''}" style="background-image: url('../img/cards/${player1DeckCards[i].pictureFilename}')">
-          <div class="game__card-function" style="background-image: url('../img/function/${player1DeckCards[i].function}.png')">
+        <div id="player1_card-${player1DeckCards[i].id}" class="game__card-container pixel-corners3 ${player1SelectedCard == 'player1_card-' + player1DeckCards[i].id ? 'selected-card' : ''}" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/cards/${player1DeckCards[i].pictureFilename}')">
+          <div class="game__card-function" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/function/${player1DeckCards[i].function}.png')">
             <span class="game__card-power" style="color: ${player1DeckCards[i].function == 'hero' ? '#ffffff' : '#2b2b2b'}">${player1DeckCards[i].function == 'std' || player1DeckCards[i].function == 'hero' ? player1DeckCards[i].power : ""}</span>
           </div>
-          ${player1DeckCards[i].range != 0 ? `<div class="game__card-range" style="background-image: url('../img/range/`+ player1DeckCards[i].range + `.png')"><span class="game__card-range-value" hidden>` + player1DeckCards[i].range + `</span></div>` : ""}
-          ${player1DeckCards[i].ability != "none" ? `<div class="game__card-ability" style="background-image: url('../img/ability/`+ player1DeckCards[i].ability + `.png')"></div>` : ""}
+          ${player1DeckCards[i].range != 0 ? `<div class="game__card-range" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/range/`+ player1DeckCards[i].range + `.png')"><span class="game__card-range-value" hidden>` + player1DeckCards[i].range + `</span></div>` : ""}
+          ${player1DeckCards[i].ability != "none" ? `<div class="game__card-ability" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/ability/`+ player1DeckCards[i].ability + `.png')"></div>` : ""}
           ${player1DeckCards[i].function == 'horn' ? "<div class='game__card-button-horn-container'><button class='selected-button' value='1'>Bliski</button><button value='2'>Daleki</button></div>" : ""}
           ${player1DeckCards[i].function == 'decoy' ? "<div class='game__card-button-decoy-container'><button class='decoy-button'>Wybierz kartę</button></div>" : ""}
         </div>
@@ -935,12 +935,12 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
 
     for (let i = 0; i < player2DeckCards.length; i++) {
       player2DrawerCards.innerHTML += `
-        <div id="player2_card-${player2DeckCards[i].id}" class="game__card-container pixel-corners3 ${player2SelectedCard == 'player2_card-' + player2DeckCards[i].id ? 'selected-card' : ''}" style="background-image: url('../img/cards/${player2DeckCards[i].pictureFilename}')">
-          <div class="game__card-function" style="background-image: url('../img/function/${player2DeckCards[i].function}.png')">
+        <div id="player2_card-${player2DeckCards[i].id}" class="game__card-container pixel-corners3 ${player2SelectedCard == 'player2_card-' + player2DeckCards[i].id ? 'selected-card' : ''}" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/cards/${player2DeckCards[i].pictureFilename}')">
+          <div class="game__card-function" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/function/${player2DeckCards[i].function}.png')">
             <span class="game__card-power" style="color: ${player2DeckCards[i].function == 'hero' ? '#ffffff' : '#2b2b2b'}">${player2DeckCards[i].function == 'std' || player2DeckCards[i].function == 'hero' ? player2DeckCards[i].power : ""}</span>
           </div>
-          ${player2DeckCards[i].range != 0 ? `<div class="game__card-range" style="background-image: url('../img/range/`+ player2DeckCards[i].range + `.png')"><span class="game__card-range-value" hidden>` + player2DeckCards[i].range + `</span></div>` : ""}
-          ${player2DeckCards[i].ability != "none" ? `<div class="game__card-ability" style="background-image: url('../img/ability/`+ player2DeckCards[i].ability + `.png')"></div>` : ""}
+          ${player2DeckCards[i].range != 0 ? `<div class="game__card-range" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/range/`+ player2DeckCards[i].range + `.png')"><span class="game__card-range-value" hidden>` + player2DeckCards[i].range + `</span></div>` : ""}
+          ${player2DeckCards[i].ability != "none" ? `<div class="game__card-ability" style="background-image: url('https://raw.githubusercontent.com/Piekielniok/PixelWarriors/refs/heads/main/img/ability/`+ player2DeckCards[i].ability + `.png')"></div>` : ""}
           ${player2DeckCards[i].function == 'horn' ? "<div class='game__card-button-horn-container'><button class='selected-button' value='1'>Bliski</button><button value='2'>Daleki</button></div>" : ""}
           ${player2DeckCards[i].function == 'decoy' ? "<div class='game__card-button-decoy-container'><button class='decoy-button'>Wybierz kartę</button></div>" : ""}
         </div>
@@ -980,6 +980,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         if (e.target.nodeName == 'BUTTON') {
           if (Array.from(e.target.classList)[0] == 'decoy-button') {
             player1DecoyActive = true;
+            player1DrawerContainer.style.top = '2rem';
           }
           else if (Array.from(e.target.classList)[0] != 'selected-button') {
             e.target.closest('.game__card-button-horn-container').querySelector('.selected-button').classList.remove('selected-button');
@@ -1003,6 +1004,7 @@ const gameFunctions = (loadPage, startingPlayer, player1Faction, player2Faction,
         if (e.target.nodeName == 'BUTTON') {
           if (Array.from(e.target.classList)[0] == 'decoy-button') {
             player2DecoyActive = true;
+            player2DrawerContainer.style.bottom = '2rem';
           }
           else if (Array.from(e.target.classList)[0] != 'selected-button') {
             e.target.closest('.game__card-button-horn-container').querySelector('.selected-button').classList.remove('selected-button');
